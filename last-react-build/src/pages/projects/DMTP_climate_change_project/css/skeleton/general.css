@@ -1,0 +1,280 @@
+@font-face {
+    font-family: 'archiabold';
+    src: url('../../fonts/archia/bold/archia-bold-webfont.eot');
+    src: url('../../fonts/archia/bold/archia-bold-webfont.woff2') format('woff2'),
+         url('../../fonts/archia/bold/archia-bold-webfont.woff') format('woff'),
+         url('../../fonts/archia/bold/archia-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'archiamedium';
+    src: url('../../fonts/archia/medium/archia-medium-webfont.eot');
+    src: url('../../fonts/archia/medium/archia-medium-webfont.woff2') format('woff2'),
+         url('../../fonts/archia/medium/archia-medium-webfont.woff') format('woff'),
+         url('../../fonts/archia/medium/archia-medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'archiaregular';
+    src: url('../../fonts/archia/regular/archia-regular-webfont.eot');
+    src: url('../../fonts/archia/regular/archia-regular-webfont.woff2') format('woff2'),
+         url('../../fonts/archia/regular/archia-regular-webfont.woff') format('woff'),
+         url('../../fonts/archia/regular/archia-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'archialight';
+    src: url('../../fonts/archia/light/archia-light-webfont.eot');
+    src: url('../../fonts/archia/light/archia-light-webfont.woff2') format('woff2'),
+         url('../../fonts/archia/light/archia-light-webfont.woff') format('woff'),
+         url('../../fonts/archia/light/archia-light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'archiathin';
+    src: url('../../fonts/archia/thin/archia-thin-webfont.eot');
+    src: url('../../fonts/archia/thin/archia-thin-webfont.woff2') format('woff2'),
+         url('../../fonts/archia/thin/archia-thin-webfont.woff') format('woff'),
+         url('../../fonts/archia/thin/archia-thin-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ========================================= */
+/* ================= Typography ==================== */
+
+h1 {font-size: 121.50px; 
+    font-family: 'archiabold'} 
+h2 {font-size: 81px; 
+    font-family: 'archiabold'}
+h3 {font-size: 54px;
+    font-family: 'archialight'}
+h4 {font-size: 36px;
+    font-family: 'archiaregular'}
+h5 {font-size: 24px;
+    font-family: 'archialight'}
+p {font-size: 20px;
+    font-family: 'archiaregular';}
+h6 {font-size: 9.89px;
+    font-family: 'archialight'}
+
+.text_bold {
+    font-family: 'archiabold';
+}
+
+/* ========================================= */
+/* =================== Margin ======================= */
+
+*{
+    margin:0;
+    padding:0;
+    scroll-behavior: smooth;
+    list-style-type: none;
+}
+
+body {
+    background-color: black;
+}
+
+.main {
+    z-index: 3;
+    position: relative;
+    background-color: white;
+    min-width: 100vw;
+}
+
+.container {
+    max-width: 1920px;
+    margin-right: 150px;
+    margin-left: 150px;
+    padding-bottom: 150px;
+}
+
+.section_content {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.title {
+    margin-top: 46px;
+    margin-bottom: 36px;
+}
+
+.secondary_title {
+    margin-bottom: 36px;
+}
+
+.paragraph {
+    margin-bottom: 20px;
+    min-width: 45rem;
+    max-width: 75rem;
+    line-height: 1.8rem;
+}
+
+.paragraph24 {
+    margin-bottom: 20px;
+    min-width: 45rem;
+    max-width: 75rem;
+    line-height: 2.3rem;
+}
+
+.ul_paragraph, .ol_paragraph {
+    padding-bottom: 20px;
+    padding-left: 3rem;
+
+    min-width: 42rem;
+    max-width: 72rem;
+    line-height: 2.3rem;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    vertical-align: top;
+
+    font-size: 24px;
+    font-family: 'archialight'
+  }
+  
+  
+  td {
+    padding: 16px;
+  }
+
+.reveal400, .reveal700, .reveal50 {
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
+ } 
+
+.reveal400.active, .reveal700.active, .reveal50.active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.7s ease-in-out;
+}
+
+/* ===============================================*/
+
+.flex_container {
+    display: flex;
+}
+
+/* =================== Links ===================== */
+
+/* ========== 4k ============ */
+@media only screen and (min-width: 1920px) {
+    .container {
+        width: 1620px;
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* =========== large =========== */
+
+@media only screen and (min-width: 1500px){
+
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1500px){
+    .container {
+        margin-right: 70px;
+        margin-left: 70px;
+    }
+    .paragraph24 {
+        min-width: 0;
+    }
+    .ul_paragraph, .ol_paragraph {
+        min-width: 0;
+    }
+    
+}
+
+/* ========== medium =============== */
+@media only screen and (min-width: 834px) and (max-width:1023px){
+    .paragraph24 {
+        min-width: 0;
+    }
+    .ul_paragraph, .ol_paragraph {
+        min-width: 0;
+    }
+
+    .container {
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+
+
+    h1 {font-size: 81px; 
+        font-family: 'archiabold'}
+    h2 {font-size: 54px;
+        font-family: 'archialight'}
+    h3 {font-size: 36px;
+        font-family: 'archiaregular'}
+    h4 {font-size: 24px;
+        font-family: 'archialight'}
+    p {font-size: 16px;
+        font-family: 'archiaregular';}
+    h6 {font-size: 9.89px;
+        font-family: 'archialight'}
+    
+}
+
+/* ========== small =============== */
+
+@media only screen and (min-width: 320px) and (max-width: 833px){
+    .container {
+        margin-right: 16px;
+        margin-left: 16px;
+    }
+
+    body {
+        background-color: #e6e6e6;
+    }
+
+    .paragraph24 {
+        min-width: 0;
+        max-width: 750px;
+        line-height: 1.7rem;
+    }
+    .ul_paragraph, .ol_paragraph {
+        min-width: 0;
+        max-width: 750px;
+        line-height: 1.7rem;
+        padding-left: 2rem;
+    }
+    .section_content {
+        padding: 0;
+    }
+
+    .main_title {
+        padding-top: 50px;
+    }
+
+    h1 {font-size: 81px; 
+        font-family: 'archiabold'}
+    h2 {font-size: 54px;
+        font-family: 'archialight'}
+    h3 {font-size: 36px;
+        font-family: 'archiaregular'}
+    h4 {font-size: 24px;
+        font-family: 'archialight'}
+    h5 {font-size: 16px;
+        font-family: 'archiaregular';}
+    h6 {font-size: 9.89px;
+        font-family: 'archialight'}
+    
+}

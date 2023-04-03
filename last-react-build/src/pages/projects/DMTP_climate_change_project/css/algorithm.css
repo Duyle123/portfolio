@@ -1,0 +1,45 @@
+.container {
+    height: 100vh;
+}
+
+.item {
+    height: 100vh;
+}
+
+p {
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.title {
+    margin-bottom: 60px;
+    display: flex;
+}
+
+.subtitle {
+    margin-bottom: 20px;
+}
+
+#search_icon {
+    margin-top: 50px;
+}
+
+#hole {
+    margin-left: 100px;
+}
+
+.table_img {
+    margin-top: 70px;
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s ease;
+ } 
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;  
+}

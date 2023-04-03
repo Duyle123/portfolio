@@ -1,0 +1,264 @@
+@font-face {
+    font-family: 'archiaregular';
+    src: url('../fonts/archia/regular/archia-regular-webfont.eot');
+    src: url('../fonts/archia/regular/archia-regular-webfont.woff2') format('woff2'),
+         url('../fonts/archia/regular/archia-regular-webfont.woff') format('woff'),
+         url('../fonts/archia/regular/archia-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'archiathin';
+    src: url('../fonts/archia/thin/archia-thin-webfont.eot');
+    src: url('../fonts/archia/thin/archia-thin-webfont.woff2') format('woff2'),
+         url('../fonts/archia/thin/archia-thin-webfont.woff') format('woff'),
+         url('../fonts/archia/thin/archia-thin-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'archiamedium';
+    src: url('../fonts/archia/medium/archia-medium-webfont.eot');
+    src: url('../fonts/archia/medium/archia-medium-webfont.woff2') format('woff2'),
+         url('../fonts/archia/medium/archia-medium-webfont.woff') format('woff'),
+         url('../fonts/archia/medium/archia-medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'archiabold';
+    src: url('../fonts/archia/bold/archia-bold-webfont.eot');
+    src: url('../fonts/archia/bold/archia-bold-webfont.woff2') format('woff2'),
+         url('../fonts/archia/bold/archia-bold-webfont.woff') format('woff'),
+         url('../fonts/archia/bold/archia-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+  /* ==================================================== */
+  
+  *{
+    list-style-type: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .main_link {
+    display: inline-block;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .main_link:link {
+      color:black;
+      text-decoration: none;
+      transition: 0.3s;
+  }
+  .main_link:visited {
+      color:black;
+      transition: 0.3s;
+  }
+  .main_link:hover {
+      color: #009700;
+      transition: 0.3s;
+  }
+  
+
+
+  .header {
+    padding-top:0;
+    margin-top: 0;
+    margin-bottom: 15vh;
+    margin-right: 8vw;
+    margin-left: 8vw;
+  
+    padding:0;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 2vw;
+  
+    font-size: 1.28vw;
+    font-family: 'archiamedium';
+  }
+  
+  .header li:nth-of-type(1){
+    margin-right: auto;
+  }
+  
+  .header li:nth-of-type(3){
+    background-color: black;
+  }
+
+  .header li:nth-of-type(3) .main_link:link{
+    color: white;
+  }
+
+  .header li:nth-of-type(3) .main_link:visited {
+    color: white;
+  }
+
+  .header li:nth-of-type(3) .main_link:hover {
+    color: #009700;
+    transition: 0.3s;
+  }
+  /* ======================================================= */
+
+
+body{
+    padding: 0;
+    margin:0;
+    background-color: black;
+  }
+  
+.section {
+    text-align:center;
+    font-size: 3em;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  padding-bottom: 1vh;
+}
+
+ul {
+  padding-bottom: 1vh;
+}
+
+h1 {
+  margin-right: 10vw;
+  margin-left: 10vw;
+  margin-top: 9vh;
+  padding-bottom: 3vh;
+  font-size: 6.5vw;
+  font-family: 'archiamedium';
+}
+
+h3 {
+  padding: 0;
+  margin:0;
+  font-size: 2.89vw;
+  font-family: 'archiathin';
+  }
+
+h4 {
+  font-family: 'archiaregular';
+  font-size: 1.92vw;
+}
+
+.text_bold {
+  font-family: 'archiabold'
+}
+
+li {
+  padding: 0.2vh;
+}
+
+#audio_svg {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#audio_svg img {
+  width: 80vw;
+}
+
+
+.content {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  
+  font-family: 'archiaregular';
+  font-size: 1.28vw;
+  line-height: 1.6;
+
+  /* accordion */
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: all 1s ease;
+  overflow-y: auto;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  vertical-align: top;
+}
+
+
+td {
+  padding: 2vw;
+}
+
+.accordion_content {
+  position: relative;
+  transition: all 1s ease;
+
+}
+
+.accordion_content::after {
+  position: absolute;
+  height: 100%;
+}
+
+.accordion_content.active #proposal_section{
+  max-height: 290vh;
+}
+
+.accordion_label {
+  width: 80vw;
+
+  position: relative;
+  cursor: pointer;
+
+  margin-left: 7vw;
+  margin-top: 10vh;
+
+  padding: 50px;
+  padding-left: 3vw;
+  display: inline-block;
+
+  background-color: black;
+  color: white;
+}
+
+
+#tracks_section {
+  margin-right: 10vw;
+  margin-left: 10vw;
+}
+
+
+/*=========general===========*/
+
+.box{
+  background-color: white;
+  z-index:3;
+  position: relative;
+}
+
+.body_container{
+  background-color: white;
+  padding-top: 10vh;
+  padding-left:0px;
+  padding-right:0px;
+  padding-bottom: 25vh;
+  font-family: 'archiaregular';
+  color: black;
+}
+

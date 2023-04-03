@@ -1,0 +1,175 @@
+.main {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+html{
+    overflow-x: hidden;
+    width:100%;
+    height: 100%;
+}
+
+.container {
+    min-height: 100vh;
+}
+
+.full_background {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top:0;
+    margin: 0;
+    padding: 0;
+}
+
+.background_3d {
+    height: 100vh;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+#building_bg {
+    position: absolute;
+    object-fit: cover;
+    overflow: hidden;
+    top: 0;
+    right: -00px;
+    width: 80vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+#statue_bg {
+    position: absolute;
+    object-fit: cover;
+    overflow: hidden;
+    width: 80vw;
+    height: 100vh;
+    top: 0px;
+    right: -30px; 
+    z-index: 3;
+}
+
+.main_title {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 120px;
+}
+
+.img {
+    width: 100vw;
+    height: 100vh;
+}
+
+#arrow_svg {
+    z-index: 9999;
+    width: 350px;
+}
+
+#arrow_svg path {
+    fill: white;
+    stroke: black;
+
+}
+
+#arrow_svg path.hover_active {
+    transition: all 0.3s ease-in-out;
+    fill: #c7c7c7;
+    stroke: #c7c7c7;
+}
+
+.div_main_link {
+    z-index: 9999;
+}
+
+nav ul {
+    padding: 0;
+    margin-top: 50px;
+
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    flex-wrap: wrap;
+}
+
+.main_link {
+    display: inline-block;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left:2vh;
+    padding-right: 2vh;
+    text-decoration: none;
+}
+
+.main_link:link {
+    color:black;
+}
+.main_link:visited {
+    color:black;
+}
+.main_link:hover {
+    color: #009700;
+    transition: 0.3s;
+}
+
+#explore_text {
+    font-family: 'archiabold';
+    padding-left: 0px;
+}
+
+.explore_btn {
+    z-index: 4;
+    text-decoration: none;
+    color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    transition: all 0.3s ease-in-out;
+}
+
+.explore_btn:visited {
+    color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    transition: all 0.3s ease-in-out;
+}
+
+.explore_btn:hover {
+    transition: all 0.3s ease-in-out;
+    color: #c7c7c7;
+    -webkit-text-stroke-color: #c7c7c7;
+}
+
+@media only screen and (min-width: 350px) and (max-width: 870px) {
+    h1 {
+        font-size: 47px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    svg {
+        width: 50px;
+        height: 90px;
+    }
+
+    .explore_btn {
+        -webkit-text-stroke-width: 1px ;
+    }
+
+    #statue_bg {
+        width: 100vw;
+        right: 0;
+        z-index: 0;
+    }
+}

@@ -1,0 +1,29 @@
+.content_section {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    min-height: 1080px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.flex_container {
+    gap: 100px;
+    flex-wrap: wrap;
+}
+
+.justify_space_around {
+    justify-content: space-around;
+}
+
+.flex_item {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 600px;
+}
+
+.img3 {
+    width: 50%;
+}

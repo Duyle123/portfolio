@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/custom/visual.css">
+</head>
+<body>
+    <div class="video_container">
+        <div>
+            <button  class="center_play_btn show">
+                <svg width="150" height="150" viewBox="0 0 99 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 4V95L86 49.5L14 4Z" stroke="white" stroke-width="2"/>
+                </svg>  
+            </button>
+            <div class="video_title">
+                <h1>NYC Parks - A Short Documentary</h1>
+            </div>
+        </div>
+
+        <video class="video" poster="/images/background_image.jpg">
+            <source src="videos/video_draft_2.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        
+        <div class="controls hidden">
+            <div class="video_timeline">
+                <div class="control_bar">
+                    <span class="hover_time_stamp">00:00</span>
+                    <div class="buffer_bar"></div>
+                </div>
+            </div>
+
+            <div class="control_buttons left_side">
+                <button id="backward_btn">
+                    <!-- back button svg -->
+                    <svg width="48" height="48" viewBox="0 0 99 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M82 88L82 11.5238L40.0952 49.3417L82 88Z" stroke="white" stroke-width="2"/>
+                    <path d="M57.9048 88L57.9048 11.5238L16 49.3417L57.9048 88Z" stroke="white" stroke-width="2"/>
+                    </svg>
+                </button>
+                <button id="play_pause" class="play">
+                </button>
+                <button id="forward_btn">
+                    <!-- forward button svg -->
+                    <svg width="48" height="48" viewBox="0 0 99 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 11V87.4762L58.9048 49.6583L17 11Z" stroke="white" stroke-width="2"/>
+                    <path d="M41.0952 11V87.4762L83 49.6583L41.0952 11Z" stroke="white" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="time_stamp">
+                <p class="current_time">00:00</p>
+                <p class="separator"> / </p>
+                <p class="duration">00:00</p>
+            </div>
+
+            <div class="control_buttons right_side">
+                <div class="volume_container">
+                    <button id="volume" class="vol_on"></button>
+                    <input type="range" min="0" max="1" step="any">
+                </div>
+                <button id="fullscreen" class="fullscreen_icon"></button>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/custom/video_player.js"></script>
+</body>
+</html>

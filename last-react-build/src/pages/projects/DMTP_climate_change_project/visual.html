@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Visual - Park Accessibility</title>
+
+		<link rel="stylesheet" href="css/skeleton/general.css" />
+		<link rel="stylesheet" href="css/skeleton/transition.css" />
+		<link rel="stylesheet" href="css/skeleton/header.css" />
+		<link rel="stylesheet" href="css/skeleton/footer.css" />
+		<link rel="stylesheet" href="css/custom/visual.css" />
+
+		<!-- jQuery -->
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" type="text/javascript"></script>
+
+		<!-- nanogallery2 -->
+		<link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+		<title>Image Gallery - Park Accessibility in New York City</title>
+	</head>
+	<body>
+		<!-- ============================fader & header============================== -->
+		<nav class="nav_item">
+			<ul class="header">
+				<li><a class="main_link" href="index.html">Home</a></li>
+				<li><a class="main_link" href="visual.html">Visual</a></li>
+				<li><a class="main_link" href="audio_new.html">Audio</a></li>
+				<li><a class="main_link" href="blog_new.html">Blog</a></li>
+				<li><a class="main_link" href="contents_new.html">Contents</a></li>
+			</ul>
+		</nav>
+		<nav class="nav_mobile">
+			<button class="back_btn" onclick="history.back()"><span></span><span></span></button>
+			<button class="hamburger"><span></span><span></span></button>
+		</nav>
+
+		<div class="main">
+			<div class="content_section hero_video">
+				<div class="video_container">
+					<div>
+						<button class="center_play_btn show">
+							<svg width="150" height="150" viewBox="0 0 99 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M14 4V95L86 49.5L14 4Z" stroke="white" stroke-width="2" />
+							</svg>
+						</button>
+					</div>
+
+					<video class="video" poster="images/image_gallery/video_thumbnail.jpg">
+						<source src="videos/video_final_draft.mp4" type="video/mp4" />
+						Your browser does not support HTML5 video.
+					</video>
+
+					<div class="controls hidden">
+						<div class="video_timeline">
+							<div class="control_bar">
+								<span class="hover_time_stamp">00:00</span>
+								<div class="buffer_bar"></div>
+							</div>
+						</div>
+
+						<div class="control_buttons left_side">
+							<button id="backward_btn">
+								<!-- back button svg -->
+								<svg width="48" height="48" viewBox="0 0 99 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M82 88L82 11.5238L40.0952 49.3417L82 88Z" stroke="white" stroke-width="2" />
+									<path d="M57.9048 88L57.9048 11.5238L16 49.3417L57.9048 88Z" stroke="white" stroke-width="2" />
+								</svg>
+							</button>
+							<button id="play_pause" class="play"></button>
+							<button id="forward_btn">
+								<!-- forward button svg -->
+								<svg width="48" height="48" viewBox="0 0 99 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M17 11V87.4762L58.9048 49.6583L17 11Z" stroke="white" stroke-width="2" />
+									<path d="M41.0952 11V87.4762L83 49.6583L41.0952 11Z" stroke="white" stroke-width="2" />
+								</svg>
+							</button>
+						</div>
+
+						<div class="time_stamp">
+							<p class="current_time">00:00</p>
+							<p class="separator">/</p>
+							<p class="duration">00:00</p>
+						</div>
+
+						<div class="control_buttons right_side">
+							<div class="volume_container">
+								<button id="volume" class="vol_on"></button>
+								<input type="range" min="0" max="1" step="any" />
+							</div>
+							<button id="fullscreen" class="fullscreen_icon"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="main_title">
+					<div class="section_content reveal50">
+						<h1>Visual</h1>
+					</div>
+				</div>
+
+				<div class="section_content reveal50">
+					<h3 class="title reveal">The Documentary</h3>
+					<h5 class="paragraph24 reveal">
+						The documentary is based on an interview I did with an NYU student who's been living in Queens for the past 4 years. He has
+						experienced the park situation in New York City and share similar thoughts. In the video, I've combined a selection of clips
+						from both the nicest, richest part of NYC as well as the poorest and most dangerous. I've also introduced two of the most
+						active agent of change in the discussion of green spaces in the City - New Yorkers for Parks and the Fair Play Coalition. If
+						you would like to learn more and show support, please click on the link <a href="https://www.ny4p.org/">here</a> to go to their main page.
+					</h5>
+				</div>
+
+				<div class="section_content reveal50">
+					<h3 class="title">The Image Gallery</h3>
+				</div>
+				<div class="section_content reveal50 image_container">
+					<a href="images/image_gallery/poor/DMTP_BedStuy-1.jpg" data-nanogallery2-lightbox>
+						<img src="images/image_gallery/poor/DMTP_BedStuy-1.jpg" loading="lazy" alt="" />
+					</a>
+					<a href="images/image_gallery/poor/DMTP_BedStuy-2.jpg" data-nanogallery2-lightbox>
+						<img src="images/image_gallery/poor/DMTP_BedStuy-2.jpg" loading="lazy" alt="" />
+					</a>
+					<a href="images/image_gallery/poor/DMTP_BedStuy-3.jpg" data-nanogallery2-lightbox>
+						<img src="images/image_gallery/poor/DMTP_BedStuy-3.jpg" loading="lazy" alt="" />
+					</a>
+					<a href="images/image_gallery/poor/DMTP_BedStuy-4.jpg" data-nanogallery2-lightbox
+						><img src="images/image_gallery/poor/DMTP_BedStuy-4.jpg" loading="lazy" alt="" />
+					</a>
+					<a href="images/image_gallery/poor/DMTP_BedStuy-5.jpg" data-nanogallery2-lightbox>
+						<img src="images/image_gallery/poor/DMTP_BedStuy-5.jpg" loading="lazy" alt="" />
+					</a>
+					<a href="images/image_gallery/poor/DMTP_BedStuy-6.jpg" data-nanogallery2-lightbox>
+						<img src="images/image_gallery/poor/DMTP_BedStuy-6.jpg" loading="lazy" alt="" />
+					</a>
+					<a href="images/image_gallery/poor/DMTP_BedStuy-7.jpg" data-nanogallery2-lightbox>
+						<img src="images/image_gallery/poor/DMTP_BedStuy-7.jpg" loading="lazy" alt="" />
+					</a>
+					<a href="images/image_gallery/poor/DMTP_BedStuy-8.jpg" data-nanogallery2-lightbox>
+						<img src="images/image_gallery/poor/DMTP_BedStuy-8.jpg" loading="lazy" alt="" />
+					</a>
+				</div>
+
+				<div class="section_content reveal50">
+					<h5 class="paragraph24 reveal">
+						Access to green space in in poor and dense neighborhoods - East Flatbush & Bedford-Stuyvesant, Brooklyn, NY
+					</h5>
+				</div>
+
+				<div class="section_content reveal50 image_container">
+					<a href="images/image_gallery/rich/DMTP_UWS-1.jpg" data-nanogallery2-lightbox>
+						<img src="images/image_gallery/rich/DMTP_UWS-1.jpg" loading="lazy" alt="" />
+					</a>
+					<a href="images/image_gallery/rich/DMTP_UWS-2.jpg" data-nanogallery2-lightbox
+						><img src="images/image_gallery/rich/DMTP_UWS-2.jpg" loading="lazy" alt=""
+					/></a>
+					<a href="images/image_gallery/rich/DMTP_UWS-3.jpg" data-nanogallery2-lightbox
+						><img src="images/image_gallery/rich/DMTP_UWS-3.jpg" loading="lazy" alt=""
+					/></a>
+					<a href="images/image_gallery/rich/DMTP_UWS-4.jpg" data-nanogallery2-lightbox
+						><img src="images/image_gallery/rich/DMTP_UWS-4.jpg" loading="lazy" alt=""
+					/></a>
+					<a href="images/image_gallery/rich/DMTP_UWS-5.jpg" data-nanogallery2-lightbox
+						><img src="images/image_gallery/rich/DMTP_UWS-5.jpg" loading="lazy" alt=""
+					/></a>
+					<a href="images/image_gallery/rich/DMTP_UWS-6.jpg" data-nanogallery2-lightbox
+						><img src="images/image_gallery/rich/DMTP_UWS-6.jpg" loading="lazy" alt=""
+					/></a>
+					<a href="images/image_gallery/rich/DMTP_UWS-7.jpg" data-nanogallery2-lightbox
+						><img src="images/image_gallery/rich/DMTP_UWS-7.jpg" loading="lazy" alt=""
+					/></a>
+				</div>
+
+				<div class="section_content reveal50">
+					<h5 class="paragraph24 reveal">
+						Access to green space in in poor and dense neighborhoods - East Flatbush & Bedford-Stuyvesant, Brooklyn, NY
+					</h5>
+				</div>
+			</div>
+		</div>
+
+		<!-- ==================footer================== -->
+		<div class="next_page">
+			<a href="audio_new.html" class="next_page_btn reveal50" id="next_page_btn">
+				<div class="circle_btn" id="circle_btn">
+					<svg width="100" height="100" viewBox="0 0 166 138" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path id="arrow_svg_path" d="M0 68.5H129M95.3535 1.64648L163 69L95.3535 136.354" stroke="black" stroke-width="6" />
+					</svg>
+				</div>
+				<h3>Listen to the Audio</h3>
+			</a>
+		</div>
+
+		<script src="js/header.js"></script>
+		<script src="js/custom/video_player.js"></script>
+		<script src="js/custom/visual.js"></script>
+		<script src="js/fade_on_scroll.js"></script>
+	</body>
+</html>

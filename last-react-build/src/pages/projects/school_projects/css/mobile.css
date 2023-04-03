@@ -1,0 +1,9 @@
+.container {
+    max-width: 480px;
+    margin: auto;
+}
+
+.footer{
+    float:left;
+    width: 100%
+}

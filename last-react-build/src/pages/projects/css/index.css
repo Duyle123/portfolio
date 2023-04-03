@@ -1,0 +1,100 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(180deg, #010422 0%, #000000 100%);
+}
+
+body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+.example {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+.container {
+    height: 1080px;
+}
+
+.projects {
+    margin: 200px;
+}
+
+.card {
+    position: absolute;
+    border:0;
+    border-radius: 20px;
+    transform-style: preserve-3d;
+    box-shadow: rgba(32, 120, 146, 0.3) 0px 4px 20px;
+    background-color: transparent;
+}
+
+.display {
+    transform: translateY(-100%)
+}
+
+.card-img {
+    min-height: 150px;
+    min-width: 300px;
+    max-height: 600px;
+    max-width: 1200px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+@media (min-width: 992px) {
+    nav{
+        margin-top: 50px;
+    }
+}
+
+.title {
+    font-size: 42rem;
+}
+
+
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.pace.pace-inactive .pace-progress {
+    opacity: 1;
+    transition: 4s;
+}
+
+.pace .pace-progress {
+    position: fixed;
+    z-index: 9999;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+
+	-webkit-transform: translate3d(0, 0, 0) !important;
+	-ms-transform: translate3d(0, 0, 0) !important;
+	transform: translate3d(0, 0, 0) !important;
+}
+
+.pace .pace-progress:after {
+    z-index: 9999;
+	position: absolute;
+	content: attr(data-progress-text);
+	font-weight: 100;
+	font-size: 4.2rem;
+	line-height: 1;
+	text-align: center;
+    opacity: 1;
+}

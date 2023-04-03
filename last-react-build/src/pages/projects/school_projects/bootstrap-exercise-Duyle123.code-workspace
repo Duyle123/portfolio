@@ -1,0 +1,25 @@
+{
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "pwa-chrome",
+                "request": "launch",
+                "name": "Launch Chrome against localhost",
+                "url": "http://localhost:8080",
+                "webRoot": "${workspaceFolder}"
+            }
+        ]
+    },
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "../responsive-design-exercise-Duyle123/ux_images"
+        }
+    ],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "bootstrap-exercise-Duyle123"
+    }
+}

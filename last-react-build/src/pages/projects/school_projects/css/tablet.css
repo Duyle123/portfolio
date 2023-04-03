@@ -1,0 +1,25 @@
+.container {
+    min-width: 481px;
+    max-width: 960px;
+    margin: auto;
+}
+
+.column1 {
+    float: left;
+    width: 50%;
+}
+
+.column2 {
+    float: left;
+    width: 50%
+}
+
+.column3 {
+    float: left;
+    width: 100%;
+}
+
+.footer{
+    float:left;
+    width:100%;
+}

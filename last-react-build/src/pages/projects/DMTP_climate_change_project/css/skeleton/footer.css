@@ -1,0 +1,273 @@
+/* ============== footer ================= */
+
+footer {
+    z-index:1;
+    margin:0;
+    position: sticky;
+    bottom:0;
+    left: 0; 
+    color: white;
+    background-color: black;
+}
+
+.footer_container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 1080px;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+.row {
+    max-width: 1620px;
+    width: 100vw;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.footer_col {
+    width: 610px;
+}
+
+footer h2 {
+    margin-bottom: 35px;
+    font-family: 'archiaregular';
+}
+
+footer ul {
+    list-style: none;
+}
+
+.footer_col ul li {
+    margin-right: 35px;
+    margin-left: 35px;
+    margin-top: 15px;
+
+    font-size: 36px;
+    font-family: 'archialight'
+}
+
+.footer_col ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: all 0.3s ease-in-out; 
+}
+
+.footer_col h3 {
+    margin-bottom: 35px;
+}
+
+.footer_col ul li a:hover{
+    color: #009700;
+    padding-left: 10px;
+}
+
+.license {
+
+    width: 100vw;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'archiaregular';
+}
+
+.license a:link{
+    color: white;
+}
+
+.license a:visited{
+    color: white;
+}
+
+.license a:hover{
+    color: #009700;
+    transition: all 0.3s ease-in-out;
+}
+
+.next_page {
+    width: 100vw;
+    height: 800px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #d9d9d9;
+    transition: all 0.3s ease;
+    
+}
+
+.next_page_btn {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    height: 350px;
+    text-decoration: none;
+}
+
+.next_page_btn:hover > h2 {
+    color: #4f4f4f;
+    transition: all 0.3s ease;
+}
+
+.next_page_btn:hover > .circle_btn {
+    background-color: #e2e2e2;
+    border: 4px solid #4f4f4f;
+    transition: all 0.3s ease;
+    
+}
+
+.next_page_btn:link {
+    color: black;
+}
+
+.next_page_btn:visited {
+    color: black;
+}
+
+.next_page_btn h2 {
+    font-family: 'archiathin';
+    font-weight: 10;
+    transition: all 0.3s ease;
+}
+
+.circle_btn {
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 4px solid black;
+    background-color: #d9d9d9;
+    transition: all 0.3s ease;
+}
+
+.circle_btn svg {
+    margin: 50px;
+}
+
+#arrow_svg_path {
+    stroke: black;
+    transition: all 0.3s ease;
+}
+
+#arrow_svg_path.hover_active {
+    stroke: #4f4f4f;
+    transition: all 0.3s ease;
+}
+
+@media only screen and (max-height: 996px){
+    footer{
+        position: static;
+    }
+}
+
+/* =================== medium ======================== */
+
+@media only screen and (min-width: 1024px) and (max-width: 1500px){
+    .footer_container {
+        min-height: 768px;
+    }
+
+    .row {
+        justify-content: center;
+        gap: 150px;
+    }
+
+    .footer_col {
+        width: auto;
+    }
+    
+    .footer_col h2 {
+        font-size: 54px;
+    }
+    
+    .footer_col ul li {              
+        font-size: 24px;
+    }
+}
+
+/* ========================= medium-2 ============================= */
+
+@media only screen and (min-width: 834px) and (max-width:1023px) {
+    .footer_container {
+        min-height: 768px;
+    }
+
+    .row {
+        justify-content: center;
+        gap: 150px;
+    }
+
+    .footer_col {
+        width: auto;
+    }
+    
+    .footer_col h2 {
+        font-size: 36px;
+        font-family: 'archiabold';
+        margin-bottom: 20px;
+    }
+    
+    .footer_col ul li {
+        font-size: 24px;
+        margin-left: 16px;
+    }
+
+    .license {
+        font-size: 9.89px;
+    }
+}
+
+/* ============================== small ============================= */
+
+@media only screen and (min-width: 320px) and (max-width: 833px){
+    .footer_container {
+        min-height: 568px;
+        align-items: flex-start;
+        gap: 0px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .row {
+        justify-content: space-between;
+        width: auto;
+        max-width: 550px;
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-bottom: 0px;
+    }
+
+    .footer_col {
+        margin-right: 25px;
+        margin-left: 25px;
+        margin-top: 50px;
+
+
+        width: auto;
+        min-width: 178.5px;
+    }
+    
+    .footer_col h2 {
+        font-size: 24px;
+        font-family: 'archiabold';
+        margin-bottom: 20px;
+    }
+    
+    .footer_col ul li {
+        font-size: 16px;
+        margin-left: 16px;
+        margin-top: 10px;
+    }
+
+    .license {
+        margin-top: 50px;
+        font-size: 9.89px;
+    }
+
+}
+

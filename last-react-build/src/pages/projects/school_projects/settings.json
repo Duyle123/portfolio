@@ -1,0 +1,21 @@
+{
+  "name": "Duy Le",
+  "nyu_net_id": "ddl8997",
+  "site_url": "http://i6.cims.nyu.edu/~ddl8997",
+  
+  "jquery_settings": {
+    "content_change": {
+      "trigger_element_selector": "#learn_more",
+      "trigger_event": "click",
+      "target_element_selector": "#paragraph3"
+    },
+    "image_swap": {
+      "trigger_element_selector": "#octopus"
+    },
+    "animation": {
+      "trigger_element_selector": "#octopus",
+      "trigger_event": "click",
+      "target_element_selector": "#octopus"
+    }
+  }
+}

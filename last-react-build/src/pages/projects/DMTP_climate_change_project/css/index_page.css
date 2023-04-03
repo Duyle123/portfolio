@@ -1,0 +1,389 @@
+@font-face {
+    font-family: 'archialight';
+    src: url('../fonts/archia/light/archia-light-webfont.eot');
+    src: url('../fonts/archia/light/archia-light-webfont.woff2') format('woff2'),
+         url('../fonts/archia/light/archia-light-webfont.woff') format('woff'),
+         url('../fonts/archia/light/archia-light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'archiaregular';
+    src: url('../fonts/archia/regular/archia-regular-webfont.eot');
+    src: url('../fonts/archia/regular/archia-regular-webfont.woff2') format('woff2'),
+         url('../fonts/archia/regular/archia-regular-webfont.woff') format('woff'),
+         url('../fonts/archia/regular/archia-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'archiamedium';
+    src: url('../fonts/archia/medium/archia-medium-webfont.eot');
+    src: url('../fonts/archia/medium/archia-medium-webfont.woff2') format('woff2'),
+         url('../fonts/archia/medium/archia-medium-webfont.woff') format('woff'),
+         url('../fonts/archia/medium/archia-medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* --------------------------------Main type------------------------------- */
+/* 4k landscape & portrait >600px */
+
+@media only screen and (min-width: 600px) and (orientation:landscape) {
+
+    /* ----------------Type-scale---------------- */
+    h1 {
+        font-family: 'archiamedium';
+        font-style: normal;
+        font-size: 6.5vw;
+        margin:0;
+    }
+    h2 {
+        font-family: 'archiaregular';
+        font-size: 4.33vw;
+    } 
+    h3 {
+        font-family: 'archiaregular';
+        font-size: 2.89vw;
+    }
+    h4 {
+        font-family: 'archialight';
+        font-size: 1.92vw;
+    }
+    h5 {
+        font-family: 'archialight';
+        font-size: 1.28vw;
+    }
+    h6 {
+        font-family: 'archialight';
+        font-size: 0.86vw;
+        margin:0;
+        margin-bottom: 2.5vh;
+    }
+/* ------------------------------Hero Area--------------------------- */
+    .hero_area {
+        position: relative;
+        height: 95vh;
+    }
+
+    .hero_image  {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        height: 60vh;
+        gap: 2.5vw;
+    }
+
+    #small_hero {
+        width: 17%;
+        height:66.66%;
+        object-fit: cover;
+        opacity: 1;
+        transition-duration: 1s;
+        transition-delay: 0.5s;
+        transition-property: opacity;
+    }
+
+    #small_hero.fade {
+        opacity:0;
+    }
+
+    #big_hero {
+        width:22%;
+        height:100%;
+        object-fit: cover;
+        opacity: 1;
+        transition-duration: 1s;
+        transition-property: opacity;
+    }
+
+    #big_hero.fade {
+        opacity:0;
+    }
+
+    .hero_title {
+        position: absolute;
+        margin: 0;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        height: 20vh;
+        width: 100%;
+        justify-content: flex-start;
+        padding-bottom: 10vh;
+        margin-bottom: 10vh;
+        column-gap: 0;
+    }
+
+    .text_title {
+        padding-top: 2.5vh;
+        width:75%;
+        text-align: right;
+        margin: 0;
+    }
+
+    #author {
+        font-family: 'archiaregular';
+        font-size: 0.86vw;
+        margin:0;
+        margin-bottom: 2.5vh;
+        margin-right: 20px;
+    }
+    
+    .nyc_svg {
+        position: absolute;
+        bottom: 0;
+        left: 5vh;
+    }
+
+    nav ul {
+        padding: 0;
+        padding-bottom: 20vh;
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+        height: 110vh;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
+        list-style-type: none;
+        flex-wrap: wrap;
+
+        font-size: 4.33vw;
+        font-family: 'archiamedium';
+    }
+
+    .reveal {
+        position: relative;
+        transform: translateY(50px);
+        opacity: 0;
+        transition: all 1s ease;
+     } 
+
+    .reveal.active {
+        transform: translateY(0);
+        opacity: 1;  
+    }
+
+    /* -----------------------link hovers--------------------- */
+    .main_link {
+        display: inline-block;
+        padding-top: 30vh;
+        padding-bottom: 30vh;
+        padding-left:2vh;
+        padding-right: 2vh;
+        text-decoration: none;
+        transition:0.3s;
+    }
+    .main_link:link {
+        color:black;
+    }
+    .main_link:visited {
+        color:black;
+    }
+    .main_link:hover {
+        color: #009700;
+    }
+
+}
+
+@media only screen and (min-width: 600px) and (orientation:portrait) {
+    h1 {
+        font-family: 'archiamedium';
+        font-style: normal;
+        font-size: 100%;
+        line-height: auto;
+    }
+    .hero_image  {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        height: 50vh;
+        gap: 2.5vw;
+    }
+
+    #small_hero {
+        width: 12.5%;
+        height:66.66%;
+        object-fit: cover;
+    }
+
+    #big_hero {
+        width:17.5%;
+        height:100%;
+        object-fit: cover;
+    }
+
+    .hero_title {
+        margin: 0;
+        display: flex;
+        height: 30vh;
+        width: 100%;
+        justify-content: flex-end;
+        margin-bottom: 10vh;
+    }
+
+    .text_title {
+        padding-top: 5vh;
+        width:70%;
+        height: 100%;
+        text-align: right;
+        margin: 0;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Phones (Xsmall) */
+@media only screen and (max-width: 600px) and (orientation:portrait) {
+    h1 {
+        font-family: 'archiamedium';
+        font-style: normal;
+        font-size: 7.594rem;
+        line-height: auto;
+    }
+
+    
+}
+/*=========general===========*/
+
+body {
+    background-color: black;
+}
+.body_container{
+    background-color: white;
+    margin-left: 5vw;
+    margin-right:5vw;
+    padding:0px;
+    padding-top: 5vh;
+    font-family: 'archiaregular';
+    color: black;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+
+.box{
+    background-color: white;
+    z-index:3;
+    position: relative;
+}
+/* =============Footer============ */
+
+footer {
+    z-index:1;
+    margin:0;
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    bottom:0;
+    left: 0; 
+    background-color: black;
+    color: white;
+}
+
+.footer_container {
+    padding-right: 10vw;
+    padding-left: 10vw;
+    padding-top: 10vh;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 8vh;
+}
+
+.footer_col {
+    width: 40%;
+}
+
+footer h2 {
+    margin-bottom: 3vh;
+}
+
+footer ul {
+    list-style: none;
+}
+
+.footer_col ul li {
+    margin-bottom: 2vh;
+}
+
+.footer_col ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer_col ul li a:hover{
+    color: #009700;
+    padding-left: 10px;
+}
+
+.license {
+    width: 80vw;
+    bottom: 2vh;
+    text-align: center;
+
+    font-size: 0.86vw;
+    font-family: 'archiaregular';
+}
+
+.license a:link{
+    color: #009700;
+}
+
+.license a:visited{
+    color: white;
+}
+
+/* =======================fader======================= */
+#fader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    pointer-events: none;
+    background: white;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-out {
+    from { opacity: 1 }
+      to { opacity: 0 }
+}
+
+@keyframes fade-in {
+    from { opacity: 0 }
+      to { opacity: 1 }
+}
+
+#fader.fade-out {
+    opacity: 0;
+    animation-name: fade-out;
+}
+
+#fader.fade-in {
+    opacity: 1;
+    animation-name: fade-in;
+}

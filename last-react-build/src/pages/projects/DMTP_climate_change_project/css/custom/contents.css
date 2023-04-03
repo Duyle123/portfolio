@@ -1,0 +1,24 @@
+.content_title {
+    padding-bottom: 46px;
+}
+
+.content_child {
+    text-decoration: none;
+}
+
+.content_child h5 {
+    padding-bottom: 1rem;
+}
+
+.content_child:link {
+    color: black;
+}
+
+.content_child:visited {
+    color: black;
+}
+
+.content_child:hover {
+    transition: all 0.2s ease-in-out;
+    color: #009700;
+}

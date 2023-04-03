@@ -1,0 +1,61 @@
+.reveal50{
+    transform: scale(1.1);
+    filter: blur(0.5rem);
+    transition: all 0.7s ease-in-out;
+}
+
+.reveal50.active {
+    transform: scale(1);
+    filter: blur(0);
+    transition: all 0.7s ease-in-out;
+}
+
+.delay-1 {
+    transition-delay: 300ms;
+}
+
+.delay-2 {
+    transition-delay: 500ms;
+}
+
+.delay-3 {
+    transition-delay: 700ms;
+}
+
+.delay-4 {
+    transition-delay: 900ms;
+}
+
+.delay-5 {
+    transition-delay: 1100ms;
+}
+
+
+.highlight-container {
+    position: relative;
+    z-index: 1;
+}
+
+.highlight {
+    content: '';
+    display: inline;
+    position: absolute;
+    z-index: -1;
+    height: 95%;
+    right:0;
+    left:0;
+    bottom: 0;
+    width: 0%;
+    background-color: #9D030F;
+    transition: width 1s ease-out;
+    transition-delay: 1500ms;
+}
+
+.highlight.faster {
+    transition: width 0.7s ease-out;
+    transition-delay: 1000ms;
+}
+
+.highlight.active {
+    width: 101%;
+}

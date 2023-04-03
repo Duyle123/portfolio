@@ -1,0 +1,27 @@
+
+
+.container {
+    min-width: 961px;
+    margin: auto;
+}
+
+.column1 {
+    float: left;
+    width: 30%;
+    padding: 0px;
+}
+
+.column2 {
+    float: left;
+    width: 30%;
+}
+
+.column3 {
+    float: left;
+    width: 30%;
+}
+
+.footer{
+    float:left;
+    width: 100%;
+}
