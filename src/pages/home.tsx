@@ -5,9 +5,9 @@ import React from 'react';
 
 function HomePage() {
     return (
-        <div className="home">
-            homepage
-        </div>
+        <h1 className="text-4xl font-bold underline">
+            Hello World
+        </h1>
     );
 }
 
