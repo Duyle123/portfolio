@@ -46,3 +46,39 @@
   font-weight: light;
   font-style: italic;
 }
+
+/* ======================== link hover ===================== */
+
+.l-link:link, .l-link:visited {
+  z-index: 2;
+  position: relative;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.l-link:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transition: 0.5s;
+}
+
+.l-link:hover {
+  z-index: 2;
+  color: white;
+  transition: 0.3s;
+}
+
+.l-link:hover:after{
+  z-index: -1;
+  width: 103%;
+  left:0;
+}
