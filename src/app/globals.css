@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "strawford-bold";
+  src: local("strawford-bold"),
+  url("/src/components/fonts/StrawfordWebfont/Strawford-Bold.otf") format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "strawford-normal";
+  src: local("strawford-normal"),
+  url("/src/components/fonts/StrawfordWebfont/Strawford-Regular.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "strawford-light";
+  src: local("strawford-light"),
+  url("/src/components/fonts/StrawfordWebfont/Strawford-Light.otf") format("opentype");
+  font-weight: light;
+}
+
+@font-face {
+  font-family: "strawford-bold-italic";
+  src: local("strawford-bold-italic"),
+  url("/src/components/fonts/StrawfordWebfont/Strawford-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "strawford-normal-italic";
+  src: local("strawford-italic"),
+  url("/src/components/fonts/StrawfordWebfont/Strawford-RegularItalic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "strawford-light-italic";
+  src: local("strawford-italic"),
+  url("/src/components/fonts/StrawfordWebfont/Strawford-LightItalic.otf") format("opentype");
+  font-weight: light;
+  font-style: italic;
+}
