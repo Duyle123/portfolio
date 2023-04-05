@@ -10,8 +10,8 @@
 }
 
 @font-face {
-  font-family: "strawford-normal";
-  src: local("strawford-normal"),
+  font-family: "strawford";
+  src: local("strawford"),
   url("/src/components/fonts/StrawfordWebfont/Strawford-Regular.otf") format("opentype");
   font-weight: normal;
 }
@@ -32,7 +32,7 @@
 }
 
 @font-face {
-  font-family: "strawford-normal-italic";
+  font-family: "strawford-italic";
   src: local("strawford-italic"),
   url("/src/components/fonts/StrawfordWebfont/Strawford-RegularItalic.otf") format("opentype");
   font-weight: normal;

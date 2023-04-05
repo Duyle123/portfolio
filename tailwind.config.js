@@ -22,9 +22,22 @@ module.exports = {
       'gray-light': '#d3dce6',
     },
     fontFamily: {
-      sans: [],
-      serif: ['Merriweather', 'serif'],
+      strawford: ['strawford'],
+      'strawford-bold': ['strawford-bold'],
+      'strawford-bold-italic':['strawford-bold-italic'],
+      'strawford-light': ['strawford-light'],
+      'strawford-light-italic':['strawford-light-italic'],
     },
+    fontSize: {
+      'sm': '0.618rem',
+      'reg': '1rem',
+      'h5': '1.618rem',
+      'h4': '2.618rem',
+      'h3': '4.236rem',
+      'h2': '6.854rem',
+      'h1': '11.098rem',
+    },
+    
     extend: {
       spacing: {
         '128': '32rem',
