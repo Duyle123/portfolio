@@ -1,6 +1,6 @@
 import React from 'react';
 import admin from '../components/user-info/admin-info';
-import arrow from '../media/svg/basic-arrow.svg'
+import arrow from '../media/svg/arrow.svg'
 
 function HomePage() {
     return (
@@ -42,8 +42,6 @@ function HomePage() {
 
             {/* ============== side bar ==================== */}
             <div className="hero-right-bar">
-                <img height={32}
-                width={32} src={arrow} alt="" />
             </div>
         </>
         

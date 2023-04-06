@@ -3,8 +3,26 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-} ;
-const withImages = require('next-images');
-module.exports = withImages(); 
 
-module.exports = nextConfig
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      use: ['@svgr/webpack'],
+    });
+
+    return config;
+  }
+} ;
+
+module.exports = nextConfig;
+
+// module.exports = {
+//   webpack(config) {
+//     config.module.rules.push({
+//       test: /\.svg$/,
+//       use: ['@svgr/webpack'],
+//     });
+
+//     return config;
+//   }
+// }
