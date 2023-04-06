@@ -4,7 +4,6 @@ import '../app/globals.css';
 import Arrow from '../media/svg/arrow.svg'
 import HeroCurve from '../media/svg/hero-curve.svg'
 import { ThemeProvider } from 'next-themes';
-import {userState, useEffect} from 'react';
 import {useTheme} from 'next-themes';
 
 const HeroSection = () => {
