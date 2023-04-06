@@ -6,7 +6,7 @@ import useColorMode from '../../../hooks/useColorMode';
 
 export default function ThemeChanger() {
     const [colorMode, setColorMode] = useColorMode();
-    const monoMode = () => {
+    const darkMode = () => {
         setColorMode("dark");
       }
       const lightMode = () => {
@@ -16,11 +16,11 @@ export default function ThemeChanger() {
         <div className="theme-changer flex flex-row">
             <p>Theme:</p>
             <div className="flex flex-col">
-                <button onClick={monoMode}>
+                <button className='dark:text-white text-gray' onClick={darkMode}>
                     Mono
                 </button>
-                <button onClick={lightMode}>
-                    Color
+                <button className='dark:text-gray ' onClick={lightMode}>
+                    Triad
                 </button>
             </div>
         </div>

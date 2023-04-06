@@ -13,7 +13,8 @@ module.exports = {
     },
     colors: {
       'black': '#000000',
-      'white': '#ffffff'
+      'white': '#ffffff',
+      'gray': '#959595'
     },
     fontFamily: {
       strawford: ['strawford'],

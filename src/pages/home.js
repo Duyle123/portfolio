@@ -9,10 +9,10 @@ import ThemeChanger from '../components/interactive/themeChanger';
 const HeroSection = () => {
 
     return(
-        <div className='hero-container dark:bg-black'>
+        <div className='hero-container dark:bg-black min-h-screen'>
         {/* ============ top information ============= */}
             <div className="hero-top-bar flex flex-row dark:text-white">
-                <ThemeChanger />
+                <ThemeChanger className='z-10' />
 
                 <div className="contact-info">
                     <p>{admin.email}</p>
@@ -32,12 +32,12 @@ const HeroSection = () => {
 
             {/* ============ main options ================*/}
             <div className="main-options flex flex-col dark:text-white">
-                <p className="font-strawford-bold text-h2 dark:bg-black">
+                <p className="font-strawford-bold text-h2">
                 DUY'S PORTFOLIO
                 </p>
-                <div className=""> <a className="l-link text-h3 font-strawford-light" href="">Project</a></div>
-                <div className="basis-1/3"> <a className='l-link text-h3 font-strawford-light' href="">Writing Samples</a></div>
-                <div className="basis-1/3"> <a className='l-link text-h3 font-strawford-light' href=""><span>Contact</span></a></div>
+                <div className=""> <a className="l-link text-h3 font-strawford-light dark:hover:text-black" href="">Project</a></div>
+                <div className="basis-1/3"> <a className='l-link text-h3 font-strawford-light dark:hover:text-black' href="">Writing Samples</a></div>
+                <div className="basis-1/3"> <a className='l-link text-h3 font-strawford-light dark:hover:text-black' href=""><span>Contact</span></a></div>
             </div>
 
             {/* ============== side bar ==================== */}
@@ -48,7 +48,7 @@ const HeroSection = () => {
             </div>
 
             <div className="hero-curve">
-                <HeroCurve className="absolute" />
+                <HeroCurve className="absolute top-0 -z-1 pointer-events-none"/>
             </div>
     </div>
     )
@@ -56,7 +56,7 @@ const HeroSection = () => {
 
 function HomePage() {
     return (
-        <HeroSection className='min-h-screen' />
+        <HeroSection />
     );
 }
 

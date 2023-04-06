@@ -52,7 +52,6 @@
 .l-link:link, .l-link:visited {
   z-index: 2;
   position: relative;
-  color: black;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -73,7 +72,6 @@
 
 .l-link:hover {
   z-index: 2;
-  color: white;
   transition: 0.3s;
 }
 
@@ -89,4 +87,8 @@
 
 .display-none {
   @apply hidden;
+}
+
+body * {
+  @apply transition-colors duration-1000;
 }
