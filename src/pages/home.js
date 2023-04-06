@@ -1,23 +1,18 @@
 import React from 'react';
 import admin from '../components/user-info/admin-info';
 import '../app/globals.css';
-import Arrow from '../media/svg/arrow.svg'
-import HeroCurve from '../media/svg/hero-curve.svg'
-import { ThemeProvider } from 'next-themes';
-import {useTheme} from 'next-themes';
+import Arrow from '../media/svg/arrow.svg';
+import HeroCurve from '../media/svg/hero-curve.svg';
+import ThemeChanger from '../components/interactive/themeChanger';
+
 
 const HeroSection = () => {
+
     return(
-        <div className='hero-container'>
+        <div className='hero-container dark:bg-black'>
         {/* ============ top information ============= */}
-            <div className="hero-top-bar flex flex-row">
-                <div className="theme-changer flex flex-row">
-                    <p>Theme:</p>
-                    <div className="theme-changer flex flex-col">
-                        <button className='mono-theme-btn'>Mono</button>
-                        <button className='color-theme-btn'>Color</button>
-                    </div>
-                </div>
+            <div className="hero-top-bar flex flex-row dark:text-white">
+                <ThemeChanger />
 
                 <div className="contact-info">
                     <p>{admin.email}</p>
@@ -36,8 +31,8 @@ const HeroSection = () => {
             
 
             {/* ============ main options ================*/}
-            <div className="main-options flex flex-col">
-                <p className="font-strawford-bold text-h2">
+            <div className="main-options flex flex-col dark:text-white">
+                <p className="font-strawford-bold text-h2 dark:bg-black">
                 DUY'S PORTFOLIO
                 </p>
                 <div className=""> <a className="l-link text-h3 font-strawford-light" href="">Project</a></div>
@@ -47,7 +42,9 @@ const HeroSection = () => {
 
             {/* ============== side bar ==================== */}
             <div className="hero-right-bar">
-                <Arrow />
+                <a href="">
+                   <Arrow /> 
+                </a>
             </div>
 
             <div className="hero-curve">
@@ -58,13 +55,8 @@ const HeroSection = () => {
 }
 
 function HomePage() {
-    const {theme, setTheme} = useTheme();
-    const currentTheme = theme === 'system' ? systemTheme : theme;
-
     return (
-        <ThemeProvider enableSystem={true} attribute="class">
-            <HeroSection className='min-h-screen' />
-        </ThemeProvider>
+        <HeroSection className='min-h-screen' />
     );
 }
 
