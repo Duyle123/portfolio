@@ -9,7 +9,7 @@ import ThemeChanger from '../components/interactive/themeChanger';
 const HeroSection = () => {
 
     return(
-        <div className='hero-container dark:bg-black min-h-screen'>
+        <div className='hero-container dark:bg-black min-h-screen overflow-hidden relative'>
         {/* ============ top information ============= */}
             <div className="hero-top-bar flex flex-row dark:text-white">
                 <ThemeChanger className='z-10' />
@@ -28,11 +28,10 @@ const HeroSection = () => {
                     <p>{admin.job4}</p>
                 </div>
             </div>
-            
 
             {/* ============ main options ================*/}
             <div className="main-options flex flex-col dark:text-white">
-                <p className="font-strawford-bold text-h2">
+                <p className="font-strawford-black text-h2">
                 DUY'S PORTFOLIO
                 </p>
                 <div className="group relative w-fit pr-3">               
@@ -73,19 +72,36 @@ const HeroSection = () => {
             {/* ============== side bar ==================== */}
             <div className="hero-right-bar">
                 <a href="">
-                   <Arrow /> 
+                   <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
                 </a>
             </div>
             <div className="hero-curve">
-                <HeroCurve className="absolute top-0 -z-1 pointer-events-none"/>
+                <HeroCurve className="absolute top-0 -z-1 pointer-events-none stroke-black stroke-1 dark:stroke-white"/>
             </div>
     </div>
     )
 }
 
+const ProjectSection = () => {
+    return(
+        <div className="project-heading relative flex">
+            <div className="font-be-vietnam-extra-bold">1.</div>
+            <div className="strawford-regular">During my time at NYU, I’ve learned to combine media theories and practice to make meaningful projects. 
+            What is shown below are some of my most recent works in terms of Web design and development.</div>
+            <div className=""></div>
+            <div className=""></div>
+
+        </div>
+    )
+}
+
 function HomePage() {
     return (
-        <HeroSection />
+        <>
+            <HeroSection />
+            <ProjectSection />
+        </>
+        
     );
 }
 

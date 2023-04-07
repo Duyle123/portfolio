@@ -14,12 +14,12 @@ export default function ThemeChanger() {
       }
     return (
         <div className="theme-changer flex flex-row">
-            <p>Theme:</p>
+            <p className="">Theme:</p>
             <div className="flex flex-col">
                 <button className='dark:text-white text-gray' onClick={darkMode}>
                     Mono
                 </button>
-                <button className='dark:text-gray ' onClick={lightMode}>
+                <button className='dark:text-gray' onClick={lightMode}>
                     Triad
                 </button>
             </div>

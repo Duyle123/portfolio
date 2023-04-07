@@ -31,10 +31,12 @@ module.exports = {
     },
     fontFamily: {
       strawford: ['strawford'],
+      'strawford-black': ['strawford-black'],
       'strawford-bold': ['strawford-bold'],
       'strawford-bold-italic':['strawford-bold-italic'],
       'strawford-light': ['strawford-light'],
       'strawford-light-italic':['strawford-light-italic'],
+      'be-vietnam-extra-bold': ['be-vietnam-extra-bold']
     },
     fontSize: {
       'sm': '0.618rem',

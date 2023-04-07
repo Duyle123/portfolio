@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: "strawford-black";
+  src: local("strawford-black"),
+  url("/src/components/fonts/StrawfordWebfont/Strawford-Black.otf") format("opentype");
+}
+
+
+@font-face {
   font-family: "strawford-bold";
   src: local("strawford-bold"),
   url("/src/components/fonts/StrawfordWebfont/Strawford-Bold.otf") format("opentype");
@@ -47,6 +54,12 @@
   font-style: italic;
 }
 
+
+@font-face {
+  font-family: "be-vietnam-extra-bold";
+  src: local("be-vietnam-extra-bold"),
+  url("/src/components/fonts/BeVietnam/BeVietnamPro-ExtraBold.ttf") format("truetype");
+}
 /* ======================== link hover ===================== */
 
 .l-link:link, .l-link:visited {
