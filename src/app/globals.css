@@ -80,8 +80,6 @@
   width: 103%;
   left:0;
 }
-
-
 /* 
 ========================================= */
 
@@ -90,5 +88,5 @@
 }
 
 body * {
-  @apply transition-colors duration-1000;
+  @apply transition-colors duration-100;
 }

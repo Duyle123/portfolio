@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 
 const useLocalStorage = (key: string, initialValue: string) => {
@@ -17,6 +15,12 @@ const useLocalStorage = (key: string, initialValue: string) => {
       return initialValue;
     }
   });
+  
+  if (typeof window !== 'undefined') {
+    console.log('You are on the browser,You are good to go')
+    } else {
+    console.log('You are on the server,Cannot execute')
+   }
 
   // useEffect to update local storage when the state changes
   useEffect(() => {

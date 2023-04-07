@@ -35,9 +35,39 @@ const HeroSection = () => {
                 <p className="font-strawford-bold text-h2">
                 DUY'S PORTFOLIO
                 </p>
-                <div className=""> <a className="l-link text-h3 font-strawford-light dark:hover:text-black" href="">Project</a></div>
-                <div className="basis-1/3"> <a className='l-link text-h3 font-strawford-light dark:hover:text-black' href="">Writing Samples</a></div>
-                <div className="basis-1/3"> <a className='l-link text-h3 font-strawford-light dark:hover:text-black' href=""><span>Contact</span></a></div>
+                <div className="group relative w-fit pr-3">               
+                    <a className="z-30 relative text-h3 font-strawford-light 
+                                    duration-800 ease-out
+                                    group-hover:text-white 
+                                    dark:group-hover:text-black" href="">Projects</a>
+
+                    <span className="w-0 left-0 absolute pointer-events-none z-10
+                                    bg-black  transition-width h-full duration-700 ease-out 
+                                    group-hover:w-full group-hover:pr-1 
+                                    dark:bg-white"></span>
+                </div>
+                <div className="group relative w-fit pr-3">               
+                    <a className="z-30 relative text-h3 font-strawford-light 
+                                    duration-800 ease-out
+                                    group-hover:text-white 
+                                    dark:group-hover:text-black" href="">Writing Samples</a>
+
+                    <span className="w-0 left-0 absolute pointer-events-none z-10
+                                    bg-black  transition-width h-full duration-700 ease-out 
+                                    group-hover:w-full group-hover:pr-1 
+                                    dark:bg-white"></span>
+                </div>
+                <div className="group relative w-fit pr-3">               
+                    <a className="z-30 relative text-h3 font-strawford-light 
+                                    duration-800 ease-out
+                                    group-hover:text-white 
+                                    dark:group-hover:text-black" href="">Contact</a>
+
+                    <span className="w-0 left-0 absolute pointer-events-none z-10
+                                    bg-black  transition-width h-full duration-700 ease-out 
+                                    group-hover:w-full group-hover:pr-1 
+                                    dark:bg-white"></span>
+                </div>
             </div>
 
             {/* ============== side bar ==================== */}
@@ -46,7 +76,6 @@ const HeroSection = () => {
                    <Arrow /> 
                 </a>
             </div>
-
             <div className="hero-curve">
                 <HeroCurve className="absolute top-0 -z-1 pointer-events-none"/>
             </div>

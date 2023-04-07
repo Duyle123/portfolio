@@ -1,10 +1,22 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
+    "./src/**/*.{html,js}",
     "/src/**/*.{js,ts,jsx,tsx}"
   ],
   darkMode: 'class',
   theme: {
+    transitionProperty:{
+      none: 'none',
+      all: 'all',
+      width: 'width',
+      height: 'height',
+      colors: 'color, background-color, border-color, text-decoration-color, fill, stroke',
+      opacity: 'opacity',
+      shadow: 'box-shadow',
+      transform: 'transform',
+    },
     screens: {
       sm: '480px',
       md: '768px',
@@ -14,7 +26,8 @@ module.exports = {
     colors: {
       'black': '#000000',
       'white': '#ffffff',
-      'gray': '#959595'
+      'gray': '#959595',
+      'red': '#FF3636'
     },
     fontFamily: {
       strawford: ['strawford'],
@@ -41,12 +54,10 @@ module.exports = {
       borderRadius: {
         '4xl': '2rem',
       },
-      flexBasis: {
-
-      },
     },
   },
-  plugins: [],
+  variants: {},
+  plugins: ["tailwindcss ,autoprefixer"],
 }
 
 
