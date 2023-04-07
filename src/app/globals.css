@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
   font-family: "strawford-black";
   src: local("strawford-black"),
   url("/src/components/fonts/StrawfordWebfont/Strawford-Black.otf") format("opentype");
 }
-
 
 @font-face {
   font-family: "strawford-bold";
@@ -48,18 +48,24 @@
 
 @font-face {
   font-family: "strawford-light-italic";
-  src: local("strawford-italic"),
+  src: local("strawford-light-italic"),
   url("/src/components/fonts/StrawfordWebfont/Strawford-LightItalic.otf") format("opentype");
   font-weight: light;
   font-style: italic;
 }
 
+@font-face {
+  font-family: "bould";
+  src: local("bould"),
+  url("/src/components/fonts/BouldWebfont/Bould-Roman-webfontkit/bould-bold-webfont.woff") format("woff");
+}
 
 @font-face {
-  font-family: "be-vietnam-extra-bold";
-  src: local("be-vietnam-extra-bold"),
-  url("/src/components/fonts/BeVietnam/BeVietnamPro-ExtraBold.ttf") format("truetype");
+  font-family: "vietnam";
+  src: url("/src/components/fonts/BeVietnam/BeVietnam-ExtraBold.woff") format("woff");
+  
 }
+
 /* ======================== link hover ===================== */
 
 .l-link:link, .l-link:visited {

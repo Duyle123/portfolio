@@ -36,7 +36,7 @@ module.exports = {
       'strawford-bold-italic':['strawford-bold-italic'],
       'strawford-light': ['strawford-light'],
       'strawford-light-italic':['strawford-light-italic'],
-      'be-vietnam-extra-bold': ['be-vietnam-extra-bold']
+      vietnam: ['vietnam']
     },
     fontSize: {
       'sm': '0.618rem',
@@ -47,7 +47,6 @@ module.exports = {
       'h2': '6.854rem',
       'h1': '11.098rem',
     },
-    
     extend: {
       spacing: {
         '128': '32rem',

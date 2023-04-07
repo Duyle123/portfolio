@@ -9,7 +9,7 @@ import ThemeChanger from '../components/interactive/themeChanger';
 const HeroSection = () => {
 
     return(
-        <div className='hero-container dark:bg-black min-h-screen overflow-hidden relative'>
+        <div className='hero-container dark:bg-black min-h-screen overflow-hidden relative font-strawford'>
         {/* ============ top information ============= */}
             <div className="hero-top-bar flex flex-row dark:text-white">
                 <ThemeChanger className='z-10' />
@@ -85,8 +85,8 @@ const HeroSection = () => {
 const ProjectSection = () => {
     return(
         <div className="project-heading relative flex">
-            <div className="font-be-vietnam-extra-bold">1.</div>
-            <div className="strawford-regular">During my time at NYU, I’ve learned to combine media theories and practice to make meaningful projects. 
+            <div className="font-vietnam text-h1">1.</div> <div className="font-strawford-bold text-h1">1.</div>
+            <div className="font-strawford">During my time at NYU, I've learned to combine media theories and practice to make meaningful projects. 
             What is shown below are some of my most recent works in terms of Web design and development.</div>
             <div className=""></div>
             <div className=""></div>
@@ -101,8 +101,7 @@ function HomePage() {
             <HeroSection />
             <ProjectSection />
         </>
-        
     );
-}
+}``
 
 export default HomePage;
