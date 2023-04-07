@@ -31,12 +31,6 @@ module.exports = {
     },
     fontFamily: {
       strawford: ['strawford'],
-      'strawford-black': ['strawford-black'],
-      'strawford-bold': ['strawford-bold'],
-      'strawford-bold-italic':['strawford-bold-italic'],
-      'strawford-light': ['strawford-light'],
-      'strawford-light-italic':['strawford-light-italic'],
-      vietnam: ['vietnam']
     },
     fontSize: {
       'sm': '0.618rem',
@@ -60,5 +54,3 @@ module.exports = {
   variants: {},
   plugins: ["tailwindcss ,autoprefixer"],
 }
-
-
