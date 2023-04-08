@@ -22,6 +22,7 @@ module.exports = {
       md: '768px',
       lg: '976px',
       xl: '1440px',
+      '2xl': '1536px'
     },
     colors: {
       'black': '#000000',
@@ -47,7 +48,32 @@ module.exports = {
         '4xl': '2rem',
       },
     },
+    
   },
   variants: {},
-  plugins: ["tailwindcss ,autoprefixer"],
+  plugins: ["tailwindcss ,autoprefixer",
+
+    function ({ addComponents }) {
+      addComponents({
+        '.container': {
+          maxWidth: '100%',
+          '@screen sm': {
+            maxWidth: '640px',
+          },
+          '@screen md': {
+            maxWidth: '768px',
+          },
+          '@screen lg': {
+            maxWidth: '1280px',
+          },
+          '@screen xl': {
+            maxWidth: '1400px',
+          },
+          '@screen 2xl': {
+            maxWidth: '1728px',
+          },
+        }
+      })
+    }
+  ],
 }

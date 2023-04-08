@@ -14,11 +14,13 @@ import AbstractSVG from '../media/svg/abstract.svg';
 
 const HeroSection = () => {
     return(
-        <div className='container mx-auto dark:bg-black min-h-screen overflow-hidden relative strawford'>
-            <div className="hero-left-bar hidden">
+        <>
+        <div className='container mx-auto dark:bg-black min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
+        overflow-hidden relative strawford grid xl:grid-cols-12'>
+            <div className="hero-left-bar hidden xl:block xl:col-span-2">
                 <ThemeChanger className='z-10' />
             </div>
-            <div className="hero">
+            <div className="hero xl:col-span-10">
                 {/* ============ top information ============= */}
                 <div className="hero-top-bar grid grid-cols-2 lg:grid-cols-6 xl:grid-cols-10 dark:text-white">
                     <div className="contact-info lg:col-span-2">
@@ -77,15 +79,19 @@ const HeroSection = () => {
                 </div>
             </div>
                 {/* ============== side bar ==================== */}
-            <div className="hero-right-bar w-fit min-h-screen pl-5 pr-5 pb-20 border-black dark:border-white border-l-2 absolute flex right-0 top-0 items-end">
-                <a href="">
-                    <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
-                </a>
-            </div>
-            <div className="hero-curve absolute -top-20 ">
+            
+            <div className="hero-curve absolute -top-20">
                 <HeroCurve className="absolute top-0 -z-1 pointer-events-none stroke-black stroke-1 dark:stroke-white"/>
             </div>
         </div>
+        <div className="hero-right-bar w-fit pl-5 pr-5 pb-20 border-black dark:border-white border-l-2 absolute flex  right-0 top-0 items-end xl:flex
+        min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden">
+            <a href="">
+                <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
+            </a>
+        </div>
+        </>
+        
     )
 }
 

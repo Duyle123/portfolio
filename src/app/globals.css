@@ -12,7 +12,13 @@ body * {
   @apply transition-colors duration-100;
 }
 
+body.dark{
+  background-color: black;
+}
 
+body.light{
+  background-color: white;
+}
 /* ================== Font ==================== */
 
 .strawford {
