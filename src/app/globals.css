@@ -2,57 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ======================== link hover ===================== */
 
-.l-link:link, .l-link:visited {
-  z-index: 2;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.l-link:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 100%;
-  bottom: 0;
-  left: 0;
-  background-color: black;
-  transition: 0.5s;
-}
-
-.l-link:hover {
-  z-index: 2;
-  transition: 0.3s;
-}
-
-.l-link:hover:after{
-  z-index: -1;
-  width: 103%;
-  left:0;
-}
-
-
-/* 
-========================================= */
-
-.strawford-italic {
-  font-style: italic;
-}
-
-.strawford-thin-italic {
-  font-style: italic;
-  font-weight: 100;
-}
-
+/* ================== global ==================== */
 .display-none {
   @apply hidden;
 }
 
 body * {
   @apply transition-colors duration-100;
+}
+
+.container {
+  max-width: 1920px;
+}
+
+/* ================== Font ==================== */
+
+.strawford {
+  font-style:normal;
+  font-weight: 400
+}
+.strawford-black {
+  font-weight: 700
+}
+.strawford-bold {
+  font-style:normal;
+  font-weight: 600
+}
+.strawford-thin {
+  font-style:normal;
+  font-weight: 300
+}
+.strawford-light {
+  font-style:normal;
+  font-weight: 200
+}
+
+.be-vietnam-xbold{
+  font-weight: 700;
+}
+
+
+
+/* ================= Scroll-bar ==================*/
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #494949;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888888;
 }

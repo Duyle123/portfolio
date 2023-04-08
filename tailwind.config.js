@@ -29,9 +29,6 @@ module.exports = {
       'gray': '#959595',
       'red': '#FF3636'
     },
-    fontFamily: {
-      strawford: ['strawford'],
-    },
     fontSize: {
       'sm': '0.618rem',
       'reg': '1rem',

@@ -1,28 +1,37 @@
 import localFont from 'next/font/local'
 
-const strawford= localFont({ 
-    src: [
-    {
-      path: '/StrawfordWebfont/',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './Roboto-Italic.woff2',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: './Roboto-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: './Roboto-BoldItalic.woff2',
-      weight: '700',
-      style: 'italic',
-    },
-  ],
- });
+const strawfordFont = localFont({     
+  src: [{
+    //-----black--------
+    path: 'StrawfordWebfont/Strawford-Black.otf',
+    weight: '700',
+    style: 'black',
+  },
+  {
+    //-----bold--------
+    path: 'StrawfordWebfont/Strawford-Bold.otf',
+    weight: '600',
+    style: 'bold',
+  },
+  {
+    //-----regular--------
+    path: 'StrawfordWebfont/Strawford-Regular.otf',
+    weight: '400',
+    style: 'normal',
+  },
+  {
+    //-----thin--------
+    path: 'StrawfordWebfont/Strawford-Thin.otf',
+    weight: '300',
+    style: 'normal',
+  },
+  {
+    //-----thin--------
+    path: 'StrawfordWebfont/Strawford-Light.otf',
+    weight: '200',
+    style: 'normal',
+  },
+], 
+});
 
-export default strawford;
+export default strawfordFont;
