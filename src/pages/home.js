@@ -14,22 +14,21 @@ import AbstractSVG from '../media/svg/abstract.svg';
 
 const HeroSection = () => {
     return(
-        <div className='container dark:bg-black min-h-screen overflow-hidden relative strawford flex justify-center'>
-            <div className="hero-left-bar">
+        <div className='container mx-auto dark:bg-black min-h-screen overflow-hidden relative strawford'>
+            <div className="hero-left-bar hidden">
                 <ThemeChanger className='z-10' />
             </div>
             <div className="hero">
                 {/* ============ top information ============= */}
-                <div className="hero-top-bar flex flex-row dark:text-white">
-
-                    <div className="contact-info">
+                <div className="hero-top-bar grid grid-cols-2 lg:grid-cols-6 xl:grid-cols-10 dark:text-white">
+                    <div className="contact-info lg:col-span-2">
                         <p>{admin.email}</p>
                         <p>{admin.tel}</p>
                         <p>{admin.addressLine1}</p>
                         <p>{admin.addressLine2}</p>
                     </div>
                     
-                    <div className="aspired-jobs">
+                    <div className="aspired-jobs lg:col-span-2">
                         <p>{admin.job1}</p>
                         <p>{admin.job2}</p>
                         <p>{admin.job3}</p>
@@ -39,11 +38,11 @@ const HeroSection = () => {
 
                 {/* ============ main options ================*/}
                 <div className="main-options dark:text-white">
-                    <p className="text-h2 strawford-black">
+                    <p className="xl:text-h2 lg:text-h3 strawford-black">
                     DUY'S PORTFOLIO
                     </p>
                     <div className="group relative strawford-light w-fit pr-3">               
-                        <a className="z-30 relative text-h3
+                        <a className="z-30 relative xl:text-h3 lg:text-h4
                                         duration-800 ease-out
                                         group-hover:text-white 
                                         dark:group-hover:text-black" href="">Projects</a>
@@ -54,7 +53,7 @@ const HeroSection = () => {
                                         dark:bg-white"></span>
                     </div>
                     <div className="group relative strawford-light w-fit pr-3">               
-                        <a className="z-30 relative text-h3
+                        <a className="z-30 relative xl:text-h3 lg:text-h4
                                         duration-800 ease-out
                                         group-hover:text-white 
                                         dark:group-hover:text-black" href="">Writing Samples</a>
@@ -65,7 +64,7 @@ const HeroSection = () => {
                                         dark:bg-white"></span>
                     </div>
                     <div className="group relative strawford-light w-fit pr-3">               
-                        <a className="z-30 relative text-h3 
+                        <a className="z-30 relative xl:text-h3 lg:text-h4 
                                         duration-800 ease-out
                                         group-hover:text-white 
                                         dark:group-hover:text-black" href="">Contact</a>
@@ -111,7 +110,7 @@ const ProjectSection = () => {
 
 function HomePage() {
     return (
-        <div className={`${strawfordFont.className} flex flex-col `}>
+        <div className={`${strawfordFont.className}`}>
             <HeroSection/>
             <ProjectSection />
         </div>
