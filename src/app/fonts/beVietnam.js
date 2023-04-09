@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 const beVietnamFont = localFont({     
     src: [{
       //-----black--------
-      path: 'beVietnam/BeVietnam-ExtraBold.woff',
+      path: 'BeVietnam/BeVietnam-ExtraBold.woff',
       weight: '700',
       style: 'black',
     }
