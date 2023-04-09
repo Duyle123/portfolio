@@ -17,12 +17,16 @@ const HeroSection = () => {
         <>
         <div className='container mx-auto dark:bg-black min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
         overflow-hidden relative strawford grid xl:grid-cols-12'>
-            <div className="hero-left-bar hidden xl:block xl:col-span-2">
-                <ThemeChanger className='z-10' />
+
+            {/* //============== Theme Changer ================ */}
+            <div className="hero-left-bar hidden xl:inline-block xl:col-span-2 xl:backdrop-contrast-100 xl:pt-10 xl:pl-10">
+                <ThemeChanger />
             </div>
+
+            {/* //============== Hero Section ================ */}
             <div className="hero xl:col-span-10">
                 {/* ============ top information ============= */}
-                <div className="hero-top-bar grid grid-cols-2 lg:grid-cols-6 xl:grid-cols-10 dark:text-white">
+                <div className="hero-top-bar grid grid-cols-2 lg:grid-cols-6 xl:grid-cols-10 dark:text-white pt-5 xl:pt-10">
                     <div className="contact-info lg:col-span-2">
                         <p>{admin.email}</p>
                         <p>{admin.tel}</p>
@@ -39,7 +43,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* ============ main options ================*/}
-                <div className="main-options dark:text-white">
+                <div className="main-options dark:text-white xl:pt-20">
                     <p className="xl:text-h2 lg:text-h3 strawford-black">
                     DUY'S PORTFOLIO
                     </p>
@@ -78,12 +82,15 @@ const HeroSection = () => {
                     </div>
                 </div>
             </div>
-                {/* ============== side bar ==================== */}
-            
-            <div className="hero-curve absolute -top-20">
-                <HeroCurve className="absolute top-0 -z-1 pointer-events-none stroke-black stroke-1 dark:stroke-white"/>
+
+            {/* ==============  background svg ==================== */}
+            <div className="absolute container w-fit h-fit mx-auto top-[25vh] xl:-top-20
+            xl:left-[400px] -left-[500px] md:-left-[200px]">
+                    <HeroCurve className="absolute top-0 -z-1 stroke-black stroke-1 dark:stroke-white aspect-auto xl:w-[997px] xl:h-[1425px]"/>
             </div>
         </div>
+
+        {/* ============== side bar ==================== */}
         <div className="hero-right-bar w-fit pl-5 pr-5 pb-20 border-black dark:border-white border-l-2 absolute flex  right-0 top-0 items-end xl:flex
         min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden">
             <a href="">
@@ -99,18 +106,21 @@ const ProjectSection = () => {
     let sectionName = 'Project';
     let ribbonRepeat = [...Array(12)];
     return(
-        <div className="project-heading relative flex flex-wrap">
-            <div className={`${beVietnamFont.className} text-h1`}>1.</div>
-            <div className="text-reg">During my time at NYU, I've learned to combine media theories and practice to make meaningful projects. 
-            What is shown below are some of my most recent works in terms of Web design and development.</div>
-            <div className="">
-            <div className="hero-curve">
-                <AbstractSVG className="absolute top-0 -z-1 pointer-events-none"/>
-            </div></div>
-            <div className="flex">
-                {ribbonRepeat.map(_=><div>{sectionName}</div>)}
+        <div className="container mx-auto overflow-hidden">
+            <div className="project-heading relative flex flex-wrap">
+                <div className={`${beVietnamFont.className} text-h1`}>1.</div>
+                <div className="text-reg">During my time at NYU, I've learned to combine media theories and practice to make meaningful projects. 
+                What is shown below are some of my most recent works in terms of Web design and development.</div>
+                <div className="">
+                <div className="hero-curve">
+                    <AbstractSVG className="absolute top-0 -z-1 pointer-events-none"/>
+                </div></div>
+                <div className="flex">
+                    {ribbonRepeat.map(_=><div>{sectionName}</div>)}
+                </div>
             </div>
         </div>
+        
     )
 }
 
