@@ -11,7 +11,6 @@ import beVietnamFont from '../app/fonts/beVietnam';
 import Arrow from '../media/svg/arrow.svg';
 import HeroCurve from '../media/svg/hero-curve.svg';
 import AbstractSVG from '../media/svg/abstract.svg';
-import { setCommentRange } from 'typescript';
 
 const HeroSection = () => {
     return(
@@ -108,31 +107,42 @@ const HeroSection = () => {
     )
 }
 
+const RibbonContent = () => {
+    let dotSymbol = "\u2B24"
+    return (
+        <div className='flex items-center gap-10'>
+            <div className='text-h5'>{dotSymbol}</div>
+            <div className='text-h2 strawford-bold'>Project</div>
+        </div>
+    )
+}
 
 const ProjectSection = () => {
-    let dotSymbol = "\u2B24"
     let sectionName = "Project";
     let ribbonRepeat = [...Array(20)];
     return(
         <div className="background bg-white relative overflow-hidden">
             <div className="container mx-auto dark:bg-white min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
             overflow-hidden relative strawford">
-                <div className="project-heading relative grid xl:grid-cols-12">
-                    <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3`}>1.</div>
+                <div className="project-heading relative grid xl:grid-cols-12 items-end pt-[150px]">
+                    <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3 h-fit`}>1.</div>
 
-                    <div className="text-reg col-span-3 text-end">During my time at NYU, I've learned to combine media theories and practice to make meaningful projects. 
+                    <div className="text-reg col-span-3 h-fit pb-[45px] pl-[40px]">During my time at NYU, I've learned to combine media theories and practice to make meaningful projects. 
                     What is shown below are some of my most recent works in terms of Web design and development.</div>
                     <div className='col-span-1'></div>
-                    <div className="col-span-5 overflow-hidden border-red border">
-                            <AbstractSVG className="absolute top-0 -z-1 pointer-events-none "/>
+                    <div className="col-span-5">
+                            <AbstractSVG className="absolute top-0 -z-1 pointer-events-none xl:w-[720px] xl:h-[720px]"/>
                     </div>
                     
                 </div>
             </div>
-            <div className="absolute w-screen top-[300px] drop-shadow-md shadow-direct bg-white">
-                <div className="flex text-h2 strawford-bold bg-white">
-                    {ribbonRepeat.map(_=><div className='w-[500px]'>{dotSymbol}{sectionName}</div>)}
+            <div className="absolute w-screen top-[450px] shadow-lg bg-white">
+                <div className="bg-white flex gap-10">
+                    {ribbonRepeat.map(_=><RibbonContent />)}
                 </div>
+            </div>
+            <div className="project-list">
+                
             </div>
         </div>
         

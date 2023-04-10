@@ -47,9 +47,12 @@ module.exports = {
       borderRadius: {
         '4xl': '2rem',
       },
-      dropShadow: {
-        'direct': [
-          '0px 15px 55px rgba(138, 138, 138, 0.25)'
+      boxShadow: {
+        'lg': [
+          '0px 11px 9px -39px rgba(0,0,0,0.1)',
+          '0px 26px 16px -28px rgba(0,0,0,0.1)',
+          '0px 20px 42px 6px rgba(0,0,0,0.1)',
+          '0px 10px 15px -3px rgba(0,0,0,0.1)',
         ],
       }
     },
