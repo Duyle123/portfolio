@@ -19,7 +19,7 @@ const HeroSection = () => {
         overflow-hidden relative strawford grid xl:grid-cols-12'>
 
             {/* //============== Theme Changer ================ */}
-            <div className="hero-left-bar hidden xl:inline-block xl:col-span-2 xl:backdrop-contrast-100 xl:pt-10 xl:pl-10">
+            <div className="hero-left-bar hidden xl:inline xl:col-span-2 xl:backdrop-contrast-100 xl:pt-10 xl:pl-10">
                 <ThemeChanger />
             </div>
 
@@ -91,7 +91,7 @@ const HeroSection = () => {
         </div>
 
         {/* ============== side bar ==================== */}
-        <div className="hero-right-bar w-fit pl-5 pr-5 pb-20 border-black dark:border-white border-l-2 absolute flex  right-0 top-0 items-end xl:flex
+        <div className="hero-right-bar w-fit pl-5 pr-5 pb-20 border-black dark:border-white border-l-2 absolute flex right-0 top-0 items-end xl:flex
         min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden">
             <a href="">
                 <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
