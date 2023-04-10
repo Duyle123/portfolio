@@ -13,12 +13,12 @@ export default function ThemeChanger() {
       }
     return (
         <div className="theme-changer flex">
-            <p className="dark:text-white pr-[20px]">Theme:</p>
-            <div className='grid grid-rows-2 '>
-                <button className='dark:text-white hover:text-white' onClick={darkMode}>
+            <p className="dark:text-white">Theme:</p>
+            <div className='flex-col'>
+                <button className='dark:text-white hover:text-white order-2' onClick={darkMode}>
                     Mono
                 </button>
-                <button className='dark:text-white hover:text-white' onClick={lightMode}>
+                <button className='dark:text-white hover:text-white order-1' onClick={lightMode}>
                     Triad
                 </button>
             </div>
