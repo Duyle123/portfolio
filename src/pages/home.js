@@ -19,7 +19,7 @@ const HeroSection = () => {
         overflow-hidden relative strawford grid xl:grid-cols-12'>
 
             {/* //============== Theme Changer ================ */}
-            <div className="hero-left-bar hidden xl:inline xl:col-span-2 xl:backdrop-contrast-100 xl:pt-10 xl:pl-10">
+            <div className="hero-left-bar hidden xl:flex xl:col-span-2 xl:backdrop-contrast-100 xl:pt-10 xl:pl-10">
                 <ThemeChanger />
             </div>
 
