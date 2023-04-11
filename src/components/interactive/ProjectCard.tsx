@@ -4,6 +4,7 @@ import React from "react";
 import ProjectInfo from "../user-info/ProjectInfo";
 import Image from "next/image";
 
+//create individual cards
 const ProjectCard = () => {
 
     return(
