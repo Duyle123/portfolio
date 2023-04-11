@@ -6,7 +6,7 @@ import '../app/globals.css';
 import ThemeChanger from '@/components/interactive/ThemeChanger';
 import strawfordFont from '../app/fonts/strawford.js'
 import beVietnamFont from '../app/fonts/beVietnam';
-import BlogCard from '@/components/interactive/ProjectCard';
+import ProjectCard from '@/components/interactive/ProjectCard';
 
 //===================== import svg ======================
 import Arrow from '../media/svg/arrow.svg';
@@ -99,12 +99,12 @@ const HeroSection = () => {
         </div>
 
         {/* ============== side bar ==================== */}
-        <div className="hero-right-bar w-fit pl-5 pr-5 border-black dark:border-white border-l-2 
+        <div className="hero-right-bar w-fit border-black dark:border-white border-l-2 
         absolute flex right-0 top-0 items-end 
         xl:flex min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden
         bg-gradient-to-tl from-deep-blue ease-out duration-300 transition-all bg-size-200 bg-pos-0 hover:bg-pos-100
         ">
-            <a className='pt-[700px] pb-20' href=''>
+            <a className='pt-[700px] pb-20  pl-5 pr-5' href=''>
                 <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
             </a>
         </div>
@@ -127,30 +127,39 @@ const ProjectSection = () => {
     let sectionName = "Project";
     let ribbonRepeat = [...Array(20)];
     return(
-        <div className="background bg-white relative overflow-hidden">
-            <div className="container mx-auto dark:bg-white min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
-            overflow-hidden relative strawford">
-                <div className="project-heading relative grid xl:grid-cols-12 items-start pt-[130px]">
-                    <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3 h-fit`}>1.</div>
+        <div className='bg-white overflow-hidden'>
 
-                    <div className="text-reg col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">During my time at NYU, I've learned to combine media theories and practice to make meaningful projects. 
-                    What is shown below are some of my most recent works in terms of Web design and development.</div>
-                    <div className='col-span-1'></div>
-                    <div className="col-span-5">
-                            <AbstractSVG className="absolute top-0 -z-1 pointer-events-none xl:w-[720px] xl:h-[720px]"/>
+            <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
+
+                {/* =============== Header ================= */}
+                <div className="overflow-hidden relative strawford">
+                    <div className="project-heading relative grid xl:grid-cols-12 items-start pt-[130px] pb-[480px]">
+                        <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3 h-fit`}>1.</div>
+
+                        <div className="text-reg col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">During my time at NYU, I've learned to combine media theories and practice to make meaningful projects. 
+                        What is shown below are some of my most recent works in terms of Web design and development.</div>
+                        <div className='col-span-1'></div>
+                        <div className="col-span-5">
+                                <AbstractSVG className="absolute top-0 -z-1 pointer-events-none xl:w-[720px] xl:h-[720px]"/>
+                        </div>
                     </div>
-                    
                 </div>
-            </div>
-            <div className="absolute w-screen top-[430px] shadow-lg bg-white">
-                <div className="bg-white flex gap-10">
-                    {ribbonRepeat.map(_=><RibbonContent />)}
+
+                {/* =============== Ribbon =================== */}
+                <div className="absolute top-[430px] -left-[5000px] shadow-lg bg-white">
+                    <div className="bg-white flex gap-10">
+                        {ribbonRepeat.map(_=><RibbonContent />)}
+                    </div>
                 </div>
-            </div>
-            <div className="project-list">
-                <BlogCard />
-            </div>
+
+
+                {/* =================== Project Card ==================== */}
+                <div className="project-list">
+                    <ProjectCard />
+                </div>
+            </div> 
         </div>
+        
         
         
     )
