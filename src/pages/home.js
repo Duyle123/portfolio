@@ -1,11 +1,12 @@
 import React from 'react';
-import admin from '../components/user-info/admin-info';
+import admin from '../components/user-info/AdminInfo';
 import '../app/globals.css';
 
 //===================== import components ======================
-import ThemeChanger from '../components/interactive/ThemeChanger.tsx';
+import ThemeChanger from '@/components/interactive/ThemeChanger';
 import strawfordFont from '../app/fonts/strawford.js'
 import beVietnamFont from '../app/fonts/beVietnam';
+import BlogCard from '@/components/interactive/ProjectCard';
 
 //===================== import svg ======================
 import Arrow from '../media/svg/arrow.svg';
@@ -117,7 +118,7 @@ const RibbonContent = () => {
     return (
         <div className='flex items-center gap-10'>
             <div className='text-h5'>{dotSymbol}</div>
-            <div className='text-h2 strawford-bold'>Project</div>
+            <div className='text-h2 strawford-bold'>Projects</div>
         </div>
     )
 }
@@ -129,10 +130,10 @@ const ProjectSection = () => {
         <div className="background bg-white relative overflow-hidden">
             <div className="container mx-auto dark:bg-white min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
             overflow-hidden relative strawford">
-                <div className="project-heading relative grid xl:grid-cols-12 items-end pt-[130px]">
+                <div className="project-heading relative grid xl:grid-cols-12 items-start pt-[130px]">
                     <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3 h-fit`}>1.</div>
 
-                    <div className="text-reg col-span-3 h-fit pb-[45px] pl-[40px]">During my time at NYU, I've learned to combine media theories and practice to make meaningful projects. 
+                    <div className="text-reg col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">During my time at NYU, I've learned to combine media theories and practice to make meaningful projects. 
                     What is shown below are some of my most recent works in terms of Web design and development.</div>
                     <div className='col-span-1'></div>
                     <div className="col-span-5">
@@ -147,7 +148,7 @@ const ProjectSection = () => {
                 </div>
             </div>
             <div className="project-list">
-                
+                <BlogCard />
             </div>
         </div>
         
