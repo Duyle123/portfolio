@@ -3,7 +3,7 @@ import admin from '../components/user-info/admin-info';
 import '../app/globals.css';
 
 //===================== import components ======================
-import ThemeChanger from '../components/interactive/themeChanger';
+import ThemeChanger from '../components/interactive/ThemeChanger.tsx';
 import strawfordFont from '../app/fonts/strawford.js'
 import beVietnamFont from '../app/fonts/beVietnam';
 
