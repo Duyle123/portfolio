@@ -46,7 +46,7 @@ const HeroSection = () => {
                 {/* ============ main options ================*/}
                 <div className="main-options dark:text-white xl:pt-20">
                     <p className="xl:text-h2 lg:text-h3 strawford-black">
-                    DUY'S PORTFOLIO
+                    DUY`&lsquo;`S PORTFOLIO
                     </p>
                     <div className="group relative strawford-light w-fit pr-3">               
                         <a className="z-30 relative xl:text-h3 lg:text-h4
@@ -136,7 +136,7 @@ const ProjectSection = () => {
                     <div className="project-heading relative grid xl:grid-cols-12 items-start pt-[130px] pb-[480px]">
                         <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3 h-fit`}>1.</div>
 
-                        <div className="text-reg col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">During my time at NYU, I've learned to combine media theories and practice to make meaningful projects. 
+                        <div className="text-reg col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">During my time at NYU, I`&lsquo;`ve learned to combine media theories and practice to make meaningful projects. 
                         What is shown below are some of my most recent works in terms of Web design and development.</div>
                         <div className='col-span-1'></div>
                         <div className="col-span-5">
