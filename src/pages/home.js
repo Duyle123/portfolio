@@ -148,7 +148,7 @@ const ProjectSection = () => {
                 {/* =============== Ribbon =================== */}
                 <div className="absolute top-[430px] -left-[5000px] shadow-lg bg-white">
                     <div className="bg-white flex gap-10">
-                        {ribbonRepeat.map(_=><RibbonContent />)}
+                        {ribbonRepeat.map(_=><RibbonContent key={''} />)}
                     </div>
                 </div>
 
