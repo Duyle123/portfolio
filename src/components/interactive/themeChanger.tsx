@@ -1,7 +1,7 @@
-'use client';
 import React from 'react';
 import useColorMode from '../../../hooks/useColorMode';
 
+//changed name
 export default function themeChanger() {
     const [colorMode, setColorMode] = useColorMode();
     const darkMode = () => {
