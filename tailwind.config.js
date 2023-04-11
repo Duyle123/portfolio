@@ -3,7 +3,7 @@
 module.exports = {
   content: [
     "./src/**/*.{html,js}",
-    "/src/**/*.{js,ts,jsx,tsx}"
+    "./src/**/*.{js,ts,jsx,tsx}"
   ],
   darkMode: 'class',
   theme: {
@@ -28,7 +28,8 @@ module.exports = {
       'black': '#000000',
       'white': '#ffffff',
       'gray': '#959595',
-      'red': '#FF3636'
+      'red': '#FF3636',
+      'deep-blue':'#00212F'
     },
     fontSize: {
       'sm': '0.618rem',
@@ -54,7 +55,14 @@ module.exports = {
           '0px 20px 42px 6px rgba(0,0,0,0.1)',
           '0px 10px 15px -3px rgba(0,0,0,0.1)',
         ],
-      }
+      },
+      backgroundSize: {
+        'size-200': '200% 200%',
+      },
+      backgroundPosition: {
+          'pos-0': '0% 0%',
+          'pos-100': '100% 100%',
+      },
     },
     
   },

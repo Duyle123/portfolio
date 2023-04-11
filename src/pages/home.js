@@ -19,14 +19,14 @@ const HeroSection = () => {
         overflow-hidden relative strawford grid xl:grid-cols-12'>
 
             {/* //============== Theme Changer ================ */}
-            <div className="hero-left-bar xl:flex xl:col-span-2 xl:backdrop-contrast-100 xl:pt-10 xl:pl-10">
+            <div className="hero-left-bar xl:flex xl:col-span-2 hidden xl:backdrop-contrast-100 xl:pt-[50px] xl:pl-10">
                 <ThemeChanger />
             </div>
 
             {/* //============== Hero Section ================ */}
             <div className="hero xl:col-span-10">
                 {/* ============ top information ============= */}
-                <div className="hero-top-bar grid grid-cols-2 lg:grid-cols-6 xl:grid-cols-10 dark:text-white pt-5 xl:pt-10">
+                <div className="hero-top-bar grid grid-cols-2 lg:grid-cols-6 xl:grid-cols-10 dark:text-white pt-5 xl:pt-[50px]">
                     <div className="contact-info lg:col-span-2">
                         <p>{admin.email}</p>
                         <p>{admin.tel}</p>
@@ -51,18 +51,20 @@ const HeroSection = () => {
                         <a className="z-30 relative xl:text-h3 lg:text-h4
                                         duration-800 ease-out
                                         group-hover:text-white 
-                                        dark:group-hover:text-black" href="">Projects</a>
+                                        dark:group-hover:text-black
+                                        " href="">Projects</a>
 
                         <span className="w-0 left-0 absolute pointer-events-none z-10
                                         bg-black  transition-width h-full duration-700 ease-out 
-                                        group-hover:w-full group-hover:pr-1 
+                                        group-hover:w-full group-hover:pr-1
                                         dark:bg-white"></span>
                     </div>
                     <div className="group relative strawford-light w-fit pr-3">               
                         <a className="z-30 relative xl:text-h3 lg:text-h4
                                         duration-800 ease-out
                                         group-hover:text-white 
-                                        dark:group-hover:text-black" href="">Writing Samples</a>
+                                        dark:group-hover:text-black
+                                        " href="">Writing Samples</a>
 
                         <span className="w-0 left-0 absolute pointer-events-none z-10
                                         bg-black  transition-width h-full duration-700 ease-out 
@@ -96,9 +98,12 @@ const HeroSection = () => {
         </div>
 
         {/* ============== side bar ==================== */}
-        <div className="hero-right-bar w-fit pl-5 pr-5 pb-20 border-black dark:border-white border-l-2 absolute flex right-0 top-0 items-end xl:flex
-        min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden">
-            <a href="">
+        <div className="hero-right-bar w-fit pl-5 pr-5 border-black dark:border-white border-l-2 
+        absolute flex right-0 top-0 items-end 
+        xl:flex min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden
+        bg-gradient-to-tl from-deep-blue ease-out duration-300 transition-all bg-size-200 bg-pos-0 hover:bg-pos-100
+        ">
+            <a className='pt-[700px] pb-20' href=''>
                 <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
             </a>
         </div>
@@ -124,7 +129,7 @@ const ProjectSection = () => {
         <div className="background bg-white relative overflow-hidden">
             <div className="container mx-auto dark:bg-white min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
             overflow-hidden relative strawford">
-                <div className="project-heading relative grid xl:grid-cols-12 items-end pt-[150px]">
+                <div className="project-heading relative grid xl:grid-cols-12 items-end pt-[130px]">
                     <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3 h-fit`}>1.</div>
 
                     <div className="text-reg col-span-3 h-fit pb-[45px] pl-[40px]">During my time at NYU, I've learned to combine media theories and practice to make meaningful projects. 
@@ -136,7 +141,7 @@ const ProjectSection = () => {
                     
                 </div>
             </div>
-            <div className="absolute w-screen top-[450px] shadow-lg bg-white">
+            <div className="absolute w-screen top-[430px] shadow-lg bg-white">
                 <div className="bg-white flex gap-10">
                     {ribbonRepeat.map(_=><RibbonContent />)}
                 </div>

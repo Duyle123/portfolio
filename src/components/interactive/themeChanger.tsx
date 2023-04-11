@@ -2,25 +2,26 @@
 import React from 'react';
 import useColorMode from '../../../hooks/useColorMode';
 
-
 export default function ThemeChanger() {
     const [colorMode, setColorMode] = useColorMode();
     const darkMode = () => {
         setColorMode("dark");
       }
-      const lightMode = () => {
+    const lightMode = () => {
         setColorMode("light");
-      }
+    }
     return (
-        <div className="theme-changer flex flex-col">
+        <div className="theme-changer flex flex-row gap-[30px]">
             <p className="dark:text-white">Theme:</p>
-            <div className='theme-button-holder'>
-                <button onClick={darkMode} className='dark:text-white text-gray theme-button-dark' >
+            <div className='flex flex-col gap-[10px]'>
+                <button className='theme-button-dark dark:text-black dark:bg-white
+                pr-5 pl-5 order-2 dark:order-1' onClick={darkMode}>
                     Mono
                 </button>
-                <button onClick={lightMode} className='dark:text-gray theme-button-light' >
+                <button className='theme-button-light dark:text-white text-white bg-black text-left
+                pr-5 pl-5 order-1 dark:order-2' onClick={lightMode}>
                     Triad
-                </button>
+                </button> 
             </div>
         </div>
     )

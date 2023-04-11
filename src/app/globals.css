@@ -20,24 +20,6 @@ body.light{
   background-color: white;
 }
 
-.theme-button-holder {
-  display: flex;
-  flex-direction: column;
-}
-
-.theme-button-dark {
-  margin-bottom: 10px;
-  padding-right:40px;
-  padding-left:40px;
-  text-align: left;
-}
-
-.theme-button-light {
-  padding-right:40px;
-  padding-left:40px;
-  text-align: left;
-}
-
 /* ================== Font ==================== */
 
 .strawford {
