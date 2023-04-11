@@ -12,17 +12,16 @@ export default function ThemeChanger() {
         setColorMode("light");
       }
     return (
-        <div className="theme-changer flex flex-col gap-10">
+        <div className="theme-changer flex flex-col">
             <p className="dark:text-white">Theme:</p>
-            <div className=''>
-                <button className='dark:text-white hover:text-black order-2' onClick={darkMode}>
+            <div className='theme-button-holder'>
+                <button onClick={darkMode} className='dark:text-white text-gray theme-button-dark' >
                     Mono
                 </button>
-                <button className='dark:text-white hover:text-red bg-red order-1' onClick={lightMode}>
+                <button onClick={lightMode} className='dark:text-gray theme-button-light' >
                     Triad
                 </button>
             </div>
-            
         </div>
     )
 }

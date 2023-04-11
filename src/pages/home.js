@@ -15,11 +15,11 @@ import AbstractSVG from '../media/svg/abstract.svg';
 const HeroSection = () => {
     return(
         <>
-        <div className='container mx-auto dark:bg-black min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
+        <div className='container mx-auto min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
         overflow-hidden relative strawford grid xl:grid-cols-12'>
 
             {/* //============== Theme Changer ================ */}
-            <div className="hero-left-bar hidden xl:flex xl:col-span-2 xl:backdrop-contrast-100 xl:pt-10 xl:pl-10">
+            <div className="hero-left-bar xl:flex xl:col-span-2 xl:backdrop-contrast-100 xl:pt-10 xl:pl-10">
                 <ThemeChanger />
             </div>
 
