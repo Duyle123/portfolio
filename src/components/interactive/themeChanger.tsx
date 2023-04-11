@@ -2,7 +2,7 @@
 import React from 'react';
 import useColorMode from '../../../hooks/useColorMode';
 
-export default function ThemeChanger() {
+export default function themeChanger() {
     const [colorMode, setColorMode] = useColorMode();
     const darkMode = () => {
         setColorMode("dark");

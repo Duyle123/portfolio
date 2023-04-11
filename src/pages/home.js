@@ -3,7 +3,7 @@ import admin from '../components/user-info/AdminInfo';
 import '../app/globals.css';
 
 //===================== import components ======================
-import ThemeChanger from '../components/interactive/themeChanger';
+import themeChanger from '../components/interactive/themeChanger';
 import strawfordFont from '../app/fonts/strawford.js'
 import beVietnamFont from '../app/fonts/beVietnam';
 import ProjectCard from '../components/interactive/ProjectCard.tsx';
@@ -21,7 +21,7 @@ const HeroSection = () => {
 
             {/* //============== Theme Changer ================ */}
             <div className="hero-left-bar xl:flex xl:col-span-2 hidden xl:backdrop-contrast-100 xl:pt-[50px] xl:pl-10">
-                <ThemeChanger />
+                <themeChanger />
             </div>
 
             {/* //============== Hero Section ================ */}
