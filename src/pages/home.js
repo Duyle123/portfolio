@@ -127,7 +127,6 @@ const RibbonContent = () => {
 }
 
 const ProjectSection = () => {
-    let sectionName = "Project";
     let ribbonRepeat = [...Array(20)];
     const { scrollYProgress } = useScroll();
     return(
