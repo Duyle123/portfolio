@@ -4,8 +4,8 @@ import parkNYCImage from "../../media/images/parkNYCImage.png";
 const ProjectInfo = [{
         id: '1',
         title: 'Tera Group Website Designs',
-        role: 'Designer',
-        summary: 'At Tera I did this and that',
+        role: 'Strategy; Copywrite; Design',
+        summary: "As a digital marketer at Tera Group / VTVcab, I've led initiatives in web and graphic design for one of its subsidiary's project. I've also managed ",
         thumbnail: teraImage,
         primaryColor: '#8210A5',
         secondaryColor: '#BD572D',

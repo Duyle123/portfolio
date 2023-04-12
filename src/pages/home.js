@@ -13,6 +13,9 @@ import Arrow from '../media/svg/arrow.svg';
 import HeroCurve from '../media/svg/hero-curve.svg';
 import AbstractSVG from '../media/svg/abstract.svg';
 
+//===================== import motion ======================
+import { motion, useScroll } from 'framer-motion';
+
 const HeroSection = () => {
     return(
         <>
@@ -46,7 +49,7 @@ const HeroSection = () => {
                 {/* ============ main options ================*/}
                 <div className="main-options dark:text-white xl:pt-20">
                     <p className="xl:text-h2 lg:text-h3 strawford-black">
-                    DUY`&lsquo;`S PORTFOLIO
+                    DUY&rsquo;S PORTFOLIO
                     </p>
                     <div className="group relative strawford-light w-fit pr-3">               
                         <a className="z-30 relative xl:text-h3 lg:text-h4
@@ -126,8 +129,9 @@ const RibbonContent = () => {
 const ProjectSection = () => {
     let sectionName = "Project";
     let ribbonRepeat = [...Array(20)];
+    const { scrollYProgress } = useScroll();
     return(
-        <div className='bg-white overflow-hidden'>
+        <div className='bg-[#EFEFEF] overflow-hidden'>
 
             <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
 
@@ -136,7 +140,7 @@ const ProjectSection = () => {
                     <div className="project-heading relative grid xl:grid-cols-12 items-start pt-[130px] pb-[480px]">
                         <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3 h-fit`}>1.</div>
 
-                        <div className="text-reg col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">During my time at NYU, I`&lsquo;`ve learned to combine media theories and practice to make meaningful projects. 
+                        <div className="text-reg col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">During my time at NYU, I&rsquo;ve learned to combine media theories and practice to make meaningful projects. 
                         What is shown below are some of my most recent works in terms of Web design and development.</div>
                         <div className='col-span-1'></div>
                         <div className="col-span-5">
@@ -146,11 +150,11 @@ const ProjectSection = () => {
                 </div>
 
                 {/* =============== Ribbon =================== */}
-                <div className="absolute top-[430px] -left-[5000px] shadow-lg bg-white">
+                <motion.div className="absolute top-[430px] -left-[5000px] shadow-lg bg-white">
                     <div className="bg-white flex gap-10">
                         {ribbonRepeat.map(_=><RibbonContent key={''} />)}
                     </div>
-                </div>
+                </motion.div>
 
 
                 {/* =================== Project Card ==================== */}
