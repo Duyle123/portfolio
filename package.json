@@ -18,6 +18,7 @@
     "eslint-config-next": "13.2.4",
     "framer-motion": "^10.11.6",
     "gsap": "^3.11.5",
+    "motion": "^10.15.5",
     "next": "^13.2.4",
     "next-images": "^1.8.4",
     "next-themes": "^0.2.1",

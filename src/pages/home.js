@@ -8,13 +8,14 @@ import strawfordFont from '../app/fonts/strawford.js'
 import beVietnamFont from '../app/fonts/beVietnam';
 import ProjectCard from '../components/interactive/ProjectCard.tsx';
 
+import Ribbon from '@/components/static/ribbon';
+
 //===================== import svg ======================
 import Arrow from '../media/svg/arrow.svg';
 import HeroCurve from '../media/svg/hero-curve.svg';
 import AbstractSVG from '../media/svg/abstract.svg';
 
-//===================== import motion ======================
-import { motion, useScroll } from 'framer-motion';
+
 
 const HeroSection = () => {
     return(
@@ -116,19 +117,8 @@ const HeroSection = () => {
     )
 }
 
-const RibbonContent = () => {
-    let dotSymbol = "\u2B24"
-    return (
-        <div className='flex items-center gap-10'>
-            <div className='text-h5'>{dotSymbol}</div>
-            <div className='text-h2 strawford-bold'>Projects</div>
-        </div>
-    )
-}
-
 const ProjectSection = () => {
-    let ribbonRepeat = [...Array(20)];
-    const { scrollYProgress } = useScroll();
+    
     return(
         <div className='bg-[#EFEFEF] overflow-hidden'>
 
@@ -149,12 +139,7 @@ const ProjectSection = () => {
                 </div>
 
                 {/* =============== Ribbon =================== */}
-                <motion.div className="absolute top-[430px] -left-[5000px] shadow-lg bg-white">
-                    <div className="bg-white flex gap-10">
-                        {ribbonRepeat.map(_=><RibbonContent key={''} />)}
-                    </div>
-                </motion.div>
-
+                <Ribbon />
 
                 {/* =================== Project Card ==================== */}
                 <div className="project-list">
