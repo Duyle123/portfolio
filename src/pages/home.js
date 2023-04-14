@@ -106,7 +106,8 @@ const HeroSection = () => {
         <div className="hero-right-bar w-fit border-black dark:border-white border-l-2 
         absolute flex right-0 top-0 items-end 
         xl:flex min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden
-        bg-gradient-to-tl from-deep-blue ease-out duration-300 transition-all bg-size-200 bg-pos-0 hover:bg-pos-100
+        bg-gradient-to-t from-blue ease-out duration-300 transition-all
+        bg-size-300 bg-pos-0 hover:bg-pos-50
         ">
             <a className='pt-[700px] pb-20  pl-5 pr-5' href=''>
                 <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
@@ -130,7 +131,7 @@ const ProjectSection = () => {
                         <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3 h-fit`}>1.</div>
 
                         <div className="text-reg col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">During my time at NYU, I&rsquo;ve learned to combine media theories and practice to make meaningful projects. 
-                        What is shown below are some of my most recent works in terms of Web design and development.</div>
+                        What is shown below are some of my most recent works in terms of multimedia design.</div>
                         <div className='col-span-1'></div>
                         <div className="col-span-5">
                                 <AbstractSVG className="absolute top-0 -z-1 pointer-events-none xl:w-[720px] xl:h-[720px]"/>

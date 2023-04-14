@@ -3,6 +3,8 @@
 import React from "react";
 import ProjectInfo from "../user-info/ProjectInfo";
 import Image from "next/image";
+import Link from "next/link";
+
 
 //create individual cards
 const ProjectCard = () => {
@@ -13,7 +15,7 @@ const ProjectCard = () => {
                 return(
                     <>  
                     <div className="flex container mx-auto justify-center gap-[130px] flex-wrap mb-20">
-                        <a href="">
+                        <Link key={''} href={project.link}>
                             <div className="image-container hover:translate-x-1 hover:-translate-y-2 ease-out transition-all duration-500">
                                 <style jsx>
                                     {`
@@ -25,12 +27,12 @@ const ProjectCard = () => {
                                         }
                                     `}
                                 </style>
-                                <Image src={project.thumbnail} className={`thumbnail xl:w-[680px] xl:h-[680px] object-cover`} 
+                                <Image src={project.thumbnail} className={`thumbnail xl:w-[580px] xl:h-[580px] object-cover`} 
                                 alt='Tera Group Co. Ltd. thumbnail, Logo in the middle'/>
                             </div>
-                        </a>
+                        </Link>
                         
-                        <div className="description basis-[550px] xl:pt-5">
+                        <div className="description basis-[450px] xl:pt-5">
                             <style jsx>
                                 {`
                                     .project-cta {
@@ -39,7 +41,7 @@ const ProjectCard = () => {
                                 `}
                             </style>
                             <div className="text-h3 strawford-bold leading-tight pb-5">
-                                <a href="">
+                                <a href={project.link}>
                                     {project.title}
                                 </a>
                             </div>
@@ -50,7 +52,7 @@ const ProjectCard = () => {
                                 {project.summary}
                             </div>
                             <button className={`project-cta pl-7 pr-7 pt-2 pb-2 text-h4 text-white`}>
-                                Explore
+                                <Link href={project.link}>Explore</Link>
                             </button>
                         </div>
                     </div>

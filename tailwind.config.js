@@ -29,7 +29,8 @@ module.exports = {
       'white': '#ffffff',
       'gray': '#959595',
       'red': '#FF3636',
-      'deep-blue':'#00212F'
+      'deep-blue':'#00212F',
+      'blue':'#026792'
     },
     fontSize: {
       'sm': '0.618rem',
@@ -57,10 +58,14 @@ module.exports = {
         ],
       },
       backgroundSize: {
+        'size-50': '50% 50%',
         'size-200': '200% 200%',
+        'size-300': '300% 300%',
       },
       backgroundPosition: {
+          '-pos-100': '-100% -100%',
           'pos-0': '0% 0%',
+          'pos-50': '50% 50%',
           'pos-100': '100% 100%',
       },
     },
