@@ -28,7 +28,7 @@ const ProjectCard = () => {
                                     `}
                                 </style>
                                 <Image src={project.thumbnail} className={`thumbnail xl:w-[580px] xl:h-[580px] object-cover`} 
-                                alt='Tera Group Co. Ltd. thumbnail, Logo in the middle'/>
+                                alt={project.thumbnailAlt}/>
                             </div>
                         </Link>
                         

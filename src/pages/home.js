@@ -2,13 +2,15 @@ import React from 'react';
 import admin from '../components/user-info/AdminInfo';
 import '../app/globals.css';
 
+
 //===================== import components ======================
 import ThemeChanger from '@/components/interactive/ThemeChanger';
 import strawfordFont from '../app/fonts/strawford.js'
 import beVietnamFont from '../app/fonts/beVietnam';
 import ProjectCard from '../components/interactive/ProjectCard.tsx';
-
 import Ribbon from '@/components/static/ribbon';
+
+import WritingSection from '../components/static/writing';
 
 //===================== import svg ======================
 import Arrow from '../media/svg/arrow.svg';
@@ -96,10 +98,10 @@ const HeroSection = () => {
             </div>
 
             {/* ==============  background svg ==================== */}
-            <div className="absolute container w-fit h-fit mx-auto top-[25vh] xl:-top-20
+            {/* <div className="absolute container w-fit h-fit mx-auto top-[25vh] xl:-top-20
             xl:left-[400px] -left-[500px] md:-left-[200px]">
                     <HeroCurve className="absolute top-0 -z-1 stroke-black stroke-1 dark:stroke-white aspect-auto xl:w-[997px] xl:h-[1425px]"/>
-            </div>
+            </div> */}
         </div>
 
         {/* ============== side bar ==================== */}
@@ -121,7 +123,7 @@ const HeroSection = () => {
 const ProjectSection = () => {
     
     return(
-        <div className='bg-[#EFEFEF] overflow-hidden'>
+        <div className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px]'>
 
             <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
 
@@ -159,6 +161,7 @@ function HomePage() {
         <div className={`${strawfordFont.className}`}>
             <HeroSection/>
             <ProjectSection />
+            <WritingSection />
         </div>
     );
 }``
