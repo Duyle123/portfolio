@@ -12,6 +12,7 @@ import Ribbon from '@/components/static/ribbon';
 
 import WritingSection from '../components/static/writing';
 
+
 //===================== import svg ======================
 import Arrow from '../media/svg/arrow.svg';
 import HeroCurve from '../media/svg/hero-curve.svg';
