@@ -140,7 +140,7 @@ const ProjectSection = () => {
                 </div>
 
                 {/* =============== Ribbon =================== */}
-                <Ribbon />
+                <Ribbon title='Projects' />
 
                 {/* =================== Project Card ==================== */}
                 <div className="project-list">
