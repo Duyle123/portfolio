@@ -6,7 +6,7 @@ function TeraPage () {
         <>
             <Header />
             <div>
-                <h1>Tera Page</h1>
+                <h1 className="">Tera Group Projects</h1>
                 <p>
                     This is a page for Tera.
                 </p>

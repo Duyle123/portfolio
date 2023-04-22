@@ -19,7 +19,6 @@ import HeroCurve from '../media/svg/hero-curve.svg';
 import AbstractSVG from '../media/svg/abstract.svg';
 
 
-
 const HeroSection = () => {
     return(
         <>
@@ -60,7 +59,7 @@ const HeroSection = () => {
                                         duration-800 ease-out
                                         group-hover:text-white 
                                         dark:group-hover:text-black
-                                        " href="">Projects</a>
+                                        " href="#project-section">Projects</a>
 
                         <span className="w-0 left-0 absolute pointer-events-none z-10
                                         bg-black  transition-width h-full duration-700 ease-out 
@@ -95,6 +94,7 @@ const HeroSection = () => {
                             <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
                         </a>
                     </div>
+
                 </div>
             </div>
 
@@ -112,7 +112,7 @@ const HeroSection = () => {
         bg-gradient-to-t from-blue ease-out duration-300 transition-all
         bg-size-300 bg-pos-0 hover:bg-pos-50
         ">
-            <a className='pt-[700px] pb-20  pl-5 pr-5' href=''>
+            <a className='pt-[700px] pb-20  pl-5 pr-5' href='#project-section'>
                 <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
             </a>
         </div>
@@ -120,11 +120,10 @@ const HeroSection = () => {
         
     )
 }
-
 const ProjectSection = () => {
     
     return(
-        <div className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px]'>
+        <div id='project-section' className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px]'>
 
             <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
                 {/* =============== Header ================= */}
