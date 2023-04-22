@@ -99,10 +99,10 @@ const HeroSection = () => {
             </div>
 
             {/* ==============  background svg ==================== */}
-            {/* <div className="absolute container w-fit h-fit mx-auto top-[25vh] xl:-top-20
+            <div className="absolute container w-fit h-fit mx-auto top-[25vh] xl:-top-20
             xl:left-[400px] -left-[500px] md:-left-[200px]">
                     <HeroCurve className="absolute top-0 -z-1 stroke-black stroke-1 dark:stroke-white aspect-auto xl:w-[997px] xl:h-[1425px]"/>
-            </div> */}
+            </div>
         </div>
 
         {/* ============== side bar ==================== */}
@@ -127,12 +127,10 @@ const ProjectSection = () => {
         <div className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px]'>
 
             <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
-
                 {/* =============== Header ================= */}
                 <div className="overflow-hidden relative strawford">
                     <div className="project-heading relative grid xl:grid-cols-12 items-start pt-[130px] pb-[480px]">
                         <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3 h-fit`}>1.</div>
-
                         <div className="text-reg col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">During my time at NYU, I&rsquo;ve learned to combine media theories and practice to make meaningful projects. 
                         What is shown below are some of my most recent works in terms of multimedia design.</div>
                         <div className='col-span-1'></div>
