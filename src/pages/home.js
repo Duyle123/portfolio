@@ -10,7 +10,7 @@ import beVietnamFont from '../app/fonts/beVietnam';
 import ProjectCard from '../components/interactive/ProjectCard.tsx';
 import Ribbon from '@/components/static/ribbon';
 
-import WritingSection from '../components/static/writing';
+import WritingSection from '../components/static/writing.js';
 
 
 //===================== import svg ======================
@@ -22,108 +22,110 @@ import AbstractSVG from '../media/svg/abstract.svg';
 const HeroSection = () => {
     return(
         <>
-        <div className='container mx-auto min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
-        overflow-hidden relative strawford grid xl:grid-cols-12'>
+            <div className='container mx-auto min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
+            overflow-hidden relative strawford grid xl:grid-cols-12'>
 
-            {/* //============== Theme Changer ================ */}
-            <div className="hero-left-bar xl:flex xl:col-span-2 hidden xl:backdrop-contrast-100 xl:pt-[50px] xl:pl-10">
-                <ThemeChanger />
-            </div>
+                {/* //============== Theme Changer ================ */}
+                <div className="hero-left-bar xl:flex xl:col-span-2 hidden xl:backdrop-contrast-100 xl:pt-[50px] xl:pl-10">
+                    <ThemeChanger />
+                </div>
 
-            {/* //============== Hero Section ================ */}
-            <div className="hero xl:col-span-10">
-                {/* ============ top information ============= */}
-                <div className="hero-top-bar grid grid-cols-2 lg:grid-cols-6 xl:grid-cols-10 dark:text-white pt-5 xl:pt-[50px]">
-                    <div className="contact-info lg:col-span-2">
-                        <p>{admin.email}</p>
-                        <p>{admin.tel}</p>
-                        <p>{admin.addressLine1}</p>
-                        <p>{admin.addressLine2}</p>
+                {/* //============== Hero Section ================ */}
+                <div className="hero xl:col-span-10">
+                    {/* ============ top information ============= */}
+                    <div className="hero-top-bar grid grid-cols-2 lg:grid-cols-6 xl:grid-cols-10 dark:text-white pt-5 xl:pt-[50px]">
+                        <div className="contact-info lg:col-span-2">
+                            <p>{admin.email}</p>
+                            <p>{admin.tel}</p>
+                            <p>{admin.addressLine1}</p>
+                            <p>{admin.addressLine2}</p>
+                        </div>
+                        
+                        <div className="aspired-jobs lg:col-span-2">
+                            <p>{admin.job1}</p>
+                            <p>{admin.job2}</p>
+                            <p>{admin.job3}</p>
+                            <p>{admin.job4}</p>
+                        </div>
                     </div>
-                    
-                    <div className="aspired-jobs lg:col-span-2">
-                        <p>{admin.job1}</p>
-                        <p>{admin.job2}</p>
-                        <p>{admin.job3}</p>
-                        <p>{admin.job4}</p>
+
+                    {/* ============ main options ================*/}
+                    <div className="main-options dark:text-white xl:pt-20">
+                        <p className="xl:text-h2 lg:text-h3 strawford-black">
+                        DUY&rsquo;S PORTFOLIO
+                        </p>
+                        <div className="group relative strawford-light w-fit pr-3">               
+                            <a className="z-30 relative xl:text-h3 lg:text-h4
+                                            duration-800 ease-out
+                                            group-hover:text-white 
+                                            dark:group-hover:text-black
+                                            " href="#project-section">Projects</a>
+
+                            <span className="w-0 left-0 absolute pointer-events-none z-10
+                                            bg-black  transition-width h-full duration-700 ease-out 
+                                            group-hover:w-full group-hover:pr-1
+                                            dark:bg-white"></span>
+                        </div>
+                        <div className="group relative strawford-light w-fit pr-3">               
+                            <a className="z-30 relative xl:text-h3 lg:text-h4
+                                            duration-800 ease-out
+                                            group-hover:text-white 
+                                            dark:group-hover:text-black
+                                            " href="">Writing Samples</a>
+
+                            <span className="w-0 left-0 absolute pointer-events-none z-10
+                                            bg-black  transition-width h-full duration-700 ease-out 
+                                            group-hover:w-full group-hover:pr-1 
+                                            dark:bg-white"></span>
+                        </div>
+                        <div className="group relative strawford-light w-fit pr-3">               
+                            <a className="z-30 relative xl:text-h3 lg:text-h4 
+                                            duration-800 ease-out
+                                            group-hover:text-white 
+                                            dark:group-hover:text-black" href="">Contact</a>
+
+                            <span className="w-0 left-0 absolute pointer-events-none z-10
+                                            bg-black  transition-width h-full duration-700 ease-out 
+                                            group-hover:w-full group-hover:pr-1 
+                                            dark:bg-white"></span>
+                        </div>
+                        <div className='xl:hidden pt-10'>
+                            <a href="">
+                                <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                {/* ============ main options ================*/}
-                <div className="main-options dark:text-white xl:pt-20">
-                    <p className="xl:text-h2 lg:text-h3 strawford-black">
-                    DUY&rsquo;S PORTFOLIO
-                    </p>
-                    <div className="group relative strawford-light w-fit pr-3">               
-                        <a className="z-30 relative xl:text-h3 lg:text-h4
-                                        duration-800 ease-out
-                                        group-hover:text-white 
-                                        dark:group-hover:text-black
-                                        " href="#project-section">Projects</a>
-
-                        <span className="w-0 left-0 absolute pointer-events-none z-10
-                                        bg-black  transition-width h-full duration-700 ease-out 
-                                        group-hover:w-full group-hover:pr-1
-                                        dark:bg-white"></span>
-                    </div>
-                    <div className="group relative strawford-light w-fit pr-3">               
-                        <a className="z-30 relative xl:text-h3 lg:text-h4
-                                        duration-800 ease-out
-                                        group-hover:text-white 
-                                        dark:group-hover:text-black
-                                        " href="">Writing Samples</a>
-
-                        <span className="w-0 left-0 absolute pointer-events-none z-10
-                                        bg-black  transition-width h-full duration-700 ease-out 
-                                        group-hover:w-full group-hover:pr-1 
-                                        dark:bg-white"></span>
-                    </div>
-                    <div className="group relative strawford-light w-fit pr-3">               
-                        <a className="z-30 relative xl:text-h3 lg:text-h4 
-                                        duration-800 ease-out
-                                        group-hover:text-white 
-                                        dark:group-hover:text-black" href="">Contact</a>
-
-                        <span className="w-0 left-0 absolute pointer-events-none z-10
-                                        bg-black  transition-width h-full duration-700 ease-out 
-                                        group-hover:w-full group-hover:pr-1 
-                                        dark:bg-white"></span>
-                    </div>
-                    <div className='xl:hidden pt-10'>
-                        <a href="">
-                            <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-            {/* ==============  background svg ==================== */}
-            <div className="absolute container w-fit h-fit mx-auto top-[25vh] xl:-top-20
-            xl:left-[400px] -left-[500px] md:-left-[200px]">
+                {/* ==============  background svg ==================== */}
+                <div className="absolute container w-fit h-fit mx-auto top-[25vh] xl:-top-20
+                xl:left-[400px] -left-[500px] md:-left-[200px]">
                     <HeroCurve className="absolute top-0 -z-1 stroke-black stroke-1 dark:stroke-white aspect-auto xl:w-[997px] xl:h-[1425px]"/>
-            </div>
-        </div>
+                </div>
 
-        {/* ============== side bar ==================== */}
-        <div className="hero-right-bar w-fit border-black dark:border-white border-l-2 
-        absolute flex right-0 top-0 items-end 
-        xl:flex min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden
-        bg-gradient-to-t from-blue ease-out duration-300 transition-all
-        bg-size-300 bg-pos-0 hover:bg-pos-50
-        ">
-            <a className='pt-[700px] pb-20  pl-5 pr-5' href='#project-section'>
-                <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
-            </a>
-        </div>
+                {/* ============== side bar ==================== */}
+                <div className="hero-right-bar w-fit border-black dark:border-white border-l-2 
+                absolute flex right-0 top-0 items-end 
+                xl:flex min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden
+                bg-gradient-to-t from-blue ease-out duration-300 transition-all
+                bg-size-300 bg-pos-0 hover:bg-pos-50
+                ">
+                    <a className='pt-[700px] pb-20  pl-5 pr-5' href='#project-section'>
+                        <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
+                    </a>
+                </div>
+
+            </div>
+
         </>
         
     )
 }
+
 const ProjectSection = () => {
     
     return(
-        <div id='project-section' className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px]'>
+        <div id='project-section' className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px] max-w-[2500px] mx-auto'>
 
             <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
                 {/* =============== Header ================= */}
@@ -140,7 +142,7 @@ const ProjectSection = () => {
                 </div>
 
                 {/* =============== Ribbon =================== */}
-                <Ribbon title='Projects' />
+                <Ribbon title='Projects' style='horizontal'/>
 
                 {/* =================== Project Card ==================== */}
                 <div className="project-list">
