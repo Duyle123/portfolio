@@ -8,10 +8,10 @@ type Props = {
 export default function WritingsItem({post}: Props) {
     const {id, title, date} = post  
     const formattedDate = getFormattedDate(date)
-
+    
     return (
         <li>
-            <Link href={`/writings/${id}`}>{title}</Link>
+            <Link href={`/posts/${id}`}>{title}</Link>
             <div>{formattedDate}</div>
             <div>WritingsItem</div>
         </li>
