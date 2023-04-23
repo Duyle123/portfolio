@@ -7,7 +7,7 @@ import '../../app/globals.css';
 
 function WritingSection() {
     return (
-        <div className="mx-auto max-w-[2500px] h-fit overflow-hidden">
+        <div id='writing-section' className="mx-auto max-w-[2500px] h-fit overflow-hidden">
             <div className="bg-white relative h-fit grid">
                 <div className="writing-section container mx-auto w-screen
                 min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 

@@ -51,8 +51,8 @@ const ProjectCard = () => {
                             <div className="project-summary pb-10">
                                 {project.summary}
                             </div>
-                            <button className={`project-cta pl-7 pr-7 pt-2 pb-2 text-h4 text-white`}>
-                                <Link href={project.link}>Explore</Link>
+                            <button className={`project-cta text-h4 pt-2 pb-2 text-white`}>
+                                <Link className="pr-7 pl-7 pt-4 pb-4" href={project.link}>Explore</Link>
                             </button>
                         </div>
                     </div>

@@ -71,7 +71,7 @@ const HeroSection = () => {
                                             duration-800 ease-out
                                             group-hover:text-white 
                                             dark:group-hover:text-black
-                                            " href="">Writing Samples</a>
+                                            " href="#writing-section">Writing Samples</a>
 
                             <span className="w-0 left-0 absolute pointer-events-none z-10
                                             bg-black  transition-width h-full duration-700 ease-out 
@@ -98,10 +98,10 @@ const HeroSection = () => {
                 </div>
 
                 {/* ==============  background svg ==================== */}
-                <div className="absolute container w-fit h-fit mx-auto top-[25vh] xl:-top-20
+                {/* <div className="absolute container w-fit h-fit mx-auto top-[25vh] xl:-top-20
                 xl:left-[400px] -left-[500px] md:-left-[200px]">
                     <HeroCurve className="absolute top-0 -z-1 stroke-black stroke-1 dark:stroke-white aspect-auto xl:w-[997px] xl:h-[1425px]"/>
-                </div>
+                </div> */}
             </div>
 
             {/* ============== side bar ==================== */}
