@@ -21,7 +21,7 @@ import AbstractSVG from '../media/svg/abstract.svg';
 
 const HeroSection = () => {
     return(
-        <div className='relative mx-auto max-w-[2500px]'>
+        <div className='relative mx-auto max-w-[2500px] z-1'>
             <div className='container mx-auto min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
             overflow-hidden relative strawford grid xl:grid-cols-12'>
 
@@ -122,7 +122,7 @@ const HeroSection = () => {
 const ProjectSection = () => {
     
     return(
-        <div id='project-section' className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px] max-w-[2500px] mx-auto shadow-lg'>
+        <div id='project-section' className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px] max-w-[2500px] mx-auto z-10'>
 
             <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
                 {/* =============== Header ================= */}
