@@ -21,7 +21,7 @@ import AbstractSVG from '../media/svg/abstract.svg';
 
 const HeroSection = () => {
     return(
-        <>
+        <div className='relative mx-auto max-w-[2500px]'>
             <div className='container mx-auto min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
             overflow-hidden relative strawford grid xl:grid-cols-12'>
 
@@ -102,22 +102,19 @@ const HeroSection = () => {
                 xl:left-[400px] -left-[500px] md:-left-[200px]">
                     <HeroCurve className="absolute top-0 -z-1 stroke-black stroke-1 dark:stroke-white aspect-auto xl:w-[997px] xl:h-[1425px]"/>
                 </div>
+            </div>
 
-                {/* ============== side bar ==================== */}
-                <div className="hero-right-bar w-fit border-black dark:border-white border-l-2 
+            {/* ============== side bar ==================== */}
+            <div className="hero-right-bar w-fit border-black dark:border-white border-l-2 
                 absolute flex right-0 top-0 items-end 
                 xl:flex min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden
-                bg-gradient-to-t from-blue ease-out duration-300 transition-all
-                bg-size-300 bg-pos-0 hover:bg-pos-50
+                
                 ">
                     <a className='pt-[700px] pb-20  pl-5 pr-5' href='#project-section'>
                         <Arrow className="stroke-black stroke-[4] dark:stroke-white" /> 
                     </a>
                 </div>
-
-            </div>
-
-        </>
+        </div>
         
     )
 }
@@ -125,7 +122,7 @@ const HeroSection = () => {
 const ProjectSection = () => {
     
     return(
-        <div id='project-section' className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px] max-w-[2500px] mx-auto'>
+        <div id='project-section' className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px] max-w-[2500px] mx-auto shadow-lg'>
 
             <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
                 {/* =============== Header ================= */}

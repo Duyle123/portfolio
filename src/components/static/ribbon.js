@@ -30,7 +30,7 @@ export default function Ribbon (props) {
         )
     } else if (props.style === 'vertical'){
         return (
-            <div className="absolute -rotate-90 top-[430px] left-[0px] shadow-lg bg-white">
+            <div className="absolute -rotate-90 top-[430px] -right-[100px] shadow-lg bg-white">
                 <div className="bg-white flex gap-10">
                     {ribbonRepeat.map(_=><RibbonContent key='' title={props.title} />)}
                 </div>

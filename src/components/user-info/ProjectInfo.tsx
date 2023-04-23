@@ -26,5 +26,4 @@ const ProjectInfo = [{
         link: '/projects/DMTP_climate_change_project/index.html'
     }
 ]
-3
 export default ProjectInfo;
