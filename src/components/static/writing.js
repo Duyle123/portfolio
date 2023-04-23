@@ -19,9 +19,10 @@ function WritingSection() {
                             <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3 h-fit`}>2.</div>
                             <div className="text-reg col-span-3 h-fit pb-[45px] pt-[90px] pl-[40px]">The samples below include copies that I&rsquo;ve written in past internships, in college, and also in my free time. My interests revolve around film, design, media, entertainment, and technology. </div>
                             <div className='col-span-1'></div>
+                            <WritingsCard />
                         </div>
                         <div>
-                            <WritingsCard />
+                            
                         </div>
 
                         <Ribbon title='Writings' style='vertical'/>
