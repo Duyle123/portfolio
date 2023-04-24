@@ -119,7 +119,7 @@ const HeroSection = () => {
     )
 }
 
-constProjectSection = () => {
+const ProjectSection = () => {
     
     return(
         <div id='project-section' className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px] max-w-[2500px] mx-auto z-10'>
