@@ -7,7 +7,7 @@ const admin = {
         addressLine1: '117 W 116th St.',
         addressLine2: 'New York, NY 10026',
         job1:'Digital Marketer',
-        job2:'UI / UX designer',
+        job2:'Designer',
         job3:'Creative Web Developer',
         job4:'Filmmaker',
     }

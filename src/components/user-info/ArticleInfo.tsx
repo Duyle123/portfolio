@@ -1,5 +1,3 @@
-
-
 const ArticleInfo = [{
     id: '1',
     title: 'Tera Group Designs',

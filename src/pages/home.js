@@ -15,8 +15,8 @@ import WritingSection from '../components/static/WritingSection.js';
 
 //===================== import svg ======================
 import Arrow from '../media/svg/arrow.svg';
-import HeroCurve from '../media/svg/hero-curve.svg';
-import AbstractSVG from '../media/svg/abstract.svg';
+// import HeroCurve from '../media/svg/hero-curve.svg';
+// import AbstractSVG from '../media/svg/abstract.svg';
 
 
 const HeroSection = () => {
@@ -123,7 +123,6 @@ const ProjectSection = () => {
     
     return(
         <div id='project-section' className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px] max-w-[2500px] mx-auto z-10'>
-
             <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
                 {/* =============== Header ================= */}
                 <div className="overflow-hidden relative strawford">
