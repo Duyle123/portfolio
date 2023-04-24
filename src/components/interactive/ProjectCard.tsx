@@ -8,14 +8,13 @@ import Link from "next/link";
 
 //create individual cards
 const ProjectCard = () => {
-
     return(
         <div>
             {ProjectInfo.map(project => {
                 return(
                     <>  
-                    <div className="flex container mx-auto justify-center gap-[130px] flex-wrap mb-20">
-                        <Link key={''} href={project.link}>
+                    <div className="flex container mx-auto justify-center gap-[100px] flex-wrap mb-20">
+                        <Link key={''} href={project.link} target="_blank">
                             <div className="image-container hover:translate-x-1 hover:-translate-y-2 ease-out transition-all duration-500">
                                 <style jsx>
                                     {`
@@ -40,19 +39,19 @@ const ProjectCard = () => {
                                     }
                                 `}
                             </style>
-                            <div className="text-h3 strawford-bold leading-tight pb-5">
-                                <a href={project.link} className='project-title-link'>
+                            <div className="text-h3 leading-tight pb-5">
+                                <a href={project.link} className='project-title-link' target="_blank">
                                     {project.title}
                                 </a>
                             </div>
-                            <div className="project-role strawford-bold text-h5 pb-5">
+                            <div className="project-role text-h5 pb-5">
                                 Roles: {project.role}
                             </div>
                             <div className="project-summary pb-10">
                                 {project.summary}
                             </div>
                             <button className={`project-cta text-h4 pt-2 pb-2 text-white`}>
-                                <Link className="pr-7 pl-7 pt-4 pb-4" href={project.link}>Explore</Link>
+                                <Link className="pr-7 pl-7 pt-4 pb-4" href={project.link} target="_blank">Explore</Link>
                             </button>
                         </div>
                     </div>

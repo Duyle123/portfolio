@@ -17,24 +17,25 @@ const RibbonContent = (props) => {
 export default function Ribbon (props) {
     const { scrollYProgress } = useScroll();
     let x = useTransform(scrollYProgress, [0, 1], ['0%', '10%'], { ease: circOut })
+    let y = useTransform(scrollYProgress, [0, 1], ['0%', '10%'], { ease: circOut })
 
-    let ribbonRepeat = [...Array(7)];
+    let ribbonRepeat = [...Array(15)];
 
     if (props.style === 'horizontal'){
         return (
-            <motion.div style={{x}} className="absolute top-[430px] -left-[750px] shadow-lg bg-white">
-                <div className="bg-white flex gap-10">
+            <motion.div className="absolute top-[430px] -left-[1325px] shadow-lg bg-white">
+                <div className="flex gap-10">
                     {ribbonRepeat.map(_=><RibbonContent key='' title={props.title} />)}
                 </div>
             </motion.div>  
         )
     } else if (props.style === 'vertical'){
         return (
-            <div className="absolute -rotate-90 top-[430px] -right-[170px] shadow-lg bg-white">
-                <div className="bg-white flex gap-10">
+            <motion.div className="absolute top-0 -right-[2880px] -rotate-90 shadow-lg bg-white">
+                <div className="flex gap-10">
                     {ribbonRepeat.map(_=><RibbonContent key='' title={props.title} />)}
                 </div>
-            </div>
+            </motion.div>
         )
     }
     else return (

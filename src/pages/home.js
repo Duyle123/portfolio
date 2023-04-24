@@ -8,7 +8,7 @@ import ThemeChanger from '@/components/interactive/ThemeChanger';
 import strawfordFont from '../app/fonts/strawford.js'
 import beVietnamFont from '../app/fonts/beVietnam';
 import ProjectCard from '../components/interactive/ProjectCard.tsx';
-import Ribbon from '@/components/static/ribbon';
+// import Ribbon from '@/components/static/ribbon';
 
 import WritingSection from '../components/static/WritingSection.js';
 
@@ -119,18 +119,22 @@ const HeroSection = () => {
     )
 }
 
-const ProjectSection = () => {
+constProjectSection = () => {
     
     return(
         <div id='project-section' className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px] max-w-[2500px] mx-auto z-10'>
             <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
                 {/* =============== Header ================= */}
                 <div className="overflow-hidden relative strawford">
-                    <div className="project-heading relative grid xl:grid-cols-12 items-start pt-[130px] pb-[480px]">
-                        <div className={`${beVietnamFont.className} text-h1 text-end col-span-1 xl:col-span-3 h-fit`}>1.</div>
-                        <div className="text-reg col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">During my time at NYU, I&rsquo;ve learned to combine media theories and practice to make meaningful projects. 
-                        What is shown below are some of my most recent works in terms of multimedia design.</div>
-                        <div className='col-span-1'></div>
+                    <div className="project-heading relative grid xl:grid-cols-12 items-start pt-[130px] pb-[50px] mb-[150px] border-b-2">
+                        <div className={`${beVietnamFont.className} text-h1 text-end col-start-3 h-fit`}>1.</div>
+                        <div className="text-reg strawford-light col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">
+                        During my time at NYU, I&rsquo;ve learned to combine media theories and practice to make projects that have an impact on both business and society.
+                        What is shown below are some of my most recent works in terms of multimedia design.
+                        </div>
+                        
+                        <div className="col-start-3 text-h1 strawford-bold -mt-5">PROJECTS</div>
+
                         {/* <div className="col-span-5">
                                 <AbstractSVG className="absolute top-0 -z-1 pointer-events-none xl:w-[720px] xl:h-[720px]"/>
                         </div> */}
@@ -138,7 +142,7 @@ const ProjectSection = () => {
                 </div>
 
                 {/* =============== Ribbon =================== */}
-                <Ribbon title='Projects' style='horizontal'/>
+                {/* <Ribbon title='Projects' style='horizontal'/> */}
 
                 {/* =================== Project Card ==================== */}
                 <div className="project-list">
