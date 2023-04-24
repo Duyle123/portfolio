@@ -41,7 +41,7 @@ export default function WritingsItem({post}: Props) {
                 }}
                 />
               </div>
-              <div className="post-description w-[400px]">
+              <div className="post-description pt-5 w-[350px]">
                 <div className='text-h5 strawford-bold'>{title}</div>
                 <div className='text-gray'>{formattedDate}</div>
                 <div></div>

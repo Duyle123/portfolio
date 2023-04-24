@@ -31,7 +31,7 @@ function WritingSection() {
                     <div className="strawford h-full grid grid-cols-12">
                         <div className="bg-white relative col-span-10 grid grid-cols-10 items-start pt-[130px] pb-[200px]">
                             {/* <Ribbon title='Writings' style='vertical'/> */}
-                            <div className="col-start-3 col-span-6 flex flex-col gap-20">
+                            <div className="col-start-3 col-span-5 flex flex-col gap-20">
                                 <WritingsFeatured />
                                 <WritingsCard />
                                 <Link href='/writings' className="bg-black text-white hover:bg-white hover:text-black pt-5 pb-5 text-h4 text-center border-black border-2">Read More</Link>
