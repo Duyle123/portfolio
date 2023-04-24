@@ -1,6 +1,8 @@
 ---
-title: 'This is the Second blog'
+title: 'Meta Introduces Its Own Subscription Service'
 date: '2023-03-14'
+thumbnail: '/media/blogs/Meta-Introduces-Its-Own-Subscription-Service.webp'
+thumbnailAlt: "Image of Meta's Verified Program. Captured from Meta's Official Website."
 ---
 
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.

@@ -3,4 +3,5 @@ type WritingPost = {
     title: string;
     date: string;
     thumbnail: string;
+    thumbnailAlt: string;
 }

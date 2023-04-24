@@ -20,14 +20,14 @@ type Props = {
     post: WritingPost;
 }
 export default function WritingsItem({post}: Props) {
-    const {id, title, date, thumbnail} = post  
+    const {id, title, date, thumbnail, thumbnailAlt} = post  
     const formattedDate = getFormattedDate(date)
     
     return (
         <li>
             <Link href={`/posts/${id}`}>
                 <Image
-                alt="Dog"
+                alt={thumbnailAlt}
                 src={thumbnail}
                 placeholder="blur"
                 blurDataURL={rgbDataURL(237, 181, 6)}
