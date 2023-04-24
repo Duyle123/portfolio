@@ -11,7 +11,7 @@ export default function ThemeChanger() {
         setColorMode("light");
     }
     return (
-        <div className="theme-changer flex flex-row gap-[30px]">
+        <div className="theme-changer flex flex-row xl:gap-[15px] 2xl:gap-[30px]">
             <p className="dark:text-white">Theme:</p>
             <div className='flex flex-col gap-[10px]'>
                 <button className='theme-button-dark dark:text-black dark:bg-white

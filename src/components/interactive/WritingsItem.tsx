@@ -26,7 +26,14 @@ export default function WritingsItem({post}: Props) {
     return (
         <li className='mb-10'>
             <Link href={`/posts/${id}`} className='flex flex-wrap gap-10'>
-              <div className="image-container w-[300px] h-[300px]">
+              <div className="image-container 
+              2xl:w-[280px] 2xl:h-[280px] 
+              xl:w-[180px] xl:h-[180px]
+              lg:w-[180px] lg:h-[280px]
+              md:w-[280px] md:h-[280px]
+              sm:w-[280px] sm:h-[280px]
+
+              ">
                 <Image
                 alt={thumbnailAlt}
                 src={thumbnail}
@@ -41,7 +48,8 @@ export default function WritingsItem({post}: Props) {
                 }}
                 />
               </div>
-              <div className="post-description pt-5 w-[350px]">
+              <div className="post-description pt-5 
+              2xl:w-[300px]">
                 <div className='text-h5 strawford-bold'>{title}</div>
                 <div className='text-gray'>{formattedDate}</div>
                 <div></div>

@@ -37,9 +37,9 @@ module.exports = {
       'sm': '0.618rem',
       'reg': '1rem',
       'h5': '1.618rem',
-      'h4': '2.618rem',
-      'h3': '4.236rem',
-      'h2': '6.854rem',
+      h4: ['2.618rem','3rem'],
+      h3: ['4.236rem','5rem'],
+      h2: ['6.854rem','7rem'],
       h1: ['11.098rem', '10rem'],
     },
     extend: {

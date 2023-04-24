@@ -4,6 +4,10 @@
 
 html{scroll-behavior:smooth}
 
+html {
+  font-size: 17px;
+}
+
 /* ================== global ==================== */
 .display-none {
   @apply hidden;
