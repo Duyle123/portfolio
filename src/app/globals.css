@@ -67,12 +67,3 @@ body.light{
   background: #888888;
 }
 
-
-/* =============Background ============================ */
-
-#writing-section {
-  background-image: url('../media/images/abstract-2.webp');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: white;
-}

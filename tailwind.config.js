@@ -27,6 +27,7 @@ module.exports = {
     colors: {
       'black': '#000000',
       'white': '#ffffff',
+      'deep-gray': '#595959',
       'gray': '#959595',
       'red': '#FF3636',
       'deep-blue':'#00212F',
@@ -39,7 +40,7 @@ module.exports = {
       'h4': '2.618rem',
       'h3': '4.236rem',
       'h2': '6.854rem',
-      'h1': '11.098rem',
+      h1: ['11.098rem', '10rem'],
     },
     extend: {
       spacing: {

@@ -128,12 +128,12 @@ const ProjectSection = () => {
                 <div className="overflow-hidden relative strawford">
                     <div className="project-heading relative grid xl:grid-cols-12 items-start pt-[130px] pb-[50px] mb-[150px] border-b-2">
                         <div className={`${beVietnamFont.className} text-h1 text-end col-start-3 h-fit`}>1.</div>
-                        <div className="text-reg strawford-light col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">
+                        <div className="text-reg strawford-light col-span-3 h-fit pb-[45px] pt-[35px] pl-[40px]">
                         During my time at NYU, I&rsquo;ve learned to combine media theories and practice to make projects that have an impact on both business and society.
                         What is shown below are some of my most recent works in terms of multimedia design.
                         </div>
                         
-                        <div className="col-start-3 text-h1 strawford-bold -mt-5">PROJECTS</div>
+                        <div className="col-start-3 text-h1 strawford-bold ">PROJECTS</div>
 
                         {/* <div className="col-span-5">
                                 <AbstractSVG className="absolute top-0 -z-1 pointer-events-none xl:w-[720px] xl:h-[720px]"/>
