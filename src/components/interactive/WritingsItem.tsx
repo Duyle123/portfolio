@@ -24,23 +24,29 @@ export default function WritingsItem({post}: Props) {
     const formattedDate = getFormattedDate(date)
     
     return (
-        <li>
-            <Link href={`/posts/${id}`}>
+        <li className='mb-10'>
+            <Link href={`/posts/${id}`} className='flex gap-10'>
+              <div className="image-container w-[250px] h-[250px]">
                 <Image
                 alt={thumbnailAlt}
                 src={thumbnail}
                 placeholder="blur"
                 blurDataURL={rgbDataURL(237, 181, 6)}
-                width={750}
-                height={1000}
+                width={300}
+                height={300}
                 style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
                 }}
                 />
-                <div>{title}</div>
+              </div>
+              <div className="post-description w-[450px]">
+                <div className='text-h5 strawford-bold'>{title}</div>
                 <div>{formattedDate}</div>
                 <div>WritingsItem</div>
+              </div>
+                
             </Link>
             
         </li>
