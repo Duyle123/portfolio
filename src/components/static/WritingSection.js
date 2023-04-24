@@ -8,8 +8,7 @@ function WritingSection() {
     return (
         <div id='writing-section' className="mx-auto max-w-[2500px] h-fit overflow-hidden">
             <div className="relative h-fit grid">
-                <div className="container mx-auto w-screen
-                min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen 
+                <div className="container mx-auto w-screen xl:min-h-[768px]
                 relative strawford">
                     {/* <Image src={abstractBg} alt='' 
                     className="absolute left-0 top-0"/> */}

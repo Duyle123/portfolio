@@ -10,7 +10,7 @@ import beVietnamFont from '../app/fonts/beVietnam';
 import ProjectCard from '../components/interactive/ProjectCard.tsx';
 import Ribbon from '@/components/static/ribbon';
 
-import WritingSection from '../components/static/writing.js';
+import WritingSection from '../components/static/WritingSection.js';
 
 
 //===================== import svg ======================
@@ -132,9 +132,9 @@ const ProjectSection = () => {
                         <div className="text-reg col-span-3 h-fit pb-[45px] pt-[85px] pl-[40px]">During my time at NYU, I&rsquo;ve learned to combine media theories and practice to make meaningful projects. 
                         What is shown below are some of my most recent works in terms of multimedia design.</div>
                         <div className='col-span-1'></div>
-                        <div className="col-span-5">
+                        {/* <div className="col-span-5">
                                 <AbstractSVG className="absolute top-0 -z-1 pointer-events-none xl:w-[720px] xl:h-[720px]"/>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

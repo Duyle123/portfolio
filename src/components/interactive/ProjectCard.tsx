@@ -41,7 +41,7 @@ const ProjectCard = () => {
                                 `}
                             </style>
                             <div className="text-h3 strawford-bold leading-tight pb-5">
-                                <a href={project.link}>
+                                <a href={project.link} className='project-title-link'>
                                     {project.title}
                                 </a>
                             </div>
