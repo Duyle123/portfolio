@@ -172,10 +172,10 @@ const ProjectSection = () => {
                 <div className="overflow-hidden relative">
                     <div className="project-heading relative grid 
                     xl:grid-cols-12 xl:pt-[130px] 
-                    md:p-0 md:grid-cols-9 md:gap-0 md:pt-[100px] md:pb-[100px]
-                    sm:p-[20px] sm:pb-[70px]
+                    md:p-0 md:grid-cols-9 md:gap-0 md:pt-[100px] md:pb-[100px] md:mb-[150px]
+                    sm:p-[20px] sm:pb-[70px] sm:mb-[100px]
                     p-[15px] pt-[50px] pb-[50px] gap-5 auto-rows-min
-                    mb-[150px] border-b-2
+                    mb-[50px] border-b-2
                     ">
                         <div className={`${beVietnamFont.className} 
                         text-h1 xl:text-end
@@ -189,7 +189,7 @@ const ProjectSection = () => {
 
                         <div className="text-reg h-min strawford-light 
                         xl:col-span-4 xl:pb-[45px] xl:pt-[35px] xl:pl-[60px]
-                        lg:col-span-3 lg:pt-[35px]
+                        lg:col-span-3 lg:pt-[30px]
                         md:col-start-4 md:col-span-5 md:pt-[30px]
                         ">
                         During my time at NYU, I&rsquo;ve learned to combine media theories and practice to make projects that have an impact on both business and society.
