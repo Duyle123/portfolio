@@ -26,13 +26,13 @@ const HeroSection = () => {
             overflow-hidden relative strawford grid
             xl:grid-cols-12 xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen
             md:grid-cols-9 md:p-0
-            sm:grid-cols-5
+            sm:grid-cols-5 sm:p-[20px]
             grid-cols-4 p-[15px] pt-[30px]
             '>
 
                 {/* //============== Theme Changer ================ */}
                 <div className="hero-left-bar hidden
-                xl:flex xl:col-span-2 xl:backdrop-contrast-100 xl:pt-[50px] xl:pl-10
+                xl:flex xl:col-span-2 xl:backdrop-contrast-100 xl:pt-[50px] xl:pl-5
                 ">
                     <ThemeChanger />
                 </div>
@@ -65,7 +65,7 @@ const HeroSection = () => {
                     xl:col-span-2
                     md:col-span-3 md:strawford
                     strawford-light
-                    
+
                     col-span-2">
                         <p>{admin.job1}</p>
                         <p>{admin.job2}</p>
@@ -78,7 +78,7 @@ const HeroSection = () => {
                     2xl:pt-[100px] xl:pt-[70px]
                     lg:pt-[50px]
                     md:pt-[70px] md:pb-[50px] md:col-span-7
-                    pt-[15px] col-span-4 
+                    col-span-4 
                     ">
                         <p className="
                         strawford-black p-0 m-0
@@ -89,7 +89,7 @@ const HeroSection = () => {
                         DUY&rsquo;S PORTFOLIO
                         </p>
                         <div className="group relative strawford-light w-fit pr-3
-                        xl:pt-4 pt-5
+                        xl:pt-4 pt-5 md:pb-5 lg:pb-2
                         ">               
                             <a className="z-30 relative xl:text-h3 
                                             md:text-h4
@@ -104,7 +104,7 @@ const HeroSection = () => {
                                             group-hover:w-full group-hover:pr-1
                                             dark:bg-white"></span>
                         </div>
-                        <div className="group relative strawford-light w-fit pr-3">               
+                        <div className="group relative strawford-light w-fit pr-3 md:pb-5 lg:pb-2">               
                             <a className="z-30 relative xl:text-h3 
                                             md:text-h4
                                             text-h5
@@ -118,7 +118,7 @@ const HeroSection = () => {
                                             group-hover:w-full group-hover:pr-1 
                                             dark:bg-white"></span>
                         </div>
-                        <div className="group relative strawford-light w-fit pr-3">               
+                        <div className="group relative strawford-light w-fit pr-3 md:pb-5 lg:pb-2">               
                             <a className="z-30 relative xl:text-h3
                                             md:text-h4
                                             text-h5
@@ -169,15 +169,38 @@ const ProjectSection = () => {
         <div id='project-section' className='bg-[#EFEFEF] overflow-hidden xl:pb-[200px] max-w-[2500px] mx-auto z-10'>
             <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
                 {/* =============== Header ================= */}
-                <div className="overflow-hidden relative strawford">
-                    <div className="project-heading relative grid xl:grid-cols-12 items-start pt-[130px] pb-[50px] mb-[150px] border-b-2">
-                        <div className={`${beVietnamFont.className} text-h1 text-end col-start-3 h-fit`}>1.</div>
-                        <div className="text-reg strawford-light col-span-3 h-fit pb-[45px] pt-[35px] pl-[40px]">
+                <div className="overflow-hidden relative">
+                    <div className="project-heading relative grid 
+                    xl:grid-cols-12 xl:pt-[130px] 
+                    md:p-0 md:grid-cols-9 md:gap-0 md:pt-[100px] md:pb-[100px]
+                    sm:p-[20px] sm:pb-[70px]
+                    p-[15px] pt-[50px] pb-[50px] gap-5 auto-rows-min
+                    mb-[150px] border-b-2
+                    ">
+                        <div className={`${beVietnamFont.className} 
+                        text-h1 xl:text-end
+                        xl:col-start-3 xl:col-span-1
+                        md:col-start-2 md:col-span-2 md:translate-x-0
+                        text-start -translate-x-[12px] pb-5 h-min
+                        `}>1.</div>
+
+                        <div className="sm:text-h3 text-h4 h-fit -translate-x-[4px]
+                        strawford-bold md:hidden">PROJECTS</div>
+
+                        <div className="text-reg h-min strawford-light 
+                        xl:col-span-4 xl:pb-[45px] xl:pt-[35px] xl:pl-[60px]
+                        lg:col-span-3 lg:pt-[35px]
+                        md:col-start-4 md:col-span-5 md:pt-[30px]
+                        ">
                         During my time at NYU, I&rsquo;ve learned to combine media theories and practice to make projects that have an impact on both business and society.
                         What is shown below are some of my most recent works in terms of multimedia design.
                         </div>
                         
-                        <div className="col-start-3 text-h1 strawford-bold ">PROJECTS</div>
+                        <div className="strawford-bold 
+                        xl:col-start-3 xl:col-span-9 xl:text-h1
+                        md:block md:text-h2 md:col-span-7 md:col-start-2 md:pt-10
+                        hidden text-h4
+                        ">PROJECTS</div>
 
                         {/* <div className="col-span-5">
                                 <AbstractSVG className="absolute top-0 -z-1 pointer-events-none xl:w-[720px] xl:h-[720px]"/>

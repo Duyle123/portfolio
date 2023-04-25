@@ -10,14 +10,32 @@ function WritingSection() {
     return (
         <div id='writing-section' className="mx-auto max-w-[2500px] h-fit overflow-hidden bg-white">
             <div className="container mx-auto min-h-screen xl:min-h-[768px] relative">
-                <div className="project-heading relative grid xl:grid-cols-12 items-start pt-[130px] pb-[50px] border-b-2 bg-white">
-                    <div className={`${beVietnamFont.className} text-h1 text-end col-start-3 h-fit`}>2.</div>
-                    <div className="text-reg strawford-light col-span-3 h-fit pb-[45px] pt-[35px] pl-[40px]">
+                <div className="project-heading relative grid 
+                    xl:grid-cols-12 xl:pt-[130px] 
+                    md:p-0 md:grid-cols-9 md:gap-0 md:pt-[100px] md:pb-[100px]
+                    sm:p-[20px] sm:pb-[70px]
+                    p-[15px] pt-[50px] pb-[50px] gap-5 auto-rows-min
+                    mb-[150px] border-b-2">
+                    <div className={`${beVietnamFont.className} text-h1 xl:text-end
+                        xl:col-start-3 xl:col-span-1
+                        md:col-start-2 md:col-span-2 md:translate-x-0
+                        text-start -translate-x-[12px] pb-5 h-min`}>2.</div>
+                    <div className="sm:text-h3 text-h4 h-fit -translate-x-[4px]
+                        strawford-bold md:hidden">WRITING SAMPLES</div>
+
+                    <div className="text-reg h-min strawford-light 
+                        xl:col-span-4 xl:pb-[45px] xl:pt-[35px] xl:pl-[60px]
+                        lg:col-span-3 lg:pt-[35px]
+                        md:col-start-4 md:col-span-5 md:pt-[30px]">
                     The samples below include copies that I&rsquo;ve written in past internships, in college, and also in my free time. 
                     My interests revolve around film, design, media, entertainment, and technology. 
                     </div>
                     
-                    <div className="col-start-3 text-h1 strawford-bold mt-5">WRITING SAMPLES</div>
+                    <div className="strawford-bold 
+                        xl:col-start-3 xl:col-span-9 xl:text-h1
+                        lg:translate-x-[10px] lg:leading-[9rem] lg:pt-7
+                        md:block md:text-h2 md:col-span-7 md:col-start-2 md:pt-10
+                        hidden text-h4">WRITING SAMPLES</div>
 
                     {/* <div className="col-span-5">
                             <AbstractSVG className="absolute top-0 -z-1 pointer-events-none xl:w-[720px] xl:h-[720px]"/>
