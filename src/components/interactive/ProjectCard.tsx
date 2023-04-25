@@ -10,10 +10,11 @@ import Link from "next/link";
 const ProjectCard = () => {
     return(
         <div className="grid grid-cols-4
-        xl:grid-cols-12
+        xl:grid-cols-12 xl:pb-0
+        lg:pb-[150px]
         md:grid-cols-9
         sm:grid-cols-5
-
+        pb-[100px]
         ">
         <div className="grid grid-flow-row
         xl:col-span-8 xl:col-start-3
@@ -48,7 +49,7 @@ const ProjectCard = () => {
                                 2xl:w-[550px] 2xl:h-[550px]
                                 xl:w-[480px] xl:h-[480px]
                                 sm:w-full sm:h-auto
-                                w-[90vw] h-[290px]
+                                w-[95vw] h-[290px]
                                 
                                 object-cover`} 
                                 alt={project.thumbnailAlt}/>
@@ -61,6 +62,7 @@ const ProjectCard = () => {
                         xl:pt-5 xl:w-[400px]
                         lg:w-11/12
                         md:pl-5 md:w-5/6
+                        p-2
                         ">
                             <style jsx>
                                 {`.project-cta {background-image: linear-gradient(130deg, ${project.primaryColor} 0%, ${project.secondaryColor} 100%)}`}
