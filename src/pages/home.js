@@ -89,7 +89,7 @@ const HeroSection = () => {
                         DUY&rsquo;S PORTFOLIO
                         </p>
                         <div className="group relative strawford-light w-fit pr-3
-                        xl:pt-4 pt-5 md:pb-5 lg:pb-2
+                        xl:mt-4 mt-5 md:mb-5 lg:mb-2
                         ">               
                             <a className="z-30 relative xl:text-h3 
                                             md:text-h4
@@ -104,7 +104,7 @@ const HeroSection = () => {
                                             group-hover:w-full group-hover:pr-1
                                             dark:bg-white"></span>
                         </div>
-                        <div className="group relative strawford-light w-fit pr-3 md:pb-5 lg:pb-2">               
+                        <div className="group relative strawford-light w-fit mr-3 md:mb-5 lg:mb-2">               
                             <a className="z-30 relative xl:text-h3 
                                             md:text-h4
                                             text-h5
@@ -118,7 +118,7 @@ const HeroSection = () => {
                                             group-hover:w-full group-hover:pr-1 
                                             dark:bg-white"></span>
                         </div>
-                        <div className="group relative strawford-light w-fit pr-3 md:pb-5 lg:pb-2">               
+                        <div className="group relative strawford-light w-fit mr-3 md:mb-5 lg:mb-2">               
                             <a className="z-30 relative xl:text-h3
                                             md:text-h4
                                             text-h5
