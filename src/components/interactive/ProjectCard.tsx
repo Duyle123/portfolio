@@ -82,7 +82,7 @@ const ProjectCard = () => {
                             
                             pb-2
                             ">
-                                Roles: {project.role}
+                                {project.role}
                             </div>
                             <div className="project-summary
                             md:pb-7

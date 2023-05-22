@@ -192,8 +192,8 @@ const ProjectSection = () => {
                         lg:col-span-3 lg:pt-[30px]
                         md:col-start-4 md:col-span-5 md:pt-[30px]
                         ">
-                        During my time at NYU, I&rsquo;ve learned to combine media theories and practice to make projects that have an impact on both business and society.
-                        What is shown below are some of my most recent works in terms of multimedia design.
+                        Throughout my time at New York University, I have cultivated a profound understanding of media theories and practical applications. This adept integration has enabled me to initiate projects that make a difference. 
+                        Displayed below is a selection of my most recent endeavors within the domain of multimedia design.
                         </div>
                         
                         <div className="strawford-bold 
