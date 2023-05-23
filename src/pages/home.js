@@ -4,6 +4,8 @@ import '../app/globals.css';
 
 
 //===================== import components ======================
+import Link from 'next/link';
+
 import ThemeChanger from '@/components/interactive/ThemeChanger';
 import strawfordFont from '../app/fonts/strawford.js'
 import beVietnamFont from '../app/fonts/beVietnam';
@@ -131,9 +133,12 @@ const HeroSection = () => {
                                             group-hover:w-full group-hover:pr-1 
                                             dark:bg-white"></span>
                         </div>
+
+
+                        {/* ============== Mobile Side Bar Arrow ==================== */}
                         <div className='xl:hidden w-fit absolute 
                         sm:bottom-10 sm:right-10
-                        bottom-5 right-5'>
+                        bottom-[70px] right-5'>
                             <a className='' href="#project-section">
                                 <Arrow className="stroke-black stroke-[4] dark:stroke-white w-[64px] h-[96px]" /> 
                             </a>
@@ -152,7 +157,6 @@ const HeroSection = () => {
             <div className="hero-right-bar w-fit border-black dark:border-white border-l-2 
                 absolute flex right-0 top-0 items-end 
                 xl:flex min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden
-                
                 ">
                     <a className='pt-[700px] pb-20  pl-5 pr-5' href='#project-section'>
                         <Arrow className="stroke-black stroke-[4] dark:stroke-white w-[64px] h-[96px]" /> 
@@ -212,9 +216,21 @@ const ProjectSection = () => {
                 {/* <Ribbon title='Projects' style='horizontal'/> */}
 
                 {/* =================== Project Card ==================== */}
-                <div className="project-list">
+                <div className="project-list flex flex-col gap-10">
                     <ProjectCard />
+                    <div className='flex justify-center'>
+                        <Link href='/projects' className="
+                        
+                        w-[350px]
+                        xl:w-[900px]
+                        md:w-[570px]
+                        sm:w-[420px]
+                        bg-black text-white hover:bg-white hover:text-black border-black border-4 text-center duration-400
+                        pt-5 pb-5 text-h4 ">See All</Link>
+                    </div>
+                    
                 </div>
+                
             </div> 
         </div>
         

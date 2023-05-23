@@ -28,7 +28,7 @@ const ProjectInfo = [{
     },
     {
         id: '3',
-        title: 'Netflix: A Mass Media Machine',
+        title: 'Mass Media Machine',
         role: 'Design; Code; Copy',
         summary: '',
         thumbnail: netflixImage,
