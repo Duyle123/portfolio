@@ -225,7 +225,7 @@ const ProjectSection = () => {
                         xl:w-[900px]
                         md:w-[570px]
                         sm:w-[420px]
-                        bg-black text-white hover:bg-white hover:text-black border-black border-4 text-center duration-400
+                     text-black hover:bg-white hover:text-black text-center duration-400
                         pt-5 pb-5 text-h4 ">See All</Link>
                     </div>
                     
