@@ -220,13 +220,21 @@ const ProjectSection = () => {
                     <ProjectCard />
                     <div className='flex justify-center'>
                         <Link href='/projects' className="
-                        
+                        flex
                         w-[350px]
                         xl:w-[900px]
                         md:w-[570px]
                         sm:w-[420px]
-                     text-black hover:bg-white hover:text-black text-center duration-400
-                        pt-5 pb-5 text-h4 ">See All</Link>
+                         text-black hover:text-black 
+                        text-center duration-400
+                        hover:underline
+                        pt-5 pb-5 text-h4 ">
+                            <Arrow className="stroke-black stroke-[4] dark:stroke-black w-[64px] h-[206px] -rotate-90" />
+                            <div>
+                                See All
+                            </div> 
+                            
+                        </Link>
                     </div>
                     
                 </div>
