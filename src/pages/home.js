@@ -13,6 +13,7 @@ import ProjectCard from '../components/interactive/ProjectCard.tsx';
 // import Ribbon from '@/components/static/ribbon';
 
 import WritingSection from '../components/static/WritingSection.js';
+import ContactSection from '@/components/static/ContactSection';
 
 
 //===================== import svg ======================
@@ -250,6 +251,7 @@ function HomePage() {
             <HeroSection/>
             <ProjectSection />
             <WritingSection />
+            <ContactSection />
         </div>
     );
 }``

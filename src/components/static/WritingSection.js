@@ -1,5 +1,3 @@
-
-import Ribbon from "./ribbon";
 import beVietnamFont from "@/app/fonts/beVietnam";
 import '../../app/globals.css';
 import WritingsCard from "../interactive/WritingsCard";
