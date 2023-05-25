@@ -17,6 +17,7 @@ import WritingSection from '../components/static/WritingSection.js';
 
 //===================== import svg ======================
 import Arrow from '../media/svg/arrow.svg';
+import VerticalArrow from '../media/svg/vertical-arrow.svg'
 // import HeroCurve from '../media/svg/hero-curve.svg';
 // import AbstractSVG from '../media/svg/abstract.svg';
 
@@ -216,24 +217,20 @@ const ProjectSection = () => {
                 {/* <Ribbon title='Projects' style='horizontal'/> */}
 
                 {/* =================== Project Card ==================== */}
-                <div className="project-list flex flex-col gap-10">
+                <div className="project-list flex flex-col gap-10 pb-10">
                     <ProjectCard />
-                    <div className='flex justify-center'>
+                    <div className='m-auto'>
                         <Link href='/projects' className="
-                        flex
-                        w-[350px]
-                        xl:w-[900px]
-                        md:w-[570px]
-                        sm:w-[420px]
+                        flex justify-left content-center items-center gap-3
+                        hover:w-[320px] transition-width duration-500
+                        w-[200px] overflow-hidden
                          text-black hover:text-black 
                         text-center duration-400
-                        hover:underline
-                        pt-5 pb-5 text-h4 ">
-                            <Arrow className="stroke-black stroke-[4] dark:stroke-black w-[64px] h-[206px] -rotate-90" />
-                            <div>
-                                See All
-                            </div> 
-                            
+                        pt-5 pb-5 text-h4">                            
+                            <div className='strawford-bold'>
+                                FULL LIBRARY
+                            </div>
+                            <VerticalArrow className="stroke-black stroke-[6] dark:stroke-black w-[75px] h-[42px]" />  
                         </Link>
                     </div>
                     
