@@ -3,7 +3,7 @@ import Image from "next/image";
 import '../app/globals.css';
 import '../media/images/parkNYCImage.png'
 
-import HeroImage from '../media/images/five-broken-cameras/hug-tree.jpg';
+import HeroImage from '../media/images/terathumb.png';
 
 function TeraPage () {
     return (
