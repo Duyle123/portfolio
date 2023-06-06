@@ -1,4 +1,4 @@
-import teraImage from "../../media/images/terathumb.png";
+import teraImage from "../../media/images/tera-group/terathumb.png";
 import parkNYCImage from "../../media/images/parkNYCImage.png";
 import netflixImage from "../../media/images/netflix-mass-media.png";
 
