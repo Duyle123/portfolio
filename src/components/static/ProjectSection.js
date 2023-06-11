@@ -33,8 +33,10 @@ const ProjectSection = () => {
                         lg:col-span-3 lg:pt-[30px]
                         md:col-start-4 md:col-span-5 md:pt-[30px]
                         ">
-                        Throughout my time at New York University, I have cultivated a profound understanding of media theories and practical applications. This adept integration has enabled me to initiate projects that make a difference. 
-                        Displayed below is a selection of my most recent endeavors within the domain of multimedia design.
+                        Throughout my time at New York University, 
+                        I have cultivated a profound understanding of media theories and practical applications. 
+                        This adept integration has enabled me to work on, as well as lead projects that makes a difference. 
+                        Displayed below are some of my most recent works.
                         </div>
                         
                         <div className="strawford-bold 
@@ -56,17 +58,18 @@ const ProjectSection = () => {
                 <div className="project-list flex flex-col gap-10 pb-10">
                     <ProjectCard />
                     <div className='m-auto'>
-                        <Link href='/projects' className="
-                        flex justify-left content-center items-center gap-3
-                        hover:w-[320px] transition-width duration-500
-                        w-[200px] overflow-hidden
-                         text-black hover:text-black 
+                        <Link href='/projects' className="group gap-5
+                        flex justify-left content-center items-center
+                        overflow-hidden text-black hover:text-black 
                         text-center duration-400
                         pt-5 pb-5 text-h4">                            
-                            <div className='strawford-bold'>
+                            <div className='strawford-bold
+                            w-fit pt-[5px]
+                            '>
                                 FULL LIBRARY
                             </div>
-                            <VerticalArrow className="stroke-black stroke-[6] dark:stroke-black w-[75px] h-[42px]" />  
+                            <VerticalArrow className="stroke-black dark:stroke-black w-[0px] h-[31px] object-scale-down 
+                            group-hover:w-[47px] transition-width ease-in-out duration-500" />  
                         </Link>
                     </div>
                     

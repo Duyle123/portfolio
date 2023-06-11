@@ -79,17 +79,17 @@ const ProjectCard = () => {
                                 </div>
 
                                 <div className="project-role text-gray
-                                
-                                pb-2
+                                pb-2 pl-1 pr-1
                                 ">
                                     {project.role}
                                 </div>
-                                <div className="project-summary
+                                <div className="project-summary strawford-light
                                 md:pb-7
-                                pb-5">
+                                pb-5 pl-1 pr-1">
                                     {project.summary}
                                 </div>
-                                <button className={`project-cta text-white pt-2 pb-2
+                                <button className={`project-cta text-white 
+                                pt-2 pb-2 ml-1 mr-1
                                 xl:text-h4
                                 md:w-fit
                                 text-h5 w-full
