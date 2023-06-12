@@ -66,7 +66,7 @@ const ProjectSection = () => {
                             <div className='strawford-bold
                             w-fit pt-[5px]
                             '>
-                                FULL LIBRARY
+                                PROJECT LIBRARY
                             </div>
                             <VerticalArrow className="stroke-black dark:stroke-black w-[0px] h-[31px] object-scale-down 
                             group-hover:w-[47px] transition-width ease-in-out duration-500" />  
