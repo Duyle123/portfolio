@@ -30,7 +30,7 @@ const ProjectInfo = [{
         id: '3',
         title: 'Mass Media Machine',
         role: 'DESIGN; CODE; COPY',
-        summary: '',
+        summary: 'The culture industry in the modern world is influenced by its own commercialization. Through the successful commercialization of their popular platform, Netflix has been able to exploit mass culture, redefining habits,  in favor of its dominant position in the entertainment industry.',
         thumbnail: netflixImage,
         thumbnailAlt:'Netflix - A Mass Media Machine. A Project by Duy Le',
         primaryColor: '#E50914',
