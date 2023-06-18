@@ -1,8 +1,11 @@
+'use client'
+
 import Link from "next/link";
 import beVietnamFont from '../../app/fonts/beVietnam';
+import { useRouter } from "next/navigation";
 
 function ContactSection() {
-
+    const router = useRouter();
 
     return (
         <div id='contact-section' className="mx-auto max-w-[2500px] h-fit overflow-hidden bg-black">
@@ -21,7 +24,9 @@ function ContactSection() {
                         `}>3.</div>
                         <p className="col-start-3 col-span-4 strawford-bold text-h4">Let&apos;s Make Something Happen :)</p>
                         <div className="col-span-4">
-                            CONTACT BOX
+                            <button type="button" onClick={()=>{router.push('mailto:ddl8997@nyu.edu')}} >
+                                Send Me An Email
+                            </button>
                         </div>
                 </div>
 

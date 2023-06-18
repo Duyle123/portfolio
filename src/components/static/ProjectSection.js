@@ -58,18 +58,18 @@ const ProjectSection = () => {
                 <div className="project-list flex flex-col gap-10 pb-10">
                     <ProjectCard />
                     <div className='m-auto'>
-                        <Link href='/projects' className="group gap-5
+                        <Link href='/projects' className="group
                         flex justify-left content-center items-center
                         overflow-hidden text-black hover:text-black 
                         text-center duration-400
                         pt-5 pb-5 text-h4">                            
                             <div className='strawford-bold
-                            w-fit pt-[5px]
+                            w-fit pt-[5px] pl-5 pr-5
                             '>
                                 PROJECT LIBRARY
                             </div>
                             <VerticalArrow className="stroke-black dark:stroke-black w-[0px] h-[31px] object-scale-down 
-                            group-hover:w-[47px] transition-width ease-in-out duration-500" />  
+                            group-hover:w-[60px] transition-width ease-in-out duration-500" />  
                         </Link>
                     </div>
                     
