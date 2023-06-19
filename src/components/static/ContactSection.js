@@ -1,6 +1,5 @@
 'use client'
 
-import Link from "next/link";
 import beVietnamFont from '../../app/fonts/beVietnam';
 import { useRouter } from "next/navigation";
 
