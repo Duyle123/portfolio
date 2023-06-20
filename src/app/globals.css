@@ -25,6 +25,22 @@ body.light{
   background-color: white;
 }
 
+p {
+  font-size: 1.25rem;
+  line-height:1.75rem;
+  margin-bottom: 25px;
+}
+
+.width-screen {
+  width: calc(100vw - 5px)
+}
+
+@media (max-width : 980px){
+  .width-screen {
+    width: 100vw;
+  }
+}
+
 /* ================== Font ==================== */
 
 .strawford {
@@ -59,7 +75,7 @@ body.light{
 }
 
 ::-webkit-scrollbar-track {
-  background: none;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -69,4 +85,3 @@ body.light{
 ::-webkit-scrollbar-thumb:hover {
   background: #888888;
 }
-

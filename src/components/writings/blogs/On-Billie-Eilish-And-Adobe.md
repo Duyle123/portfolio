@@ -2,8 +2,9 @@
 title: 'On Billie Eilish And Adobe'
 name: ''
 date: '2023-02-12'
-thumbnail: '/media/blogs/ad-analysis/billie-eilish/background.png'
+thumbnail: '/media/blogs/ad-analysis/billie-eilish/billie-eilish-hero.webp'
 thumbnailAlt: ''
+thumbnailCredit: 'Courtesy of Adobe and '
 ---
 
 <!-- Output copied to clipboard! -->

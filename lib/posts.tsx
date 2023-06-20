@@ -54,6 +54,7 @@ export async function getPostData(id: string) {
         date: matterResult.data.date,
         thumbnail: matterResult.data.thumbnail,
         thumbnailAlt: matterResult.data.thumbnailAlt,
+        thumbnailCredit: matterResult.data.thumbnailCredit,
         contentHtml,
     }
 
