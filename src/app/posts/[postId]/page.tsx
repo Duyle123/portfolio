@@ -4,7 +4,7 @@ import { getSortedPostsData, getPostData } from '../../../../lib/posts';
 import { notFound } from 'next/navigation';
 import getFormattedDate from '../../../../lib/getFormattedDate';
 import '../../../app/globals.css';
-import './post_styles.css'
+import './post_styles.css';
 import strawfordFont from '../../../app/fonts/strawford.js';
 import Image from 'next/image';
 
@@ -48,14 +48,12 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
     return (
         <main className={`${strawfordFont.className} container px-6 prose prose-xl prose-slate dark:prose-invert mx-auto dark:text-white`}>
-            <div>
-                <Image src={thumbnail} className={`thumbnail
-                2xl:w-[550px] 2xl:h-[550px]
-                xl:w-[480px] xl:h-[480px]
-                sm:w-full sm:h-auto
-                w-[95vw] h-[290px]      
-                object-cover`} width={100} height={100}
-                alt={thumbnailAlt}/>
+            <div className='relative'>
+                <div className='hero-image-container w-[100vw] h-full absolute'>
+                    <Image src={thumbnail} className={`thumbnail object-cover`} fill={true}
+                    alt={thumbnailAlt}/>
+                </div>
+
                 <p className="text-h3 strawford-bold max-w-[700px] m-auto pb-[45px]">{title}</p>
             </div>
             <p className="m-auto text-h7 strawford-light max-w-[700px] pb-[35px]">
