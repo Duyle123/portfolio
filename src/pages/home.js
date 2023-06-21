@@ -11,6 +11,7 @@ import HeroSection from '@/components/static/HeroSection'
 import WritingSection from '@/components/static/WritingSection';
 import ContactSection from '@/components/static/ContactSection';
 import ProjectSection from '@/components/static/ProjectSection';
+import LetterSection from '@/components/static/WhoIAm';
 
 
 //===================== import svg ======================
@@ -24,6 +25,7 @@ function HomePage() {
     return (
         <div className={`${strawfordFont.className}`}>
             <HeroSection />
+            <LetterSection />
             <ProjectSection />
             <WritingSection />
             <ContactSection />
