@@ -49,15 +49,26 @@ export default async function Post({ params }: { params: { postId: string } }) {
                     alt={thumbnailAlt}/>
                 </div>
                 <div className='absolute left-0 bg-gradient-to-t from-black h-screen width-screen z-1 w-screen'></div>
-                <p className="absolute bottom-5 z-10 text-h3 text-white strawford-bold max-w-[700px] pb-[45px] pl-2 pr-2
-                md:pl-0 md:pr-0
-                ">{title}</p>
-                <p className="absolute bottom-0 z-10 text-h7 text-white text-left strawford-light w-full max-w-[700px] pt-[15px] pb-[35px] pl-2 pr-2
-                md:pl-[1px] md:pr-[1px]
-                ">{pubDate}</p>
-                <p
+
+                <div className='absolute bottom-0'>
+
+                    <p className="text-h3 text-white strawford-bold max-w-[700px]
+                    pl-[1rem] pr-[1rem] mb-2
+                    md:pl-0 md:pr-0
+                    ">{title}</p>
+
+                    <p className="text-h7 text-white text-left strawford-light w-full max-w-[700px]
+                    pl-[1rem] pr-[1rem] mb-2
+                    md:pl-[1px] md:pr-[1px]
+                    ">{pubDate}</p>
+
+                    <p className='text-gray text-left strawford-light w-full max-w-[700px]
+                    pl-[1rem] pr-[1rem]
+                    md:pl-[1px] md:pr-[1px]
+                    '>{thumbnailCredit}</p>
+
+                </div>
                 
-                >{thumbnailCredit}</p>
             </div>
             <article>
                 <section className='max-w-[700px] m-auto pt-[50px]' dangerouslySetInnerHTML={{ __html: contentHtml }} />

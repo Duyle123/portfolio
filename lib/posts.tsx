@@ -26,6 +26,7 @@ export function getSortedPostsData() {
             date: matterResult.data.date,
             thumbnail: matterResult.data.thumbnail,
             thumbnailAlt: matterResult.data.thumbnailAlt,
+            thumbnailCredit: matterResult.data.thumbnailCredit
         }
 
         // Combine the data with the id

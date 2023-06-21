@@ -4,33 +4,8 @@ name: ''
 date: '2023-02-12'
 thumbnail: '/media/blogs/ad-analysis/billie-eilish/billie-eilish-hero.webp'
 thumbnailAlt: ''
-thumbnailCredit: 'Courtesy of Adobe and '
+thumbnailCredit: "Image Courtesy of Adobe and Pereira O'Dell, 2021"
 ---
-
-<!-- Output copied to clipboard! -->
-
-<!-----
-
-Yay, no errors, warnings, or alerts!
-
-Conversion time: 0.263 seconds.
-
-
-Using this Markdown file:
-
-1. Paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
-
-Conversion notes:
-
-* Docs to Markdown version 1.0β34
-* Mon Jun 19 2023 07:19:31 GMT-0700 (PDT)
-* Source doc: On Billie Eilish and Adobe
-* This is a partial selection. Check to make sure intra-doc links work.
------>
-
 
 The minute long ad started with Billie Eilish wandering into what appears to be a movie set. Here, the wide, empty space around her signifies the blank space – the starting point of every creative project. Billie, in this space, is free to “create” and “change” elements of her surroundings, including objects, color, motion, and time. The placement of the actor in the scene imitates the act of creating another world. By being able to change things to one’s own likings, they are creating their own space and environment, signifying the freedom of expression, and the artful spirit that Adobe is trying to communicate at a base level through this ad.
 
