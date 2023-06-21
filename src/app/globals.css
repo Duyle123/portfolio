@@ -25,12 +25,6 @@ body.light{
   background-color: white;
 }
 
-p {
-  font-size: 1.25rem;
-  line-height:1.75rem;
-  margin-bottom: 25px;
-}
-
 .width-screen {
   width: calc(100vw - 5px)
 }
@@ -39,6 +33,12 @@ p {
   .width-screen {
     width: 100vw;
   }
+}
+
+p {
+  font-size: 1.25rem;
+  line-height:1.75rem;
+  margin-bottom: 25px;
 }
 
 /* ================== Font ==================== */

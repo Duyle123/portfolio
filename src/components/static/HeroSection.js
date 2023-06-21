@@ -37,12 +37,11 @@ const HeroSection = () => {
                     xl:col-span-2
                     md:col-span-3 md:strawford
                     strawford-light
-
                     col-span-2
                     ">
-                        <p>{admin.email}</p>
-                        <p>{admin.tel}</p>
-                        <p>{admin.addressLine2}</p>
+                        <div>{admin.email}</div>
+                        <div>{admin.tel}</div>
+                        <div>{admin.addressLine2}</div>
                     </div>
                     
                     <div className="aspired-jobs h-fit
@@ -50,12 +49,11 @@ const HeroSection = () => {
                     xl:col-span-2
                     md:col-span-3 md:strawford
                     strawford-light
-
                     col-span-2">
-                        <p>{admin.job1}</p>
-                        <p>{admin.job2}</p>
-                        <p>{admin.job3}</p>
-                        <p>{admin.job4}</p>
+                        <div>{admin.job1}</div>
+                        <div>{admin.job2}</div>
+                        <div>{admin.job3}</div>
+                        <div>{admin.job4}</div>
                     </div>
 
                     {/* ============ main options ================*/}
@@ -65,14 +63,14 @@ const HeroSection = () => {
                     md:pt-[70px] md:pb-[50px] md:col-span-7
                     col-span-4 
                     ">
-                        <p className="
+                        <div className="
                         strawford-black p-0 m-0
                         lg:text-h2
                         md:text-h3 md:-translate-x-[3px] md:pb-5
                         text-h4
                         ">
                         DUY&rsquo;S PORTFOLIO
-                        </p>
+                        </div>
                         <div className="group relative strawford-light w-fit pr-3
                         xl:mt-4 mt-5 md:mb-5 lg:mb-2
                         ">               

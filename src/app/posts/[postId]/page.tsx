@@ -4,6 +4,7 @@ import { getSortedPostsData, getPostData } from '../../../../lib/posts';
 import { notFound } from 'next/navigation';
 import getFormattedDate from '../../../../lib/getFormattedDate';
 import '../../../app/globals.css';
+import '../../../app/blog.css';
 import strawfordFont from '../../../app/fonts/strawford.js';
 import Image from 'next/image';
 
