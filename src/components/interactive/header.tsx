@@ -2,23 +2,13 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header className='container mx-auto'>
+    <header className='absolute container mx-auto z-10'>
       <nav className='
-      border
-      flex flex-row gap-[50px] 
-      pt-5 pb-5'>        
-        <Link href="/">
-              Home
-            </Link>
-         
-            <Link href="/about">
-              About
-            </Link>
-        
-            <Link href="/contact">
-              Contact
-            </Link>
-
+      flex flex-row gap-[50px]
+      pt-20 pb-5'>        
+        <Link className='text-white' href="/">
+        Home
+        </Link>
       </nav>
     </header>
   );
