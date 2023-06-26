@@ -4,14 +4,16 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
-const docResolve = {
+/** @type {import('contentlayer/source-files').ComputedFields } */
+
+const computedFields = {
     slug: {
         type: 'string',
-        resolve: (doc) => `/${doc._raw.flattenedPath}`
+        resolve: (blogDoc) => `/${blogDoc._raw.flattenedPath}`,
     }, 
     slugAsParams: {
         type: 'string',
-        resolve: (doc) => doc._raw.flattenedPath.split('/').splice(1).join('/'),
+        resolve: (blogDoc) => blogDoc._raw.flattenedPath.split('/').slice(1).join('/'),
     },
 }
 
@@ -30,9 +32,8 @@ export const BlogDoc = defineDocumentType(()=> (
                 required: true,
             },
         },
-        docResolve,
-    }
-))
+        computedFields,
+    }))
 
 export default makeSource({
     contentDirPath: 'src/media/writings',
