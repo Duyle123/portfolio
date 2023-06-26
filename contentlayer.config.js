@@ -18,7 +18,7 @@ const docResolve = {
 export const BlogDoc = defineDocumentType(()=> (
     {
         name: 'BlogDoc',
-        filePathPattern: 'media/writings/blogs/*.mdx',
+        filePathPattern: `blogs/*.mdx`,
         contentType: 'mdx',
         fields: {
             title: {
