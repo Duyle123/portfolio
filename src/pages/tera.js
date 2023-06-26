@@ -1,4 +1,4 @@
-import Header from "../components/interactive/Header";
+import CustomHeader from '../components/interactive/Header'
 import Image from "next/image";
 import '../app/globals.css';
 import '../media/images/parkNYCImage.png'
@@ -16,7 +16,7 @@ function TeraPage () {
     return (
         <>
             <div className="flex justify-center">
-                <Header />
+                <CustomHeader />
                 <div className='absolute top-0 left-0 overflow-hidden flex h-screen width-screen justify-center'>
                     <Image 
                     alt=''

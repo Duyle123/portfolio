@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Header = () => {
+const CustomHeader = () => {
   return (
     <header className='absolute container mx-auto z-10'>
       <nav className='
@@ -14,4 +14,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default CustomHeader;
