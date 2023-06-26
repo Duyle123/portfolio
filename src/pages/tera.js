@@ -1,7 +1,8 @@
 
 import Image from "next/image";
 import '../app/globals.css';
-import '../media/images/parkNYCImage.png'
+import '../media/images/parkNYCImage.png';
+import strawfordFont from '../app/fonts/strawford.js'
 
 import HeroImage from '../media/images/tera-group/terathumb.png';
 import CloudInf from '../media/images/tera-group/cloud-inf.png';
@@ -15,7 +16,7 @@ import HireFlutter from '../media/images/tera-group/hire-flutter.jpg';
 function TeraPage () {
     return (
         <>
-        <div className="flex flex-wrap justify-center">
+        <div className={`flex flex-wrap justify-center ${strawfordFont.className}`} >
         <div className="flex">
                 <div className='relative top-0 left-0 overflow-hidden flex h-fit width-screen justify-center'>
                     <Image 

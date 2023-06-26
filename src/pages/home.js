@@ -23,7 +23,7 @@ import LetterSection from '@/components/static/WhoIAm';
 
 function HomePage() {
     return (
-        <div className={`${strawfordFont.className}`}>
+        <div>
             <HeroSection />
             <LetterSection />
             <ProjectSection />
