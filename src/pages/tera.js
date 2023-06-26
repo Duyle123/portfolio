@@ -15,8 +15,9 @@ import HireFlutter from '../media/images/tera-group/hire-flutter.jpg';
 function TeraPage () {
     return (
         <>
-            <div className="flex justify-center">
-                <div className='absolute top-0 left-0 overflow-hidden flex h-screen width-screen justify-center'>
+        <div className="flex flex-wrap justify-center">
+        <div className="flex">
+                <div className='relative top-0 left-0 overflow-hidden flex h-fit width-screen justify-center'>
                     <Image 
                     alt=''
                     src={HeroImage}
@@ -28,9 +29,9 @@ function TeraPage () {
                 </div>
             </div>
 
-            <div>
-                <h1>Gallery</h1>
-                <div className="flex flex-wrap">
+            <div className="h-fit max-w-[1080px] p-5">
+                <p className="text-h3 strawford-bold">Post Designs</p>
+                <div className="flex justify-center flex-wrap gap-5">
                     <Image 
                     alt=''
                     src={CloudInf}
@@ -81,6 +82,7 @@ function TeraPage () {
                     
                 </div>
             </div>
+        </div>
         </>
         
     );
