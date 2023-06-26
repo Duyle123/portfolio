@@ -31,6 +31,7 @@ export const BlogDoc = defineDocumentType(()=> (
                 type: 'string',
                 required: true,
             },
+            
         },
         computedFields,
     }))
