@@ -5,6 +5,7 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
 
+
 const computedFields = {
     slug: {
         type: 'string',
