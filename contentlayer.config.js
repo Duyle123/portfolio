@@ -59,7 +59,7 @@ export const Featured = defineDocumentType(()=> (
                 required: true,
             },
             thumbnailAlt: {
-                type: 'string',
+                type: 'string'
             },
             thumbnailCredit: {
                 type: 'string'
@@ -87,7 +87,7 @@ export const Research = defineDocumentType(() => (
                 required: true,
             },
             thumbnailAlt: {
-                type: 'string',
+                type: 'string'
             },
             thumbnailCredit: {
                 type: 'string'
