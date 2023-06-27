@@ -1,76 +1,101 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
-  darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./src/**/*.{html,js}",
+    "./src/**/*.{js,ts,jsx,tsx}"
+  ],
+  darkMode: 'class',
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+    transitionProperty:{
+      none: 'none',
+      all: 'all',
+      width: 'width',
+      height: 'height',
+      colors: 'color, background-color, border-color, text-decoration-color, fill, stroke',
+      opacity: 'opacity',
+      shadow: 'box-shadow',
+      transform: 'transform',
+    },
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+      '2xl': '1536px'
+    },
+    colors: {
+      'black': '#000000',
+      'white': '#ffffff',
+      'deep-gray': '#595959',
+      'gray': '#959595',
+      'red': '#FF3636',
+      'deep-blue':'#00212F',
+      'blue':'#026792'
+    },
+    fontSize: {
+      'sm': '0.618rem',
+      'reg': '1rem',
+      'h5': '1.618rem',
+      h4: ['2.618rem','3rem'],
+      h3: ['4.236rem','5rem'],
+      h2: ['6.854rem','7rem'],
+      h1: ['11.098rem', '10rem'],
     },
     extend: {
-      colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+      spacing: {
+        '128': '32rem',
+        '144': '36rem',
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        '4xl': '2rem',
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: 0 },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
-        },
+      boxShadow: {
+        'lg': [
+          '0px 11px 9px -39px rgba(0,0,0,0.1)',
+          '0px 26px 16px -28px rgba(0,0,0,0.1)',
+          '0px 20px 42px 6px rgba(0,0,0,0.1)',
+          '0px 10px 15px -3px rgba(0,0,0,0.1)',
+        ],
       },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+      backgroundSize: {
+        'size-50': '50% 50%',
+        'size-200': '200% 200%',
+        'size-300': '300% 300%',
+      },
+      backgroundPosition: {
+          '-pos-100': '-100% -100%',
+          'pos-0': '0% 0%',
+          'pos-50': '50% 50%',
+          'pos-100': '100% 100%',
       },
     },
+    
   },
-  plugins: [require("tailwindcss-animate")],
+  variants: {},
+  plugins: ["tailwindcss ,autoprefixer",
+
+    function ({ addComponents }) {
+      addComponents({
+        '.container': {
+          maxWidth: '100%',
+          '@screen sm': {
+            maxWidth: '640px',
+          },
+          '@screen md': {
+            maxWidth: '768px',
+          },
+          '@screen lg': {
+            maxWidth: '1280px',
+          },
+          '@screen xl': {
+            maxWidth: '1400px',
+          },
+          '@screen 2xl': {
+            maxWidth: '1728px',
+          },
+        }
+      })
+    }
+  ],
 }
