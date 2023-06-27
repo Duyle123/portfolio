@@ -30,7 +30,8 @@ export type Featured = {
   description: string
   /** MDX file body */
   body: MDX
-
+  slug: string
+  slugAsParams: string
 }
 
 export type Research = {
@@ -42,7 +43,8 @@ export type Research = {
   description: string
   /** MDX file body */
   body: MDX
-
+  slug: string
+  slugAsParams: string
 }  
 
 /** Nested types */
