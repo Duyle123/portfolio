@@ -10,15 +10,21 @@ interface BlogPageProps{
 }
 
 async function getDocFromParams(slug: string){
-    const doc = allBlogs.find((doc) => doc.slugAsParams === slug)
+    const blog = allBlogs.find((doc) => doc.slugAsParams === slug)
 
-    if (!doc) notFound 
-    return doc
+    if (!blog) notFound 
+    return blog
 }
 
 const page = async ({ params }: BlogPageProps) => {
-    const doc = await getDocFromParams(params.slug)
-    return <div>{JSON.stringify(doc)}</div>
+    const blog = await getDocFromParams(params.slug)
+
+    return (
+        <div>
+            <h1>{blog.title}</h1>
+
+        </div>
+    )
 }
 
 export default page
