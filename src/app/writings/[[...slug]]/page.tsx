@@ -1,7 +1,6 @@
 import { FC } from "react"
 import { allDocs } from "contentlayer/generated"
 import { notFound } from "next/navigation"
-
 import { Metadata } from "next" 
 
 interface PageProps{
@@ -17,8 +16,9 @@ async function getDocFromParams(slug: string){
     return doc
 }
 
-const page: FC<PageProps> = ({ params }) => {
-    return <div>page</div>
+const page = async ({ params }: PageProps) => {
+    const doc = await getDocFromParams(params.slug)
+    return <div>{JSON.stringify(doc)}</div>
 }
 
 export default page
