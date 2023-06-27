@@ -9,11 +9,11 @@ import remarkGfm from 'remark-gfm'
 const computedFields = {
     slug: {
         type: 'string',
-        resolve: (blogDoc) => `/${blogDoc._raw.flattenedPath}`,
+        resolve: (doc) => `/${doc._raw.flattenedPath}`,
     }, 
     slugAsParams: {
         type: 'string',
-        resolve: (blogDoc) => blogDoc._raw.flattenedPath.split('/').slice(1).join('/'),
+        resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
     },
 }
 
