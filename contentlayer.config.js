@@ -32,7 +32,7 @@ export const Blog = defineDocumentType(()=> (
                 required: true,
             },
             thumbnailAlt: {
-                type: 'string',
+                type: 'string'
             },
             thumbnailCredit: {
                 type: 'string'

@@ -14,7 +14,10 @@ export type Blog = {
   _raw: Local.RawDocumentData
   type: 'Blog'
   title: string
-  description: string
+  thumbnail: string
+  thumbnailAlt?: string | undefined
+  thumbnailCredit?: string | undefined
+  pubDate?: string | undefined
   /** MDX file body */
   body: MDX
   slug: string
@@ -27,10 +30,14 @@ export type Featured = {
   _raw: Local.RawDocumentData
   type: 'Featured'
   title: string
-  description: string
+  thumbnail: string
+  thumbnailAlt?: string | undefined
+  thumbnailCredit?: string | undefined
+  pubDate?: string | undefined
   /** MDX file body */
   body: MDX
-
+  slug: string
+  slugAsParams: string
 }
 
 export type Research = {
@@ -39,10 +46,14 @@ export type Research = {
   _raw: Local.RawDocumentData
   type: 'Research'
   title: string
-  description: string
+  thumbnail: string
+  thumbnailAlt?: string | undefined
+  thumbnailCredit?: string | undefined
+  pubDate?: string | undefined
   /** MDX file body */
   body: MDX
-
+  slug: string
+  slugAsParams: string
 }  
 
 /** Nested types */
