@@ -27,9 +27,18 @@ export const Blog = defineDocumentType(()=> (
                 type: 'string',
                 required: true,
             },
-            description: {
+            thumbnail: {
                 type: 'string',
                 required: true,
+            },
+            thumbnailAlt: {
+                type: 'string',
+            },
+            thumbnailCredit: {
+                type: 'string'
+            },
+            pubDate: {
+                type: 'string'
             },
         },
         computedFields,
@@ -45,10 +54,19 @@ export const Featured = defineDocumentType(()=> (
                 type: 'string',
                 required: true,
             },
-            description: {
+            thumbnail: {
                 type: 'string',
                 required: true,
-            }
+            },
+            thumbnailAlt: {
+                type: 'string',
+            },
+            thumbnailCredit: {
+                type: 'string'
+            },
+            pubDate: {
+                type: 'string'
+            },
         },
         computedFields,
     }
@@ -64,10 +82,19 @@ export const Research = defineDocumentType(() => (
                 type: 'string',
                 required: true,
             },
-            description: {
+            thumbnail: {
                 type: 'string',
                 required: true,
-            }
+            },
+            thumbnailAlt: {
+                type: 'string',
+            },
+            thumbnailCredit: {
+                type: 'string'
+            },
+            pubDate: {
+                type: 'string'
+            },
         },
         computedFields,
     }
