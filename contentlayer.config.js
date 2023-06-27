@@ -4,7 +4,7 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
-/** @type {import('contentlayer/source-files').ComputedFields } */
+
 
 const computedFields = {
     slug: {
@@ -17,9 +17,9 @@ const computedFields = {
     },
 }
 
-export const BlogDoc = defineDocumentType(()=> (
+export const Doc = defineDocumentType(()=> (
     {
-        name: 'BlogDoc',
+        name: 'Doc',
         filePathPattern: `blogs/*.mdx`,
         contentType: 'mdx',
         fields: {
@@ -31,14 +31,13 @@ export const BlogDoc = defineDocumentType(()=> (
                 type: 'string',
                 required: true,
             },
-            
         },
         computedFields,
     }))
 
 export default makeSource({
     contentDirPath: 'src/media/writings',
-    documentTypes: [BlogDoc],
+    documentTypes: [Doc],
     mdx: {
         remarkPlugins: [remarkGfm],
         rehypePlugins: [
@@ -64,11 +63,11 @@ export default makeSource({
                 rehypeAutolinkHeadings,
                 {
                     properties:{
-                        className: ['anchor'],
-                        ariaLabel: 'Link to section'
-                    }
-                }
-            ]
-        ]
-    }
+                        className: ['subheading-anchor'],
+                        ariaLabel: 'Link to section',
+                    },
+                },
+            ],
+        ],
+    },
 })
