@@ -8,17 +8,41 @@ export { isType } from 'contentlayer/client'
 export type { Markdown, MDX, ImageFieldData, IsoDateTimeString }
 
 /** Document types */
-export type Doc = {
+export type Blog = {
   /** File path relative to `contentDirPath` */
   _id: string
   _raw: Local.RawDocumentData
-  type: 'Doc'
+  type: 'Blog'
   title: string
   description: string
   /** MDX file body */
   body: MDX
   slug: string
   slugAsParams: string
+}
+
+export type Featured = {
+  /** File path relative to `contentDirPath` */
+  _id: string
+  _raw: Local.RawDocumentData
+  type: 'Featured'
+  title: string
+  description: string
+  /** MDX file body */
+  body: MDX
+
+}
+
+export type Research = {
+  /** File path relative to `contentDirPath` */
+  _id: string
+  _raw: Local.RawDocumentData
+  type: 'Research'
+  title: string
+  description: string
+  /** MDX file body */
+  body: MDX
+
 }  
 
 /** Nested types */
@@ -29,15 +53,17 @@ export type Doc = {
 export type AllTypes = DocumentTypes | NestedTypes
 export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 
-export type DocumentTypes = Doc
-export type DocumentTypeNames = 'Doc'
+export type DocumentTypes = Blog | Featured | Research
+export type DocumentTypeNames = 'Blog' | 'Featured' | 'Research'
 
 export type NestedTypes = never
 export type NestedTypeNames = never
 
 export type DataExports = {
   allDocuments: DocumentTypes[]
-  allDocs: Doc[]
+  allFeatureds: Featured[]
+  allBlogs: Blog[]
+  allResearch: Research[]
 }
 
 
@@ -57,7 +83,9 @@ declare global {
 }
 
 export type DocumentTypeMap = {
-  Doc: Doc
+  Blog: Blog
+  Featured: Featured
+  Research: Research
 }
 
 export type NestedTypeMap = {

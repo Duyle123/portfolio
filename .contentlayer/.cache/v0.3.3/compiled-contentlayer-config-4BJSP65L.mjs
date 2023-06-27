@@ -14,9 +14,9 @@ var computedFields = {
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/")
   }
 };
-var Doc = defineDocumentType(() => ({
-  name: "Doc",
-  filePathPattern: `blogs/*.mdx`,
+var Blog = defineDocumentType(() => ({
+  name: "Blog",
+  filePathPattern: `blogs/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
@@ -30,9 +30,39 @@ var Doc = defineDocumentType(() => ({
   },
   computedFields
 }));
+var Featured = defineDocumentType(() => ({
+  name: "Featured",
+  filePathPattern: `featured/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true
+    },
+    description: {
+      type: "string",
+      required: true
+    }
+  }
+}));
+var Research = defineDocumentType(() => ({
+  name: "Research",
+  filePathPattern: `research/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true
+    },
+    description: {
+      type: "string",
+      required: true
+    }
+  }
+}));
 var contentlayer_config_default = makeSource({
   contentDirPath: "src/media/writings",
-  documentTypes: [Doc],
+  documentTypes: [Featured, Blog, Research],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
@@ -67,7 +97,9 @@ var contentlayer_config_default = makeSource({
   }
 });
 export {
-  Doc,
+  Blog,
+  Featured,
+  Research,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-LCIZV4KW.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-4BJSP65L.mjs.map

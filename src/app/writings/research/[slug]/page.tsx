@@ -1,22 +1,22 @@
 import { FC } from "react"
-import { allDocs } from "contentlayer/generated"
+import { allResearch } from "contentlayer/generated"
 import { notFound } from "next/navigation"
 import { Metadata } from "next" 
 
-interface PageProps{
+interface ResearchPageProps{
     params: {
         slug: string
     }
 }
 
 async function getDocFromParams(slug: string){
-    const doc = allDocs.find((doc) => doc.slugAsParams === slug)
+    const doc = allResearch.find((doc) => doc.slugAsParams === slug)
 
     if (!doc) notFound 
     return doc
 }
 
-const page = async ({ params }: PageProps) => {
+const page = async ({ params }: ResearchPageProps) => {
     const doc = await getDocFromParams(params.slug)
     return <div>{JSON.stringify(doc)}</div>
 }

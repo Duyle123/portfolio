@@ -17,10 +17,10 @@ const computedFields = {
     },
 }
 
-export const Doc = defineDocumentType(()=> (
+export const Blog = defineDocumentType(()=> (
     {
-        name: 'Doc',
-        filePathPattern: `blogs/*.mdx`,
+        name: 'Blog',
+        filePathPattern: `blogs/**/*.mdx`,
         contentType: 'mdx',
         fields: {
             title: {
@@ -35,9 +35,47 @@ export const Doc = defineDocumentType(()=> (
         computedFields,
     }))
 
+export const Featured = defineDocumentType(()=> (
+    {
+        name: 'Featured',
+        filePathPattern: `featured/**/*.mdx`,
+        contentType: 'mdx',
+        fields: {
+            title: {
+                type: 'string',
+                required: true,
+            },
+            description: {
+                type: 'string',
+                required: true,
+            }
+        },
+        computedFields,
+    }
+))
+
+export const Research = defineDocumentType(() => (
+    {
+        name: 'Research',
+        filePathPattern: `research/**/*.mdx`,
+        contentType: 'mdx',
+        fields: {
+            title: {
+                type: 'string',
+                required: true,
+            },
+            description: {
+                type: 'string',
+                required: true,
+            }
+        },
+        computedFields,
+    }
+))
+
 export default makeSource({
     contentDirPath: 'src/media/writings',
-    documentTypes: [Doc],
+    documentTypes: [Featured, Blog, Research],
     mdx: {
         remarkPlugins: [remarkGfm],
         rehypePlugins: [
