@@ -139,7 +139,7 @@ const HeroSection = () => {
                 absolute flex right-0 top-0 items-end 
                 xl:flex min-h-screen xl:max-h-[1117px] xl:min-h-[768px] xl:h-screen hidden
                 ">
-                    <a className='pt-[700px] pb-20  pl-5 pr-5' href='#project-section'>
+                    <a className='pt-[700px] pb-20 pl-5 pr-5' href='#project-section'>
                         <Arrow className="stroke-black stroke-[4] dark:stroke-white w-[64px] h-[96px]" /> 
                     </a>
                 </div>
