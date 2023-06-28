@@ -34,7 +34,7 @@ const page = async ({ params }: BlogPageProps) => {
         <div className='overflow-hidden flex h-screen justify-center'>
             <div className='hero-image-container width-screen h-full absolute left-0 z-0 bg-gradient'>
                 <Image src={blog.thumbnail} className={`thumbnail object-cover`} fill={true}
-                alt={blog.thumbnailAlt}/>
+                alt=""/>
             </div>
             <div className='absolute left-0 bg-gradient-to-t from-black h-screen width-screen z-1 w-screen'></div>
 
@@ -59,7 +59,7 @@ const page = async ({ params }: BlogPageProps) => {
             
         </div>
         <article>
-            <section className='max-w-[700px] m-auto pt-[50px]'/>
+            <Mdx code={blog.body.code} />
             <div className='flex'>
                 <Link href='/'>Back to home</Link>
                 <Link href='/writings'>Explore more posts</Link>
