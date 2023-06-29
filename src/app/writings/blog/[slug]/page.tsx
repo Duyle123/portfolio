@@ -23,7 +23,6 @@ async function getDocFromParams(slug: string){
 
 //========================== Create MetaData ===========================
 
-  
 
 
 const page = async ({ params }: BlogPageProps) => {
@@ -59,7 +58,9 @@ const page = async ({ params }: BlogPageProps) => {
             
         </div>
         <article>
-            <Mdx code={blog.body.code} />
+            <section className='max-w-[700px] m-auto pt-[50px]'>
+                <Mdx code={blog.body.code} />
+            </section>
             <div className='flex'>
                 <Link href='/'>Back to home</Link>
                 <Link href='/writings'>Explore more posts</Link>
