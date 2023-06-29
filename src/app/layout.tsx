@@ -3,7 +3,7 @@ import strawfordFont from './fonts/strawford'
 
 export const metadata = {
   title: "Duy's portfolio",
-  description: "Hi! I'm Duy. I'm a graduate of NYU with a bachelors in Media and Communication. I've worked on multiple projects in the media, technology, and entertainment sector.",
+  description: "Hi! I'm Duy. I'm a graduate of NYU with a bachelors in Media and Communication. ",
 }
 
 export default function RootLayout({
