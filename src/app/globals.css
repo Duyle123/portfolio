@@ -29,12 +29,6 @@ body.light{
   width: calc(100vw - 5px)
 }
 
-@media (max-width : 980px){
-  .width-screen {
-    width: 100vw;
-  }
-}
-
 p {
   font-size: 1.25rem;
   line-height:1.75rem;

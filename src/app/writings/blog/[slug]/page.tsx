@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 
+import '../../../globals.css'
 import strawfordFont from "@/app/fonts/strawford"
 import { Mdx } from "@/components/ui/mdx-components"
 import { Metadata } from "next"
