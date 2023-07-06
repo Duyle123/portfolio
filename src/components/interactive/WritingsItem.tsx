@@ -19,6 +19,7 @@ const rgbDataURL = (r: number, g: number, b: number) =>
 type Props = {
     post: WritingPost;
 }
+
 export default function WritingsItem({post}: Props) {
     const {id, title, date, thumbnail, thumbnailAlt} = post  
     const formattedDate = getFormattedDate(date)

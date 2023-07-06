@@ -17,7 +17,6 @@ interface BlogPageProps{
 
 async function getDocFromParams(slug: string){
     const blog = allBlogs.find((doc) => doc.slugAsParams === slug)
-
     if (!blog) notFound()
     return blog
 }
