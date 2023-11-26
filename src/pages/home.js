@@ -31,6 +31,6 @@ function HomePage() {
             <ContactSection />
         </div>
     );
-}``
+}
 
 export default HomePage;
