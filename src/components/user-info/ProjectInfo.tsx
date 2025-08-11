@@ -37,6 +37,18 @@ const ProjectInfo = [{
         secondaryColor: '#B1060F',
         shadowColor: '#E39DA1',
         link: '/projects/culture_industries/index.html'
+    },
+    {
+        id: '4',
+        title: 'Deal Maker',
+        role: 'ALL ASPECTS',
+        summary: 'Deal Maker is a web application that allows users to create and manage deals with ease. It provides a user-friendly interface for tracking deals, managing contacts, and analyzing deal performance.',
+        thumbnail: '',
+        thumbnailAlt: 'Thumbnail for Project 4',
+        primaryColor: '#123456',
+        secondaryColor: '#654321',
+        shadowColor: '#ABCDEF',
+        link: '/deal-maker-app'
     }
 ]
 

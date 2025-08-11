@@ -2,14 +2,14 @@ const admin = {
         name: 'Duy Le',
         firstName: 'Duy',
         lastName: 'Le',
-        email: 'ddl8997@nyu.edu',
+        email: 'leducduy42@gmail.com',
         tel: '+1 (929) - 877 - 3435',
-        addressLine1: '117 W 116th St.',
-        addressLine2: 'New York, NY 10026',
+        addressLine1: '3004 Lake Washington Blvd N',
+        addressLine2: 'Renton, WA 98056',
         job1:'Digital Marketer',
         job2:'Designer',
         job3:'Web Developer',
-        job4:'Filmmaker',
+        job4:'',
     }
 
 export default admin
