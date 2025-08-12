@@ -1,65 +1,91 @@
-import React, { useState } from 'react';
+"use client";
+
+import React, { useEffect, useState } from 'react';
+import safeLocalStorage from '../components/user-info/safeLocalStorage';
+import '../app/globals.css';
+
+// Reusable persistent state hook that avoids hydration mismatch
+function usePersistentState(key, defaultValue) {
+  const [value, setValue] = useState(defaultValue); // first render matches SSR
+
+  // After mount, read from localStorage once
+  useEffect(() => {
+    try {
+      const saved = safeLocalStorage.getItem(key);
+      if (saved !== null) setValue(JSON.parse(saved));
+    } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Save whenever it changes (after mount)
+  useEffect(() => {
+    try {
+      safeLocalStorage.setItem(key, JSON.stringify(value));
+    } catch {}
+  }, [key, value]);
+
+  return [value, setValue];
+}
 
 export default function RealEstateAnalyzer() {
+  // hydration-safe flag for rendering derived, formatted text
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const formatNumber = (value) => {
     if (!value && value !== 0) return '';
-    return value.toLocaleString();
+    return Number(value).toLocaleString();
   };
 
-  const parseNumber = (value) => {
-    return Number(value.replace(/,/g, '')) || 0;
-  };
+  const parseNumber = (value) => Number(String(value).replace(/,/g, '')) || 0;
 
-  const [purchasePrice, setPurchasePrice] = useState(460000);
-  const [closingCosts, setClosingCosts] = useState(11950);
-  const [holdingCosts, setHoldingCosts] = useState(300);
-  const [constructionMonths, setConstructionMonths] = useState(16);
-  const [asBuiltValue, setAsBuiltValue] = useState(1400000);
-  const [loanPercent, setLoanPercent] = useState(90);
-  const [interestRate, setInterestRate] = useState(6);
-
-  // Construction budget breakdown state
+  // Use persistent states (SSR-safe)
+  const [purchasePrice, setPurchasePrice] = usePersistentState('purchasePrice', 460000);
+  const [closingCosts, setClosingCosts] = usePersistentState('closingCosts', 11950);
+  const [holdingCosts, setHoldingCosts] = usePersistentState('holdingCosts', 300);
+  const [constructionMonths, setConstructionMonths] = usePersistentState('constructionMonths', 16);
+  const [asBuiltValue, setAsBuiltValue] = usePersistentState('asBuiltValue', 1400000);
+  const [loanPercent, setLoanPercent] = usePersistentState('loanPercent', 90);
+  const [interestRate, setInterestRate] = usePersistentState('interestRate', 6);
+  const [loanAmount, setLoanAmount] = usePersistentState('loanAmount', 0);
   const [showConstructionPanel, setShowConstructionPanel] = useState(false);
-  const [constructionItems, setConstructionItems] = useState([
+  const [constructionItems, setConstructionItems] = usePersistentState('constructionItems', [
     { name: 'Foundation', cost: 100000 },
     { name: 'Framing', cost: 200000 }
   ]);
 
+  // Handlers
   const addConstructionItem = () => {
     setConstructionItems([...constructionItems, { name: '', cost: 0 }]);
   };
 
   const updateConstructionItem = (index, field, value) => {
     const updated = [...constructionItems];
-    if (field === 'cost') {
-      updated[index][field] = parseNumber(value);
-    } else {
-      updated[index][field] = value;
-    }
+    updated[index][field] = field === 'cost' ? parseNumber(value) : value;
     setConstructionItems(updated);
   };
 
-  const totalConstructionBudget = constructionItems.reduce((sum, item) => sum + item.cost, 0);
-
-  // Loan-based calculation for construction financing
-  const [loanAmount, setLoanAmount] = useState(0);
-  const financedBudget = loanAmount > 0 ? loanAmount * (interestRate / 100) * (constructionMonths / 12) + loanAmount : totalConstructionBudget;
-
+  // Derived values
+  const totalConstructionBudget = constructionItems.reduce((sum, item) => sum + (Number(item.cost) || 0), 0);
   const totalCapitalNeeded = purchasePrice + closingCosts + totalConstructionBudget;
   const maxFinanced = (loanPercent / 100) * totalCapitalNeeded;
   const cashRequired = totalCapitalNeeded - maxFinanced;
   const projectedProfit = asBuiltValue - totalCapitalNeeded;
-  const roi = ((projectedProfit / cashRequired) * 100).toFixed(2);
-  const roiAnnualized = (roi / (constructionMonths / 12)).toFixed(2);
+  const roi = cashRequired !== 0 ? ((projectedProfit / cashRequired) * 100) : 0;
+  const roiAnnualized = constructionMonths > 0 ? (roi / (constructionMonths / 12)) : 0;
+  const financedBudget = loanAmount > 0
+    ? loanAmount * (interestRate / 100) * (constructionMonths / 12) + loanAmount
+    : totalConstructionBudget;
 
   const numberInput = (label, value, setter) => (
     <div>
       <label className="block text-sm font-semibold">{label}</label>
       <input
         type="text"
-        value={formatNumber(value)}
+        value={mounted ? formatNumber(value) : String(value)}
         onChange={(e) => setter(parseNumber(e.target.value))}
         className="w-full border rounded p-2"
+        inputMode="decimal"
       />
     </div>
   );
@@ -91,17 +117,22 @@ export default function RealEstateAnalyzer() {
                   />
                   <input
                     type="text"
-                    value={formatNumber(item.cost)}
+                    value={mounted ? formatNumber(item.cost) : String(item.cost)}
                     onChange={(e) => updateConstructionItem(index, 'cost', e.target.value)}
                     placeholder="Cost"
                     className="w-32 border rounded p-2"
+                    inputMode="decimal"
                   />
                 </div>
               ))}
               <button onClick={addConstructionItem} className="px-3 py-1 bg-green-500 text-white rounded">+ Add Item</button>
-              <p className="mt-2 font-semibold">Total Construction Budget: ${formatNumber(totalConstructionBudget)}</p>
+              <p className="mt-2 font-semibold" suppressHydrationWarning>
+                Total Construction Budget: ${formatNumber(totalConstructionBudget)}
+              </p>
               {numberInput('Loan Amount for Construction', loanAmount, setLoanAmount)}
-              <p className="mt-2">Financed Budget with Interest: ${formatNumber(financedBudget)}</p>
+              <p className="mt-2" suppressHydrationWarning>
+                Financed Budget with Interest: ${formatNumber(financedBudget)}
+              </p>
             </div>
           )}
 
@@ -115,12 +146,12 @@ export default function RealEstateAnalyzer() {
       <div className="bg-white shadow-lg rounded-2xl p-4 flex-1">
         <h2 className="text-xl font-bold mb-4">Flip Analysis</h2>
         <div className="space-y-2">
-          <p><strong>Total Capital Needed:</strong> ${totalCapitalNeeded.toLocaleString()}</p>
-          <p><strong>Max Financed:</strong> ${maxFinanced.toLocaleString()}</p>
-          <p><strong>Cash Required:</strong> ${cashRequired.toLocaleString()}</p>
-          <p><strong>Projected Profit:</strong> ${projectedProfit.toLocaleString()}</p>
-          <p><strong>ROI (Cash Invested):</strong> {roi}%</p>
-          <p><strong>ROI (Annualized):</strong> {roiAnnualized}%</p>
+          <p suppressHydrationWarning><strong>Total Capital Needed:</strong> ${formatNumber(totalCapitalNeeded)}</p>
+          <p suppressHydrationWarning><strong>Max Financed:</strong> ${formatNumber(maxFinanced)}</p>
+          <p suppressHydrationWarning><strong>Cash Required:</strong> ${formatNumber(cashRequired)}</p>
+          <p suppressHydrationWarning><strong>Projected Profit:</strong> ${formatNumber(projectedProfit)}</p>
+          <p suppressHydrationWarning><strong>ROI (Cash Invested):</strong> {roi.toFixed(2)}%</p>
+          <p suppressHydrationWarning><strong>ROI (Annualized):</strong> {roiAnnualized.toFixed(2)}%</p>
         </div>
       </div>
     </div>
