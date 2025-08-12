@@ -1,140 +1,128 @@
-import React from 'react';
-import { useState } from 'react';
-function DealMakerApp() {
-    const [purchasePrice, setPurchasePrice] = useState('');
-    const [closingCostsPct, setClosingCostsPct] = useState('');
-    const [holdingCostsPct, setHoldingCostsPct] = useState('');
-    const [loanAmount, setLoanAmount] = useState('');
-    const [showConstruction, setShowConstruction] = useState(false);
-    const [constructionItems, setConstructionItems] = useState([]);
-    const [constructionPeriod, setConstructionPeriod] = useState('');
-    const [interestRate, setInterestRate] = useState('');
-    const [sellingPrice, setSellingPrice] = useState('');
+import React, { useState } from 'react';
 
-    // Calculate totals
-    const closingCosts = loanAmount && closingCostsPct ? (loanAmount * closingCostsPct) / 100 : 0;
-    const holdingCosts = loanAmount && holdingCostsPct ? (loanAmount * holdingCostsPct) / 100 : 0;
-    const constructionTotal = constructionItems.reduce((sum, item) => sum + Number(item.cost || 0), 0);
-    const constructionHoldingCost = constructionTotal && constructionPeriod && interestRate
-        ? (constructionTotal * (interestRate / 100) * (constructionPeriod / 12))
-        : 0;
-    const totalProjectCost = Number(purchasePrice || 0) + closingCosts + holdingCosts + constructionTotal + constructionHoldingCost;
-    const profit = sellingPrice ? sellingPrice - totalProjectCost : 0;
+export default function RealEstateAnalyzer() {
+  const formatNumber = (value) => {
+    if (!value && value !== 0) return '';
+    return value.toLocaleString();
+  };
 
-    // Handlers
-    const handleAddConstructionItem = () => {
-        setConstructionItems([...constructionItems, { name: '', cost: '' }]);
-    };
+  const parseNumber = (value) => {
+    return Number(value.replace(/,/g, '')) || 0;
+  };
 
-    const handleConstructionItemChange = (idx, field, value) => {
-        const updated = constructionItems.map((item, i) =>
-            i === idx ? { ...item, [field]: value } : item
-        );
-        setConstructionItems(updated);
-    };
+  const [purchasePrice, setPurchasePrice] = useState(460000);
+  const [closingCosts, setClosingCosts] = useState(11950);
+  const [holdingCosts, setHoldingCosts] = useState(300);
+  const [constructionMonths, setConstructionMonths] = useState(16);
+  const [asBuiltValue, setAsBuiltValue] = useState(1400000);
+  const [loanPercent, setLoanPercent] = useState(90);
+  const [interestRate, setInterestRate] = useState(6);
 
-    return (
-        <div style={{ maxWidth: 600, margin: '0 auto', fontFamily: 'sans-serif' }}>
-            <h2>Real Estate Deal Analyzer</h2>
-            <div style={{ border: '1px solid #ccc', padding: 16, marginBottom: 16 }}>
-                <h3>1. Purchase & Loan</h3>
-                <label>
-                    Purchase Price: <input type="number" value={purchasePrice} onChange={e => setPurchasePrice(e.target.value)} />
-                </label>
-                <br />
-                <label>
-                    Loan Amount: <input type="number" value={loanAmount} onChange={e => setLoanAmount(e.target.value)} />
-                </label>
-                <br />
-                <label>
-                    Closing Costs (% of loan): <input type="number" value={closingCostsPct} onChange={e => setClosingCostsPct(e.target.value)} />
-                </label>
-                <br />
-                <label>
-                    Holding Costs (% of loan): <input type="number" value={holdingCostsPct} onChange={e => setHoldingCostsPct(e.target.value)} />
-                </label>
-                <br />
-                <div>
-                    Closing Costs: ${closingCosts.toLocaleString()}
+  // Construction budget breakdown state
+  const [showConstructionPanel, setShowConstructionPanel] = useState(false);
+  const [constructionItems, setConstructionItems] = useState([
+    { name: 'Foundation', cost: 100000 },
+    { name: 'Framing', cost: 200000 }
+  ]);
+
+  const addConstructionItem = () => {
+    setConstructionItems([...constructionItems, { name: '', cost: 0 }]);
+  };
+
+  const updateConstructionItem = (index, field, value) => {
+    const updated = [...constructionItems];
+    if (field === 'cost') {
+      updated[index][field] = parseNumber(value);
+    } else {
+      updated[index][field] = value;
+    }
+    setConstructionItems(updated);
+  };
+
+  const totalConstructionBudget = constructionItems.reduce((sum, item) => sum + item.cost, 0);
+
+  // Loan-based calculation for construction financing
+  const [loanAmount, setLoanAmount] = useState(0);
+  const financedBudget = loanAmount > 0 ? loanAmount * (interestRate / 100) * (constructionMonths / 12) + loanAmount : totalConstructionBudget;
+
+  const totalCapitalNeeded = purchasePrice + closingCosts + totalConstructionBudget;
+  const maxFinanced = (loanPercent / 100) * totalCapitalNeeded;
+  const cashRequired = totalCapitalNeeded - maxFinanced;
+  const projectedProfit = asBuiltValue - totalCapitalNeeded;
+  const roi = ((projectedProfit / cashRequired) * 100).toFixed(2);
+  const roiAnnualized = (roi / (constructionMonths / 12)).toFixed(2);
+
+  const numberInput = (label, value, setter) => (
+    <div>
+      <label className="block text-sm font-semibold">{label}</label>
+      <input
+        type="text"
+        value={formatNumber(value)}
+        onChange={(e) => setter(parseNumber(e.target.value))}
+        className="w-full border rounded p-2"
+      />
+    </div>
+  );
+
+  return (
+    <div className="flex flex-col lg:flex-row p-4 bg-gray-100 min-h-screen gap-4">
+      <div className="bg-white shadow-lg rounded-2xl p-4 flex-1">
+        <h2 className="text-xl font-bold mb-4">Assumption Panel</h2>
+        <div className="space-y-4">
+          {numberInput('Purchase Price', purchasePrice, setPurchasePrice)}
+          {numberInput('Closing Costs', closingCosts, setClosingCosts)}
+          {numberInput('Holding Costs / Month', holdingCosts, setHoldingCosts)}
+
+          <button onClick={() => setShowConstructionPanel(!showConstructionPanel)} className="px-4 py-2 bg-blue-500 text-white rounded">
+            {showConstructionPanel ? 'Hide' : 'Show'} Construction Budget
+          </button>
+
+          {showConstructionPanel && (
+            <div className="mt-4 border-t pt-4">
+              <h3 className="font-bold mb-2">Construction Budget Items</h3>
+              {constructionItems.map((item, index) => (
+                <div key={index} className="flex gap-2 mb-2">
+                  <input
+                    type="text"
+                    value={item.name}
+                    onChange={(e) => updateConstructionItem(index, 'name', e.target.value)}
+                    placeholder="Item name"
+                    className="flex-1 border rounded p-2"
+                  />
+                  <input
+                    type="text"
+                    value={formatNumber(item.cost)}
+                    onChange={(e) => updateConstructionItem(index, 'cost', e.target.value)}
+                    placeholder="Cost"
+                    className="w-32 border rounded p-2"
+                  />
                 </div>
-                <div>
-                    Holding Costs: ${holdingCosts.toLocaleString()}
-                </div>
+              ))}
+              <button onClick={addConstructionItem} className="px-3 py-1 bg-green-500 text-white rounded">+ Add Item</button>
+              <p className="mt-2 font-semibold">Total Construction Budget: ${formatNumber(totalConstructionBudget)}</p>
+              {numberInput('Loan Amount for Construction', loanAmount, setLoanAmount)}
+              <p className="mt-2">Financed Budget with Interest: ${formatNumber(financedBudget)}</p>
             </div>
+          )}
 
-            <div style={{ border: '1px solid #ccc', padding: 16, marginBottom: 16 }}>
-                <h3>
-                    2. Construction Budget{' '}
-                    <button type="button" onClick={() => setShowConstruction(!showConstruction)}>
-                        {showConstruction ? 'Hide' : 'Show'}
-                    </button>
-                </h3>
-                {showConstruction && (
-                    <div style={{ marginLeft: 16 }}>
-                        {constructionItems.map((item, idx) => (
-                            <div key={idx} style={{ marginBottom: 8 }}>
-                                <input
-                                    placeholder="Item"
-                                    value={item.name}
-                                    onChange={e => handleConstructionItemChange(idx, 'name', e.target.value)}
-                                    style={{ marginRight: 8 }}
-                                />
-                                <input
-                                    placeholder="Cost"
-                                    type="number"
-                                    value={item.cost}
-                                    onChange={e => handleConstructionItemChange(idx, 'cost', e.target.value)}
-                                    style={{ width: 100 }}
-                                />
-                            </div>
-                        ))}
-                        <button type="button" onClick={handleAddConstructionItem}>Add Item</button>
-                        <div>Total Construction: ${constructionTotal.toLocaleString()}</div>
-                        <div style={{ marginTop: 8 }}>
-                            Construction Period (months):{' '}
-                            <input
-                                type="number"
-                                value={constructionPeriod}
-                                onChange={e => setConstructionPeriod(e.target.value)}
-                                style={{ width: 60 }}
-                            />
-                        </div>
-                        <div>
-                            Interest Rate (% annual):{' '}
-                            <input
-                                type="number"
-                                value={interestRate}
-                                onChange={e => setInterestRate(e.target.value)}
-                                style={{ width: 60 }}
-                            />
-                        </div>
-                        <div>
-                            Cost to Hold Construction: ${constructionHoldingCost.toLocaleString(undefined, { maximumFractionDigits: 2 })}
-                        </div>
-                    </div>
-                )}
-            </div>
-
-            <div style={{ border: '1px solid #ccc', padding: 16, marginBottom: 16 }}>
-                <h3>3. Selling Price</h3>
-                <label>
-                    Selling Price: <input type="number" value={sellingPrice} onChange={e => setSellingPrice(e.target.value)} />
-                </label>
-            </div>
-
-            <div style={{ border: '1px solid #ccc', padding: 16 }}>
-                <h3>Summary</h3>
-                <div>Total Project Cost: ${totalProjectCost.toLocaleString(undefined, { maximumFractionDigits: 2 })}</div>
-                <div>
-                    {sellingPrice && (
-                        <span>
-                            Projected Profit: <b>${profit.toLocaleString(undefined, { maximumFractionDigits: 2 })}</b>
-                        </span>
-                    )}
-                </div>
-            </div>
+          {numberInput('Construction Months', constructionMonths, setConstructionMonths)}
+          {numberInput('As-Built Value', asBuiltValue, setAsBuiltValue)}
+          {numberInput('Loan %', loanPercent, setLoanPercent)}
+          {numberInput('Interest Rate', interestRate, setInterestRate)}
         </div>
-    );
-}
+      </div>
 
-export default DealMakerApp;
+      <div className="bg-white shadow-lg rounded-2xl p-4 flex-1">
+        <h2 className="text-xl font-bold mb-4">Flip Analysis</h2>
+        <div className="space-y-2">
+          <p><strong>Total Capital Needed:</strong> ${totalCapitalNeeded.toLocaleString()}</p>
+          <p><strong>Max Financed:</strong> ${maxFinanced.toLocaleString()}</p>
+          <p><strong>Cash Required:</strong> ${cashRequired.toLocaleString()}</p>
+          <p><strong>Projected Profit:</strong> ${projectedProfit.toLocaleString()}</p>
+          <p><strong>ROI (Cash Invested):</strong> {roi}%</p>
+          <p><strong>ROI (Annualized):</strong> {roiAnnualized}%</p>
+        </div>
+      </div>
+    </div>
+  );
+}
