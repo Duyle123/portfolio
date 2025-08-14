@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import getFormattedDate from '../../../lib/getFormattedDate'
 import Image from 'next/image'
 
 // Pixel GIF code adapted from https://stackoverflow.com/a/33919020/266535
@@ -21,8 +20,7 @@ type Props = {
 }
 
 export default function WritingsItem({post}: Props) {
-    const {id, title, date, thumbnail, thumbnailAlt} = post  
-    const formattedDate = getFormattedDate(date)
+    const {id, title, date, thumbnail, thumbnailAlt} = post 
     
     return (
         <li className='mb-10'>
@@ -52,7 +50,6 @@ export default function WritingsItem({post}: Props) {
               <div className="post-description pt-5 
               2xl:w-[300px]">
                 <div className='text-h5 strawford-bold'>{title}</div>
-                <div className='text-gray'>{formattedDate}</div>
                 <div></div>
               </div>
                 
