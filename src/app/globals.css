@@ -35,6 +35,14 @@ p {
   margin-bottom: 25px;
 }
 
+.bg-blue-500 {
+  background-color: rgb(0, 175, 219);
+}
+
+.bg-green-500 {
+  background-color: rgb(0, 190, 48);
+}
+
 /* ================== Font ==================== */
 
 .strawford {
