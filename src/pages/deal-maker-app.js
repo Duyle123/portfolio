@@ -1,34 +1,26 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import safeLocalStorage from '../components/user-info/safeLocalStorage';
 import '../app/globals.css';
 
 // Reusable persistent state hook that avoids hydration mismatch
 function usePersistentState(key, defaultValue) {
-  const [value, setValue] = useState(defaultValue); // first render matches SSR
-
-  // After mount, read from localStorage once
+  const [value, setValue] = useState(defaultValue);
   useEffect(() => {
     try {
       const saved = safeLocalStorage.getItem(key);
       if (saved !== null) setValue(JSON.parse(saved));
     } catch {}
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // Save whenever it changes (after mount)
   useEffect(() => {
     try {
       safeLocalStorage.setItem(key, JSON.stringify(value));
     } catch {}
   }, [key, value]);
-
   return [value, setValue];
 }
 
 export default function RealEstateAnalyzer() {
-  // hydration-safe flag for rendering derived, formatted text
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -36,10 +28,9 @@ export default function RealEstateAnalyzer() {
     if (!value && value !== 0) return '';
     return Number(value).toLocaleString();
   };
-
   const parseNumber = (value) => Number(String(value).replace(/,/g, '')) || 0;
 
-  // Use persistent states (SSR-safe)
+  // Step 1 & 2
   const [purchasePrice, setPurchasePrice] = usePersistentState('purchasePrice', 460000);
   const [closingCosts, setClosingCosts] = usePersistentState('closingCosts', 11950);
   const [holdingCosts, setHoldingCosts] = usePersistentState('holdingCosts', 300);
@@ -54,18 +45,26 @@ export default function RealEstateAnalyzer() {
     { name: 'Framing', cost: 200000 }
   ]);
 
-  // Handlers
+  // Step 3: Short Term Financing Assumptions
+  const [financingType, setFinancingType] = usePersistentState('financingType', 'Financing');
+  const [lenderCapType, setLenderCapType] = usePersistentState('lenderCapType', 'Cost');
+  const [maxCostPercent, setMaxCostPercent] = usePersistentState('maxCostPercent', 90);
+  const [originationPoints, setOriginationPoints] = usePersistentState('originationPoints', 1);
+  const [otherLenderCosts, setOtherLenderCosts] = usePersistentState('otherLenderCosts', 0);
+  const [pointsPaymentTiming, setPointsPaymentTiming] = usePersistentState('pointsPaymentTiming', 'Paid Backend');
+  const [shortTermInterestRate, setShortTermInterestRate] = usePersistentState('shortTermInterestRate', 6);
+  const [interestDuringConstruction, setInterestDuringConstruction] = usePersistentState('interestDuringConstruction', 'Yes');
+  const [splitBackendProfits, setSplitBackendProfits] = usePersistentState('splitBackendProfits', '');
+
   const addConstructionItem = () => {
     setConstructionItems([...constructionItems, { name: '', cost: 0 }]);
   };
-
   const updateConstructionItem = (index, field, value) => {
     const updated = [...constructionItems];
     updated[index][field] = field === 'cost' ? parseNumber(value) : value;
     setConstructionItems(updated);
   };
 
-  // Derived values
   const totalConstructionBudget = constructionItems.reduce((sum, item) => sum + (Number(item.cost) || 0), 0);
   const totalCapitalNeeded = purchasePrice + closingCosts + totalConstructionBudget;
   const maxFinanced = (loanPercent / 100) * totalCapitalNeeded;
@@ -90,9 +89,21 @@ export default function RealEstateAnalyzer() {
     </div>
   );
 
+  const textInput = (label, value, setter) => (
+    <div>
+      <label className="block text-sm font-semibold">{label}</label>
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => setter(e.target.value)}
+        className="w-full border rounded p-2"
+      />
+    </div>
+  );
+
   return (
     <div className="flex flex-col lg:flex-row p-4 bg-gray-100 min-h-screen gap-4">
-      <div className="bg-white shadow-lg rounded-2xl p-4 flex-1">
+      <div className="bg-white shadow-lg rounded-2xl p-4 flex-1 overflow-y-auto">
         <h2 className="text-xl font-bold mb-4">Assumption Panel</h2>
         <div className="space-y-4">
           {numberInput('Purchase Price', purchasePrice, setPurchasePrice)}
@@ -140,6 +151,17 @@ export default function RealEstateAnalyzer() {
           {numberInput('As-Built Value', asBuiltValue, setAsBuiltValue)}
           {numberInput('Loan %', loanPercent, setLoanPercent)}
           {numberInput('Interest Rate', interestRate, setInterestRate)}
+
+          <h3 className="text-lg font-bold mt-6">STEP (3) Short Term Financing Assumptions</h3>
+          {textInput('Financing Used or All-Cash?', financingType, setFinancingType)}
+          {textInput('Lender caps As-Built Value or Cost of Project?', lenderCapType, setLenderCapType)}
+          {numberInput('Max % of Cost to be financed', maxCostPercent, setMaxCostPercent)}
+          {numberInput('Origination/Discount Points', originationPoints, setOriginationPoints)}
+          {numberInput('Other Closing Costs Paid to Lender', otherLenderCosts, setOtherLenderCosts)}
+          {textInput('Points and Closing Costs Upfront or Back-End?', pointsPaymentTiming, setPointsPaymentTiming)}
+          {numberInput('Interest Rate', shortTermInterestRate, setShortTermInterestRate)}
+          {textInput('Interest Payment During Construction?', interestDuringConstruction, setInterestDuringConstruction)}
+          {textInput('Split Back-End Profits with Lender?', splitBackendProfits, setSplitBackendProfits)}
         </div>
       </div>
 
