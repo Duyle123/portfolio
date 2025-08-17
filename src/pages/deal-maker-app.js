@@ -166,7 +166,7 @@ export default function RealEstateAnalyzer() {
               {numberInput('Loan Amount for Construction', loanAmount, setLoanAmount)}
             </div>
           )}
-
+          {numberInput('Construction Months', constructionMonths, setConstructionMonths)}
           <h3 className="text-lg font-bold mt-6">STEP (3) Short Term Financing Assumptions</h3>
           {selectInput('Financing Used or All-Cash?', financingType, setFinancingType, ['Financing', 'All-Cash'])}
           {selectInput('Lender caps As-Built Value or Cost of Project?', lenderCapType, setLenderCapType, ['Cost', 'As-Built Value'])}
@@ -182,7 +182,10 @@ export default function RealEstateAnalyzer() {
 
       <div className="bg-white shadow-lg rounded-2xl p-4 flex-1">
         <h2 className="text-xl font-bold mb-4">Profit Analysis</h2>
-        <div className="space-y-2">
+        <div className="space-y-2">            
+          <div className="mb-4">
+            {numberInput('As-Built Value', asBuiltValue, setAsBuiltValue)}
+          </div>
           <p>
             <strong>Total Capital Needed:</strong> ${formatNumber(totalCapitalNeeded)}
           </p>
