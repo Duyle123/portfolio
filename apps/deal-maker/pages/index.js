@@ -58,6 +58,26 @@ export default function RealEstateAnalyzer() {
   const [shortTermInterestRate, setShortTermInterestRate] = usePersistentState('shortTermInterestRate', 6);
   const [interestDuringConstruction, setInterestDuringConstruction] = usePersistentState('interestDuringConstruction', 'Yes'); // 'Yes' | 'No'
 
+  // Investment Basis state
+  const [showInvestmentBasis, setShowInvestmentBasis] = useState(false);
+  const [investmentTab, setInvestmentTab] = useState('Selling');
+
+  // Selling tab state
+  const [sellingProjectedResalePrice, setSellingProjectedResalePrice] = usePersistentState('sellingProjectedResalePrice', 0);
+  const [sellingProjectedTotalCost, setSellingProjectedTotalCost] = usePersistentState('sellingProjectedTotalCost', 0);
+  const [sellingLoanAmount, setSellingLoanAmount] = usePersistentState('sellingLoanAmount', 0);
+  const [sellingTimeOnMarket, setSellingTimeOnMarket] = usePersistentState('sellingTimeOnMarket', 0);
+
+  // BRRR tab state
+  const [brrrOperatingIncome, setBrrrOperatingIncome] = usePersistentState('brrrOperatingIncome', 0);
+  const [brrrMonthsToRent, setBrrrMonthsToRent] = usePersistentState('brrrMonthsToRent', 12);
+  const [brrrOperatingExpenses, setBrrrOperatingExpenses] = usePersistentState('brrrOperatingExpenses', 0);
+  const [brrrRefiPercent, setBrrrRefiPercent] = usePersistentState('brrrRefiPercent', 75);
+  const [brrrNewRate, setBrrrNewRate] = usePersistentState('brrrNewRate', 5);
+  const [brrrAmortizationPeriod, setBrrrAmortizationPeriod] = usePersistentState('brrrAmortizationPeriod', 30);
+  const [brrrRefiCosts, setBrrrRefiCosts] = usePersistentState('brrrRefiCosts', 0);
+  const [brrrPropertyManagement, setBrrrPropertyManagement] = usePersistentState('brrrPropertyManagement', 0);
+
   // Construction items handlers
   const addConstructionItem = () => setConstructionItems([...constructionItems, { name: '', cost: 0 }]);
   const updateConstructionItem = (index, field, value) => {
@@ -120,6 +140,32 @@ export default function RealEstateAnalyzer() {
   const roiAnnualized = constructionMonths > 0 ? roi / (constructionMonths / 12) : 0;
   const financedBudget = loanPrincipal + (interestDuringConstruction === 'Yes' ? interestAccrued : 0);
 
+  // Investment Basis calculations
+  const sellingTotalCostAfterSale = sellingProjectedTotalCost + holdingCosts * sellingTimeOnMarket;
+  const sellingPercentOfABV = asBuiltValue ? (sellingProjectedResalePrice / asBuiltValue) * 100 : 0;
+  const sellingProjectedProfit = sellingProjectedResalePrice - sellingTotalCostAfterSale;
+  const sellingCashInvested = Math.max(sellingTotalCostAfterSale - sellingLoanAmount, 0);
+  const sellingNetROI = sellingCashInvested ? (sellingProjectedProfit / sellingCashInvested) * 100 : 0;
+  const sellingCashOnCash = sellingNetROI;
+
+  const brrrPropertyManagementCost = (brrrPropertyManagement / 100) * brrrOperatingIncome;
+  const brrrNOI = brrrOperatingIncome - brrrOperatingExpenses - brrrPropertyManagementCost;
+  const brrrRefiLoanAmount = asBuiltValue * (brrrRefiPercent / 100);
+  const brrrMonthlyRate = (brrrNewRate / 100) / 12;
+  const brrrMonths = brrrAmortizationPeriod * 12;
+  const brrrMonthlyPayment = brrrMonths > 0 ? (brrrMonthlyRate === 0
+    ? brrrRefiLoanAmount / brrrMonths
+    : brrrRefiLoanAmount * brrrMonthlyRate / (1 - Math.pow(1 + brrrMonthlyRate, -brrrMonths))) : 0;
+  const brrrDebtServiceAnnual = brrrMonthlyPayment * 12;
+  const brrrCashOut = brrrRefiLoanAmount - loanAmount - brrrRefiCosts;
+  const brrrCashInvested = Math.max(totalCapitalNeeded - brrrRefiLoanAmount + brrrRefiCosts, 0);
+  const brrrAnnualCashFlow = (brrrNOI * 12) - brrrDebtServiceAnnual;
+  const brrrROI = brrrCashInvested ? ((brrrAnnualCashFlow + brrrCashOut) / brrrCashInvested) * 100 : 0;
+  const brrrCashOnCash = brrrCashInvested ? (brrrAnnualCashFlow / brrrCashInvested) * 100 : 0;
+  const brrrDCR = brrrDebtServiceAnnual ? (brrrNOI * 12) / brrrDebtServiceAnnual : 0;
+  const brrrCapRate = asBuiltValue ? (brrrNOI * 12 / asBuiltValue) * 100 : 0;
+  const brrrPaybackPeriod = brrrAnnualCashFlow > 0 ? brrrCashInvested / brrrAnnualCashFlow : 0;
+
   return (
     <div className="flex flex-col lg:flex-row p-4 bg-gray-100 min-h-screen gap-4">
       <div className="bg-white shadow-lg rounded-2xl p-4 flex-1 overflow-y-auto">
@@ -181,7 +227,7 @@ export default function RealEstateAnalyzer() {
 
       <div className="bg-white shadow-lg rounded-2xl p-4 flex-1">
         <h2 className="text-xl font-bold mb-4">Profit Analysis</h2>
-        <div className="space-y-2">            
+        <div className="space-y-2">
           <div className="mb-4">
             {numberInput('As-Built Value', asBuiltValue, setAsBuiltValue)}
           </div>
@@ -204,6 +250,96 @@ export default function RealEstateAnalyzer() {
             <strong>ROI (Annualized):</strong> {roiAnnualized.toFixed(2)}%
           </p>
         </div>
+      </div>
+
+      <div className="bg-white shadow-lg rounded-2xl p-4 flex-1">
+        <h2 className="text-xl font-bold mb-4">Investment Basis</h2>
+        <button
+          onClick={() => setShowInvestmentBasis(!showInvestmentBasis)}
+          className="px-4 py-2 bg-blue-500 text-white rounded mb-4"
+        >
+          {showInvestmentBasis ? 'Hide' : 'Show'} Investment Options
+        </button>
+        {showInvestmentBasis && (
+          <div>
+            <div className="flex gap-2 mb-4">
+              <button
+                onClick={() => setInvestmentTab('Selling')}
+                className={`px-3 py-1 rounded ${investmentTab === 'Selling' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+              >
+                Selling
+              </button>
+              <button
+                onClick={() => setInvestmentTab('BRRR')}
+                className={`px-3 py-1 rounded ${investmentTab === 'BRRR' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+              >
+                BRRR
+              </button>
+            </div>
+
+            {investmentTab === 'Selling' && (
+              <div className="space-y-2">
+                {numberInput('As-Built Value', asBuiltValue, setAsBuiltValue)}
+                {numberInput('Projected Resale Price', sellingProjectedResalePrice, setSellingProjectedResalePrice)}
+                {numberInput('Projected Total Cost', sellingProjectedTotalCost, setSellingProjectedTotalCost)}
+                {numberInput('Loan Amount', sellingLoanAmount, setSellingLoanAmount)}
+                {numberInput('Time on Market (months)', sellingTimeOnMarket, setSellingTimeOnMarket)}
+                <p>
+                  <strong>Projected Total Cost After Sale:</strong> ${formatNumber(sellingTotalCostAfterSale)}
+                </p>
+                <p>
+                  <strong>% of ABV:</strong> {sellingPercentOfABV.toFixed(2)}%
+                </p>
+                <p>
+                  <strong>Projected Profit:</strong> ${formatNumber(sellingProjectedProfit)}
+                </p>
+                <p>
+                  <strong>Net ROI:</strong> {sellingNetROI.toFixed(2)}%
+                </p>
+                <p>
+                  <strong>Cash on Cash:</strong> {sellingCashOnCash.toFixed(2)}%
+                </p>
+              </div>
+            )}
+
+            {investmentTab === 'BRRR' && (
+              <div className="space-y-2">
+                {numberInput('Projected Operating Income / Month', brrrOperatingIncome, setBrrrOperatingIncome)}
+                {numberInput('Operating Expenses / Month', brrrOperatingExpenses, setBrrrOperatingExpenses)}
+                {numberInput('Months to Rent Before Refi', brrrMonthsToRent, setBrrrMonthsToRent)}
+                {numberInput('Refi Percent of Value', brrrRefiPercent, setBrrrRefiPercent)}
+                {numberInput('New Rate (%)', brrrNewRate, setBrrrNewRate)}
+                {numberInput('Amortization Period (years)', brrrAmortizationPeriod, setBrrrAmortizationPeriod)}
+                {numberInput('Refi Costs', brrrRefiCosts, setBrrrRefiCosts)}
+                {numberInput('Property Management (%)', brrrPropertyManagement, setBrrrPropertyManagement)}
+                <p>
+                  <strong>Net Operating Income:</strong> ${formatNumber(brrrNOI)}
+                </p>
+                <p>
+                  <strong>Refi Loan Amount:</strong> ${formatNumber(brrrRefiLoanAmount)}
+                </p>
+                <p>
+                  <strong>Cash Out:</strong> ${formatNumber(brrrCashOut)}
+                </p>
+                <p>
+                  <strong>ROI:</strong> {brrrROI.toFixed(2)}%
+                </p>
+                <p>
+                  <strong>Cash on Cash:</strong> {brrrCashOnCash.toFixed(2)}%
+                </p>
+                <p>
+                  <strong>DCR:</strong> {brrrDCR.toFixed(2)}
+                </p>
+                <p>
+                  <strong>Cap Rate:</strong> {brrrCapRate.toFixed(2)}%
+                </p>
+                <p>
+                  <strong>Payback Period (years):</strong> {brrrPaybackPeriod.toFixed(2)}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
