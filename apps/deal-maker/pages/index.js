@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import PopupSection from '../components/PopupSection';
 import safeLocalStorage from '../components/user-info/safeLocalStorage';
 
 // Reusable persistent state hook that avoids hydration mismatch
@@ -23,6 +24,308 @@ function usePersistentState(key, defaultValue) {
   return [value, setValue];
 }
 
+function NumberInput({ label, value, onChange, formatNumber, parseNumber, mounted }) {
+  return (
+    <div>
+      <label className="block text-sm font-semibold p">{label}</label>
+      <input
+        type="text"
+        value={mounted ? formatNumber(value) : String(value)}
+        onChange={(e) => onChange(parseNumber(e.target.value))}
+        className="w-full border rounded p-2"
+        inputMode="decimal"
+      />
+    </div>
+  );
+}
+
+function SelectInput({ label, value, onChange, options }) {
+  return (
+    <div>
+      <label className="block text-sm font-semibold">{label}</label>
+      <select
+        className="w-full border rounded p-2 bg-white"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        {options.map((opt) => (
+          <option key={opt} value={opt}>
+            {opt}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+function OverallSection({ onChange, formatNumber, parseNumber, mounted }) {
+  const [purchasePrice, setPurchasePrice] = usePersistentState('purchasePrice', 460000);
+  const [closingCosts, setClosingCosts] = usePersistentState('closingCosts', 11950);
+  const [holdingCosts, setHoldingCosts] = usePersistentState('holdingCosts', 300);
+
+  useEffect(() => {
+    const summary = `$${formatNumber(purchasePrice + closingCosts)}`;
+    onChange({ purchasePrice, closingCosts, holdingCosts, summary });
+  }, [purchasePrice, closingCosts, holdingCosts, formatNumber, onChange]);
+
+  return (
+    <div className="space-y-4">
+      <NumberInput
+        label="Purchase Price"
+        value={purchasePrice}
+        onChange={setPurchasePrice}
+        formatNumber={formatNumber}
+        parseNumber={parseNumber}
+        mounted={mounted}
+      />
+      <NumberInput
+        label="Closing Costs"
+        value={closingCosts}
+        onChange={setClosingCosts}
+        formatNumber={formatNumber}
+        parseNumber={parseNumber}
+        mounted={mounted}
+      />
+      <NumberInput
+        label="Holding Costs / Month"
+        value={holdingCosts}
+        onChange={setHoldingCosts}
+        formatNumber={formatNumber}
+        parseNumber={parseNumber}
+        mounted={mounted}
+      />
+    </div>
+  );
+}
+
+function ConstructionSection({ onChange, formatNumber, parseNumber, mounted }) {
+  const [constructionMonths, setConstructionMonths] = usePersistentState('constructionMonths', 16);
+  const [loanAmount, setLoanAmount] = usePersistentState('loanAmount', 0);
+  const [constructionItems, setConstructionItems] = usePersistentState('constructionItems', [
+    { name: 'Foundation', cost: 100000 },
+    { name: 'Framing', cost: 200000 },
+  ]);
+
+  const addConstructionItem = () => setConstructionItems([...constructionItems, { name: '', cost: 0 }]);
+  const updateConstructionItem = (index, field, value) => {
+    const updated = [...constructionItems];
+    updated[index][field] = field === 'cost' ? parseNumber(value) : value;
+    setConstructionItems(updated);
+  };
+
+  const totalConstructionBudget = constructionItems.reduce((sum, item) => sum + (Number(item.cost) || 0), 0);
+
+  useEffect(() => {
+    const summary = `$${formatNumber(totalConstructionBudget)}`;
+    onChange({ constructionMonths, loanAmount, constructionItems, totalConstructionBudget, summary });
+  }, [constructionMonths, loanAmount, constructionItems, totalConstructionBudget, formatNumber, onChange]);
+
+  return (
+    <div className="space-y-4">
+      {constructionItems.map((item, index) => (
+        <div key={index} className="flex gap-2 mb-2">
+          <input
+            type="text"
+            value={item.name}
+            onChange={(e) => updateConstructionItem(index, 'name', e.target.value)}
+            placeholder="Item name"
+            className="flex-1 border rounded p-2"
+          />
+          <input
+            type="text"
+            value={mounted ? formatNumber(item.cost) : String(item.cost)}
+            onChange={(e) => updateConstructionItem(index, 'cost', e.target.value)}
+            placeholder="Cost"
+            className="w-32 border rounded p-2"
+            inputMode="decimal"
+          />
+        </div>
+      ))}
+      <button onClick={addConstructionItem} className="px-3 py-1 bg-green-500 text-white rounded">
+        + Add Item
+      </button>
+      <p className="font-semibold">Total Construction Budget: ${formatNumber(totalConstructionBudget)}</p>
+      <NumberInput
+        label="Loan Amount for Construction"
+        value={loanAmount}
+        onChange={setLoanAmount}
+        formatNumber={formatNumber}
+        parseNumber={parseNumber}
+        mounted={mounted}
+      />
+      <NumberInput
+        label="Construction Months"
+        value={constructionMonths}
+        onChange={setConstructionMonths}
+        formatNumber={formatNumber}
+        parseNumber={parseNumber}
+        mounted={mounted}
+      />
+    </div>
+  );
+}
+
+function SalesSection({ onChange, formatNumber, parseNumber, mounted }) {
+  const [asBuiltValue, setAsBuiltValue] = usePersistentState('asBuiltValue', 1400000);
+
+  useEffect(() => {
+    const summary = `$${formatNumber(asBuiltValue)}`;
+    onChange({ asBuiltValue, summary });
+  }, [asBuiltValue, formatNumber, onChange]);
+
+  return (
+    <div>
+      <NumberInput
+        label="As-Built Value"
+        value={asBuiltValue}
+        onChange={setAsBuiltValue}
+        formatNumber={formatNumber}
+        parseNumber={parseNumber}
+        mounted={mounted}
+      />
+    </div>
+  );
+}
+
+function FinancingSection({ overall, construction, sales, onChange, formatNumber, parseNumber, mounted }) {
+  const [financingType, setFinancingType] = usePersistentState('financingType', 'Financing');
+  const [lenderCapType, setLenderCapType] = usePersistentState('lenderCapType', 'Cost');
+  const [maxCostPercent, setMaxCostPercent] = usePersistentState('maxCostPercent', 90);
+  const [loanPercent, setLoanPercent] = usePersistentState('loanPercent', 90);
+  const [originationPoints, setOriginationPoints] = usePersistentState('originationPoints', 1);
+  const [otherLenderCosts, setOtherLenderCosts] = usePersistentState('otherLenderCosts', 0);
+  const [pointsPaymentTiming, setPointsPaymentTiming] = usePersistentState('pointsPaymentTiming', 'Paid Backend');
+  const [shortTermInterestRate, setShortTermInterestRate] = usePersistentState('shortTermInterestRate', 6);
+  const [interestDuringConstruction, setInterestDuringConstruction] = usePersistentState('interestDuringConstruction', 'Yes');
+  const [displayBudget, setDisplayBudget] = useState(0);
+
+  useEffect(() => {
+    const projectHardCosts = (overall.purchasePrice || 0) + (overall.closingCosts || 0) + (construction.totalConstructionBudget || 0);
+    const effectiveLoanBase = lenderCapType === 'Cost' ? projectHardCosts : (sales.asBuiltValue || 0);
+    const ltvPercent = lenderCapType === 'Cost' ? (Number(maxCostPercent) || 0) : (Number(loanPercent) || 0);
+    const loanPrincipal = financingType === 'Financing' ? (ltvPercent / 100) * effectiveLoanBase : 0;
+    const pointsAndOtherRate = ((Number(originationPoints) || 0) + (Number(otherLenderCosts) || 0)) / 100;
+    const pointsAndOtherAmount = loanPrincipal * pointsAndOtherRate;
+    const interestAccrued = loanPrincipal * ((Number(shortTermInterestRate) || 0) / 100) * ((Number(construction.constructionMonths) || 0) / 12);
+    const upfrontAdders = (pointsPaymentTiming === 'Upfront' ? pointsAndOtherAmount : 0) + (interestDuringConstruction === 'Yes' ? interestAccrued : 0);
+    const backendAdders = (pointsPaymentTiming === 'Paid Backend' ? pointsAndOtherAmount : 0) + (interestDuringConstruction === 'No' ? interestAccrued : 0);
+    const financedBudget = loanPrincipal + (interestDuringConstruction === 'Yes' ? interestAccrued : 0);
+    const summary = `$${formatNumber(loanPrincipal)}`;
+    setDisplayBudget(financedBudget);
+    onChange({ loanPrincipal, upfrontAdders, backendAdders, financedBudget, summary });
+  }, [overall.purchasePrice, overall.closingCosts, construction.totalConstructionBudget, construction.constructionMonths, sales.asBuiltValue, financingType, lenderCapType, maxCostPercent, loanPercent, originationPoints, otherLenderCosts, pointsPaymentTiming, shortTermInterestRate, interestDuringConstruction, formatNumber, onChange]);
+
+  return (
+    <div className="space-y-4">
+      <SelectInput
+        label="Financing Used or All-Cash?"
+        value={financingType}
+        onChange={setFinancingType}
+        options={['Financing', 'All-Cash']}
+      />
+      <SelectInput
+        label="Lender caps As-Built Value or Cost of Project?"
+        value={lenderCapType}
+        onChange={setLenderCapType}
+        options={['Cost', 'As-Built Value']}
+      />
+      <NumberInput
+        label="Max % of Cost to be financed"
+        value={maxCostPercent}
+        onChange={setMaxCostPercent}
+        formatNumber={formatNumber}
+        parseNumber={parseNumber}
+        mounted={mounted}
+      />
+      {lenderCapType === 'As-Built Value' && (
+        <NumberInput
+          label="Loan Percent of As-Built"
+          value={loanPercent}
+          onChange={setLoanPercent}
+          formatNumber={formatNumber}
+          parseNumber={parseNumber}
+          mounted={mounted}
+        />
+      )}
+      <NumberInput
+        label="Origination/Discount Points"
+        value={originationPoints}
+        onChange={setOriginationPoints}
+        formatNumber={formatNumber}
+        parseNumber={parseNumber}
+        mounted={mounted}
+      />
+      <NumberInput
+        label="Other Closing Costs Paid to Lender"
+        value={otherLenderCosts}
+        onChange={setOtherLenderCosts}
+        formatNumber={formatNumber}
+        parseNumber={parseNumber}
+        mounted={mounted}
+      />
+      <SelectInput
+        label="Points and Closing Costs Upfront or Back-End?"
+        value={pointsPaymentTiming}
+        onChange={setPointsPaymentTiming}
+        options={['Upfront', 'Paid Backend']}
+      />
+      <NumberInput
+        label="Short-Term Interest Rate"
+        value={shortTermInterestRate}
+        onChange={setShortTermInterestRate}
+        formatNumber={formatNumber}
+        parseNumber={parseNumber}
+        mounted={mounted}
+      />
+      <SelectInput
+        label="Interest Payment During Construction?"
+        value={interestDuringConstruction}
+        onChange={setInterestDuringConstruction}
+        options={['Yes', 'No']}
+      />
+      <p className="mt-2">Financed Budget with Interest: ${formatNumber(displayBudget)}</p>
+    </div>
+  );
+}
+
+function InvestmentBasisSection({ overall, construction, financing, sales, onChange, formatNumber }) {
+  const holdingTotal = (Number(overall.holdingCosts) || 0) * (Number(construction.constructionMonths) || 0);
+  const projectHardCosts = (Number(overall.purchasePrice) || 0) + (Number(overall.closingCosts) || 0) + (Number(construction.totalConstructionBudget) || 0);
+  const totalCapitalNeeded = projectHardCosts + holdingTotal + (financing.upfrontAdders || 0);
+  const cashRequired = Math.max(totalCapitalNeeded - (financing.loanPrincipal || 0), 0);
+  const projectedProfit = (Number(sales.asBuiltValue) || 0) - (totalCapitalNeeded + (financing.backendAdders || 0));
+  const roi = cashRequired !== 0 ? (projectedProfit / cashRequired) * 100 : 0;
+  const roiAnnualized = construction.constructionMonths > 0 ? roi / (construction.constructionMonths / 12) : 0;
+  const summary = `${roi.toFixed(2)}% ROI`;
+
+  useEffect(() => {
+    onChange({ summary });
+  }, [summary, onChange]);
+
+  return (
+    <div className="space-y-2">
+      <p>
+        <strong>Total Capital Needed:</strong> ${formatNumber(totalCapitalNeeded)}
+      </p>
+      <p>
+        <strong>Max Financed (Loan Principal):</strong> ${formatNumber(financing.loanPrincipal || 0)}
+      </p>
+      <p>
+        <strong>Cash Required:</strong> ${formatNumber(cashRequired)}
+      </p>
+      <p>
+        <strong>Projected Profit:</strong> ${formatNumber(projectedProfit)}
+      </p>
+      <p>
+        <strong>ROI (Cash Invested):</strong> {roi.toFixed(2)}%
+      </p>
+      <p>
+        <strong>ROI (Annualized):</strong> {roiAnnualized.toFixed(2)}%
+      </p>
+    </div>
+  );
+}
+
 export default function RealEstateAnalyzer() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -33,178 +336,83 @@ export default function RealEstateAnalyzer() {
   };
   const parseNumber = (value) => Number(String(value).replace(/,/g, '')) || 0;
 
-  // Step 1 & 2 assumptions
-  const [purchasePrice, setPurchasePrice] = usePersistentState('purchasePrice', 460000);
-  const [closingCosts, setClosingCosts] = usePersistentState('closingCosts', 11950);
-  const [holdingCosts, setHoldingCosts] = usePersistentState('holdingCosts', 300);
-  const [constructionMonths, setConstructionMonths] = usePersistentState('constructionMonths', 16);
-  const [asBuiltValue, setAsBuiltValue] = usePersistentState('asBuiltValue', 1400000);
-  const [loanPercent, setLoanPercent] = usePersistentState('loanPercent', 90); // for As-Built cap mode
-  const [interestRate, setInterestRate] = usePersistentState('interestRate', 6);
-  const [loanAmount, setLoanAmount] = usePersistentState('loanAmount', 0);
-  const [showConstructionPanel, setShowConstructionPanel] = useState(false);
-  const [constructionItems, setConstructionItems] = usePersistentState('constructionItems', [
-    { name: 'Foundation', cost: 100000 },
-    { name: 'Framing', cost: 200000 },
-  ]);
+  const [overall, setOverall] = useState({});
+  const [overallSummary, setOverallSummary] = useState('');
 
-  // Step 3: Short Term Financing Assumptions (togglable)
-  const [financingType, setFinancingType] = usePersistentState('financingType', 'Financing'); // 'Financing' | 'All-Cash'
-  const [lenderCapType, setLenderCapType] = usePersistentState('lenderCapType', 'Cost'); // 'Cost' | 'As-Built Value'
-  const [maxCostPercent, setMaxCostPercent] = usePersistentState('maxCostPercent', 90); // used when lenderCapType === 'Cost'
-  const [originationPoints, setOriginationPoints] = usePersistentState('originationPoints', 1);
-  const [otherLenderCosts, setOtherLenderCosts] = usePersistentState('otherLenderCosts', 0);
-  const [pointsPaymentTiming, setPointsPaymentTiming] = usePersistentState('pointsPaymentTiming', 'Paid Backend'); // 'Upfront' | 'Paid Backend'
-  const [shortTermInterestRate, setShortTermInterestRate] = usePersistentState('shortTermInterestRate', 6);
-  const [interestDuringConstruction, setInterestDuringConstruction] = usePersistentState('interestDuringConstruction', 'Yes'); // 'Yes' | 'No'
+  const [construction, setConstruction] = useState({});
+  const [constructionSummary, setConstructionSummary] = useState('');
 
-  // Construction items handlers
-  const addConstructionItem = () => setConstructionItems([...constructionItems, { name: '', cost: 0 }]);
-  const updateConstructionItem = (index, field, value) => {
-    const updated = [...constructionItems];
-    updated[index][field] = field === 'cost' ? parseNumber(value) : value;
-    setConstructionItems(updated);
-  };
+  const [sales, setSales] = useState({});
+  const [salesSummary, setSalesSummary] = useState('');
 
-  // Inputs
-  const numberInput = (label, value, setter) => (
-    <div>
-      <label className="block text-sm font-semibold p">{label}</label>
-      <input
-        type="text"
-        value={mounted ? formatNumber(value) : String(value)}
-        onChange={(e) => setter(parseNumber(e.target.value))}
-        className="w-full border rounded p-2"
-        inputMode="decimal"
-      />
-    </div>
-  );
+  const [financing, setFinancing] = useState({});
+  const [financingSummary, setFinancingSummary] = useState('');
 
-  const selectInput = (label, value, setter, options) => (
-    <div>
-      <label className="block text-sm font-semibold">{label}</label>
-      <select
-        className="w-full border rounded p-2 bg-white"
-        value={value}
-        onChange={(e) => setter(e.target.value)}
-      >
-        {options.map((opt) => (
-          <option key={opt} value={opt}>
-            {opt}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-
-  // Calculations (reflect toggles)
-  const totalConstructionBudget = constructionItems.reduce((sum, item) => sum + (Number(item.cost) || 0), 0);
-  const holdingTotal = (Number(holdingCosts) || 0) * (Number(constructionMonths) || 0);
-  const projectHardCosts = purchasePrice + closingCosts + totalConstructionBudget;
-
-  const effectiveLoanBase = lenderCapType === 'Cost' ? projectHardCosts : asBuiltValue;
-  const ltvPercent = lenderCapType === 'Cost' ? (Number(maxCostPercent) || 0) : (Number(loanPercent) || 0);
-  const loanPrincipal = financingType === 'Financing' ? (ltvPercent / 100) * effectiveLoanBase : 0;
-
-  const pointsAndOtherRate = ((Number(originationPoints) || 0) + (Number(otherLenderCosts) || 0)) / 100;
-  const pointsAndOtherAmount = loanPrincipal * pointsAndOtherRate;
-  const interestAccrued = loanPrincipal * ((Number(shortTermInterestRate) || 0) / 100) * ((Number(constructionMonths) || 0) / 12);
-
-  const upfrontAdders = (pointsPaymentTiming === 'Upfront' ? pointsAndOtherAmount : 0) + (interestDuringConstruction === 'Yes' ? interestAccrued : 0);
-  const backendAdders = (pointsPaymentTiming === 'Paid Backend' ? pointsAndOtherAmount : 0) + (interestDuringConstruction === 'No' ? interestAccrued : 0);
-
-  const totalCapitalNeeded = projectHardCosts + holdingTotal + upfrontAdders;
-  const cashRequired = Math.max(totalCapitalNeeded - loanPrincipal, 0);
-  const projectedProfit = asBuiltValue - (totalCapitalNeeded + backendAdders);
-  const roi = cashRequired !== 0 ? (projectedProfit / cashRequired) * 100 : 0;
-  const roiAnnualized = constructionMonths > 0 ? roi / (constructionMonths / 12) : 0;
-  const financedBudget = loanPrincipal + (interestDuringConstruction === 'Yes' ? interestAccrued : 0);
+  const [investmentSummary, setInvestmentSummary] = useState('');
 
   return (
-    <div className="flex flex-col lg:flex-row p-4 bg-gray-100 min-h-screen gap-4">
-      <div className="bg-white shadow-lg rounded-2xl p-4 flex-1 overflow-y-auto">
-        <h2 className="text-xl font-bold mb-4">Assumption Panel</h2>
-        <div className="space-y-4">
-          {numberInput('Purchase Price', purchasePrice, setPurchasePrice)}
-          {numberInput('Closing Costs', closingCosts, setClosingCosts)}
-          {numberInput('Holding Costs / Month', holdingCosts, setHoldingCosts)}
+    <div className="p-4 bg-gray-100 min-h-screen">
+      <PopupSection title="Overall Information" summary={overallSummary}>
+        <OverallSection
+          onChange={(data) => {
+            setOverall(data);
+            setOverallSummary(data.summary);
+          }}
+          formatNumber={formatNumber}
+          parseNumber={parseNumber}
+          mounted={mounted}
+        />
+      </PopupSection>
 
-          <button
-            onClick={() => setShowConstructionPanel(!showConstructionPanel)}
-            className="px-4 py-2 bg-blue-500 text-white rounded"
-          >
-            {showConstructionPanel ? 'Hide' : 'Show'} Construction Budget
-          </button>
+      <PopupSection title="Construction" summary={constructionSummary}>
+        <ConstructionSection
+          onChange={(data) => {
+            setConstruction(data);
+            setConstructionSummary(data.summary);
+          }}
+          formatNumber={formatNumber}
+          parseNumber={parseNumber}
+          mounted={mounted}
+        />
+      </PopupSection>
 
-          {showConstructionPanel && (
-            <div className="mt-4 border-t pt-4">
-              <h3 className="font-bold mb-2">Construction Budget Items</h3>
-              {constructionItems.map((item, index) => (
-                <div key={index} className="flex gap-2 mb-2">
-                  <input
-                    type="text"
-                    value={item.name}
-                    onChange={(e) => updateConstructionItem(index, 'name', e.target.value)}
-                    placeholder="Item name"
-                    className="flex-1 border rounded p-2"
-                  />
-                  <input
-                    type="text"
-                    value={mounted ? formatNumber(item.cost) : String(item.cost)}
-                    onChange={(e) => updateConstructionItem(index, 'cost', e.target.value)}
-                    placeholder="Cost"
-                    className="w-32 border rounded p-2"
-                    inputMode="decimal"
-                  />
-                </div>
-              ))}
-              <button onClick={addConstructionItem} className="px-3 py-1 bg-green-500 text-white rounded">
-                + Add Item
-              </button>
-              <p className="mt-2 font-semibold">Total Construction Budget: ${formatNumber(totalConstructionBudget)}</p>
-              {numberInput('Loan Amount for Construction', loanAmount, setLoanAmount)}
-            </div>
-          )}
-          {numberInput('Construction Months', constructionMonths, setConstructionMonths)}
-          <h3 className="text-lg font-bold mt-6">STEP (3) Short Term Financing Assumptions</h3>
-          {selectInput('Financing Used or All-Cash?', financingType, setFinancingType, ['Financing', 'All-Cash'])}
-          {selectInput('Lender caps As-Built Value or Cost of Project?', lenderCapType, setLenderCapType, ['Cost', 'As-Built Value'])}
-          {numberInput('Max % of Cost to be financed', maxCostPercent, setMaxCostPercent)}
-          {numberInput('Origination/Discount Points', originationPoints, setOriginationPoints)}
-          {numberInput('Other Closing Costs Paid to Lender', otherLenderCosts, setOtherLenderCosts)}
-          {selectInput('Points and Closing Costs Upfront or Back-End?', pointsPaymentTiming, setPointsPaymentTiming, ['Upfront', 'Paid Backend'])}
-          {numberInput('Short-Term Interest Rate', shortTermInterestRate, setShortTermInterestRate)}
-          {selectInput('Interest Payment During Construction?', interestDuringConstruction, setInterestDuringConstruction, ['Yes', 'No'])}
-          <p className="mt-2">Financed Budget with Interest: ${formatNumber(financedBudget)}</p>
-        </div>
-      </div>
+      <PopupSection title="Financing" summary={financingSummary}>
+        <FinancingSection
+          overall={overall}
+          construction={construction}
+          sales={sales}
+          onChange={(data) => {
+            setFinancing(data);
+            setFinancingSummary(data.summary);
+          }}
+          formatNumber={formatNumber}
+          parseNumber={parseNumber}
+          mounted={mounted}
+        />
+      </PopupSection>
 
-      <div className="bg-white shadow-lg rounded-2xl p-4 flex-1">
-        <h2 className="text-xl font-bold mb-4">Profit Analysis</h2>
-        <div className="space-y-2">            
-          <div className="mb-4">
-            {numberInput('As-Built Value', asBuiltValue, setAsBuiltValue)}
-          </div>
-          <p>
-            <strong>Total Capital Needed:</strong> ${formatNumber(totalCapitalNeeded)}
-          </p>
-          <p>
-            <strong>Max Financed (Loan Principal):</strong> ${formatNumber(loanPrincipal)}
-          </p>
-          <p>
-            <strong>Cash Required:</strong> ${formatNumber(cashRequired)}
-          </p>
-          <p>
-            <strong>Projected Profit:</strong> ${formatNumber(projectedProfit)}
-          </p>
-          <p>
-            <strong>ROI (Cash Invested):</strong> {roi.toFixed(2)}%
-          </p>
-          <p>
-            <strong>ROI (Annualized):</strong> {roiAnnualized.toFixed(2)}%
-          </p>
-        </div>
-      </div>
+      <PopupSection title="Sales" summary={salesSummary}>
+        <SalesSection
+          onChange={(data) => {
+            setSales(data);
+            setSalesSummary(data.summary);
+          }}
+          formatNumber={formatNumber}
+          parseNumber={parseNumber}
+          mounted={mounted}
+        />
+      </PopupSection>
+
+      <PopupSection title="Investment Basis" summary={investmentSummary}>
+        <InvestmentBasisSection
+          overall={overall}
+          construction={construction}
+          financing={financing}
+          sales={sales}
+          onChange={(data) => setInvestmentSummary(data.summary)}
+          formatNumber={formatNumber}
+        />
+      </PopupSection>
     </div>
   );
 }
